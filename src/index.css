@@ -1,13 +1,4 @@
 @import-normalize; /* bring in normalize.css styles */
 
-/* rest of app styles */
 
-* {
-  box-sizing: border-box;
-}
-
-/* Variables */
-:root {
-
-}
 
