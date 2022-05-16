@@ -127,15 +127,26 @@ export const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.fontColorBase}
     }
 
+    li {
+        list-style: none;
+
+    }
+
+    ul {
+        padding: 0;
+    }
+
 
 `;
 
 export const DarkMode = {
         fontColorBase: 'var(--gray-100)',
+        fc500: 'var(--primary-500)',
         backgroundColor: 'var(--gray-900)',
 };
 
 export const LightMode = {
+        fc500: 'var(--gray-500)',
         fontColorBase: 'var(--gray-900)',
         backgroundColor: 'var(--white)',
 };

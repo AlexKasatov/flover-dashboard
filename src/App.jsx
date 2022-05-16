@@ -1,12 +1,12 @@
 import { GlobalStyle } from './styles/Theme';
 import ContextProvider from './context';
-import Header from './components/Header';
+import PageRouter from './router/PageRouter';
 
 function App() {
         return (
                 <ContextProvider>
                         <GlobalStyle />
-                        <Header />
+                        <PageRouter />
                 </ContextProvider>
         );
 }
