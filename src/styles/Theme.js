@@ -145,12 +145,14 @@ export const GlobalStyle = createGlobalStyle`
 
 export const DarkMode = {
         fontColorBase: 'var(--gray-100)',
-        fc500: 'var(--primary-500)',
+        textBase: 'var(--white)',
+        textBaseHover: 'var(--primary-300)',
         backgroundColor: 'var(--gray-900)',
 };
 
 export const LightMode = {
-        fc500: 'var(--gray-500)',
+        textBase: 'var(--gray-500)',
+        textBaseHover: 'var(--gray-600)',
         fontColorBase: 'var(--gray-900)',
         backgroundColor: 'var(--white)',
 };

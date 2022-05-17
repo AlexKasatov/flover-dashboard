@@ -5,11 +5,23 @@ export const HeaderStyled = styled.header`
         ul {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 margin-left: 2rem;
         }
 
         li {
-                padding: 1rem;
+                padding-left: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                *:hover {
+                        color: ${({ theme }) => theme.textBaseHover};
+                }
+                & svg {
+                        color: ${({ theme }) => theme.textBase};
+                }
         }
 `;
 
@@ -18,13 +30,13 @@ export const LinkNav = styled(Link)`
         font-size: var(--text-md);
         line-height: var(--text-lh-md);
         font-weight: var(--fw-medium);
-        color: ${({ theme }) => theme.fc500};
+        color: ${({ theme }) => theme.textBase};
 `;
 
 export const Wrapper = styled.div`
+        padding-top: 1rem;
         display: flex;
         justify-content: space-between;
-        align-items: center;
 `;
 
 export const LeftNav = styled.nav`
@@ -46,8 +58,18 @@ export const RightNav = styled.nav`
         }
 `;
 
+// export const Logo = styled.div`
+//         font-size: var(--display-sm);
+//         font-weight: var(--fw-semi-bold);
+//         line-height: var(--display-sm);
+// `;
+
+export const Symbol = styled.img``;
+
+export const LogoType = styled.img`
+        margin-left: 0.25rem;
+`;
+
 export const Logo = styled.div`
-        font-size: var(--display-sm);
-        font-weight: var(--fw-semi-bold);
-        line-height: var(--display-sm);
+        cursor: pointer;
 `;

@@ -11,7 +11,7 @@ export const ButtonBase = styled.button`
 
 export const BtnTerGrey = styled(ButtonBase)`
         background-color: Transparent;
-        color: var(--gray-500);
+        color: ${({ theme }) => theme.textBase};
 
         &:focus {
                 color: var(--gray-500);
