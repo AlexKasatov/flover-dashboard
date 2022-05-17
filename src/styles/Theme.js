@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
              --radii: 0.5rem;
 
         /* Box-Shadow */
-            --shadow-sx: 0px 1px 2px rgba(16, 24, 40, 0.05);
+            --shadow-xs: 0px 1px 2px rgba(16, 24, 40, 0.05);
             --shadow-sm: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
             --shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
             --shadow-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.1), 0px 4px 6px -2px rgba(16, 24, 40, 0.05);
@@ -151,8 +151,8 @@ export const DarkMode = {
 };
 
 export const LightMode = {
+        fontColorBase: 'var(--gray-900)',
         textBase: 'var(--gray-500)',
         textBaseHover: 'var(--gray-600)',
-        fontColorBase: 'var(--gray-900)',
         backgroundColor: 'var(--white)',
 };

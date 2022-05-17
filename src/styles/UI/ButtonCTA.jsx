@@ -32,6 +32,7 @@ export const BtnPrimary = styled(ButtonBase)`
         color: var(--white);
         border: 1px solid var(--primary-600);
         background-color: var(--primary-600);
+        box-shadow: var(--shadow-sx);
 
         &:focus {
                 outline: 4px solid var(--primary-100);
