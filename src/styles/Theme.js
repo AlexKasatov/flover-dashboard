@@ -3,6 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
     * {
      box-sizing: border-box;
+     :focus {
+         outline: none;
+     }
     }
 
     html {
@@ -120,7 +123,8 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: ${({ theme }) => theme.backgroundColor};
-        /* Typography */
+        transition: all 1s ease;
+
     }
 
     h1, h2, h3, h4, h5, h6, p, a {

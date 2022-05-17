@@ -1,10 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import { useMode } from '../../hooks/useMode';
-import { HeaderStyled, Logo, Wrapper, LeftNav, LinkNav } from './Header.styled';
+import { HeaderStyled, Logo, Wrapper, LeftNav, LinkNav, RightNav } from './Header.styled';
 import { Container } from '../../styles/Container';
+import { BtnTerGrey, BtnPrimary } from '../../styles/UI/ButtonCTA';
 
 const Header = () => {
         const { toggleTheme, mode } = useMode();
+        const [fill, setFill] = useState('none');
+
+        const moonStyle = { color: 'var(--primary-600)', cursor: 'pointer', fill };
+        const sunStyle = { color: 'var(--primary-600)', cursor: 'pointer', fill };
+
         return (
                 <HeaderStyled>
                         <Container>
@@ -28,13 +35,29 @@ const Header = () => {
                                                 </ul>
                                         </LeftNav>
 
-                                        <div>
-                                                <button type="button">Log In</button>
-                                                <button type="button">Sign Up</button>
-                                                <button onClick={toggleTheme} type="button">
-                                                        {mode}
-                                                </button>
-                                        </div>
+                                        <RightNav>
+                                                {mode === 'light' ? (
+                                                        <FiMoon
+                                                                style={moonStyle}
+                                                                size={24}
+                                                                onClick={toggleTheme}
+                                                                type="button"
+                                                                onMouseEnter={() => setFill('var(--primary-600)')}
+                                                                onMouseLeave={() => setFill('none')}
+                                                        />
+                                                ) : (
+                                                        <FiSun
+                                                                style={sunStyle}
+                                                                size={24}
+                                                                onClick={toggleTheme}
+                                                                type="button"
+                                                                onMouseEnter={() => setFill('var(--primary-600)')}
+                                                                onMouseLeave={() => setFill('none')}
+                                                        />
+                                                )}
+                                                <BtnTerGrey type="button">Log In</BtnTerGrey>
+                                                <BtnPrimary type="button">Sign Up</BtnPrimary>
+                                        </RightNav>
                                 </Wrapper>
                         </Container>
                 </HeaderStyled>

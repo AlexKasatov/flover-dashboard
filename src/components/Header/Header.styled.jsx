@@ -33,6 +33,19 @@ export const LeftNav = styled.nav`
         align-items: center;
 `;
 
+export const RightNav = styled.nav`
+        padding: 0 1rem;
+        margin-left: 1rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        * {
+                cursor: pointer;
+                margin-left: 1rem;
+        }
+`;
+
 export const Logo = styled.div`
         font-size: var(--display-sm);
         font-weight: var(--fw-semi-bold);
