@@ -1,18 +1,22 @@
 /* eslint-disable import/no-unresolved */
 import { useState } from 'react';
-import { FiMoon, FiSun, FiChevronDown } from 'react-icons/fi';
+import { FiMoon, FiSun, FiChevronDown, FiMenu } from 'react-icons/fi';
 import symbolIcon from '../../styles/img/symbol.svg';
 import logoTypeIcon from '../../styles/img/logotype.svg';
 import { useMode } from '../../hooks/useMode';
-import { HeaderStyled, Symbol, LogoType, Logo, Wrapper, LeftNav, LinkNav, RightNav } from './Header.styled';
+import { HeaderStyled, Symbol, LogoType, Logo, Wrapper, LeftNav, LinkNav, RightNav, NavLink } from './Header.styled';
 import { Container } from '../../styles/Container';
 import { BtnTerGrey, BtnPrimary } from '../../styles/UI/ButtonCTA';
+import { useMedia } from '../../hooks/useMedia';
 
 const Header = () => {
         const { toggleTheme, mode } = useMode();
         // fill control hover effect on theme icons
         const [fill, setFill] = useState('none');
         const [dropDown, setDropDown] = useState(false);
+
+        const burgerMenuDisplay = useMedia(['(min-width: 1024px)'], ['none']);
+        const burgerMenuStyle = { display: burgerMenuDisplay };
 
         const moonStyle = { color: 'var(--primary-600)', cursor: 'pointer', fill };
         const sunStyle = { color: 'var(--primary-600)', cursor: 'pointer', fill };
@@ -27,7 +31,7 @@ const Header = () => {
 
                                                         <LogoType src={logoTypeIcon} alt="logotype" />
                                                 </Logo>
-                                                <ul>
+                                                <NavLink>
                                                         <li>
                                                                 <LinkNav to="#!">Home</LinkNav>
                                                         </li>
@@ -42,7 +46,7 @@ const Header = () => {
                                                         <li>
                                                                 <LinkNav to="#!">Pricing</LinkNav>
                                                         </li>
-                                                </ul>
+                                                </NavLink>
                                         </LeftNav>
 
                                         <RightNav>
@@ -67,6 +71,7 @@ const Header = () => {
                                                 )}
                                                 <BtnTerGrey type="button">Log In</BtnTerGrey>
                                                 <BtnPrimary type="button">Sign Up</BtnPrimary>
+                                                <FiMenu style={burgerMenuStyle} />
                                         </RightNav>
                                 </Wrapper>
                         </Container>

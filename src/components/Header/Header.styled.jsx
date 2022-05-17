@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const HeaderStyled = styled.header`
+        background-color: ${({ theme }) => theme.backgroundColor};
         position: sticky;
+        top: 0;
         ul {
                 display: flex;
                 justify-content: space-between;
@@ -35,15 +37,26 @@ export const LinkNav = styled(Link)`
 `;
 
 export const Wrapper = styled.div`
-        padding-top: 1rem;
+        padding: 1rem 0;
         display: flex;
         justify-content: space-between;
 `;
+
+export const NavLink = styled.ul``;
 
 export const LeftNav = styled.nav`
         display: flex;
         justify-content: space-around;
         align-items: center;
+        ul {
+                display: none;
+        }
+
+        @media (min-width: 1024px) {
+                ul {
+                        display: flex;
+                }
+        }
 `;
 
 export const RightNav = styled.nav`

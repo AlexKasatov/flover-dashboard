@@ -34,6 +34,11 @@ export const GlobalStyle = createGlobalStyle`
             --container-lg: 64rem;
             --container-xl: 80rem;
 
+        /* Break-points */
+            --mobile: 600px;
+            --tablet: 768px;
+            --desktop: 1024px;
+
 
         /* Typography */
 

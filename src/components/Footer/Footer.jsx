@@ -1,9 +1,13 @@
 import React from 'react';
+import { Container } from '../../styles/Container';
+import { FooterStyled } from './Footer.styled';
 
 const Footer = () => (
-        <div>
-                <h4>Flover&copy; 2022 "FOOTER"</h4>
-        </div>
+        <FooterStyled>
+                <Container>
+                        <h4>Flover&copy; 2022 "FOOTER"</h4>
+                </Container>
+        </FooterStyled>
 );
 
 export default Footer;
