@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { useState } from 'react';
+import { useState, Children } from 'react';
 import { FiMoon, FiSun, FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 import symbolIcon from '../../styles/img/symbol.svg';
 import logoTypeIcon from '../../styles/img/logotype.svg';
@@ -10,6 +10,7 @@ import { BtnTerGrey, BtnPrimary } from '../../styles/UI/ButtonCTA';
 import { useMedia } from '../../hooks/useMedia';
 import { useToggle } from '../../hooks/useToggle';
 import NavMobile from './NavMobile';
+import { mainNavLinks } from '../../data/linksData';
 
 const Header = () => {
         const { toggleTheme, mode } = useMode();
@@ -39,7 +40,7 @@ const Header = () => {
                                                                 <LogoType src={logoTypeIcon} alt="logotype" />
                                                         </Logo>
                                                         <NavLink>
-                                                                <li>
+                                                                {/* <li>
                                                                         <LinkNav to="#!">Home</LinkNav>
                                                                 </li>
                                                                 <li>
@@ -52,7 +53,17 @@ const Header = () => {
                                                                 </li>
                                                                 <li>
                                                                         <LinkNav to="#!">Pricing</LinkNav>
-                                                                </li>
+                                                                </li> */}
+                                                                {Children.toArray(
+                                                                        mainNavLinks.map(({ title, url, icon }) => (
+                                                                                <li>
+                                                                                        <LinkNav to={url}>
+                                                                                                {title}
+                                                                                        </LinkNav>
+                                                                                        {icon}
+                                                                                </li>
+                                                                        ))
+                                                                )}
                                                         </NavLink>
                                                 </LeftNav>
 
