@@ -3,7 +3,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { LinkNav } from './Header.styled';
-import { mainNavLinks } from '../../data/linksData';
+import { mainNavLinks, burgerSecondaryLinks } from '../../data/linksData';
 import {
         MobileNav,
         NavListFlex,
@@ -36,32 +36,22 @@ const NavMobile = ({ navStyle }) => (
                         <Container>
                                 <NavListGrid>
                                         <ul>
-                                                <NavGridItem>
-                                                        <LinkNav to="#!">About us</LinkNav>
-                                                </NavGridItem>
-                                                <NavGridItem>
-                                                        <LinkNav to="#!">Press</LinkNav>
-                                                </NavGridItem>
-                                                <NavGridItem>
-                                                        <LinkNav to="#!">Careers</LinkNav>
-                                                </NavGridItem>
-                                                <NavGridItem>
-                                                        <LinkNav to="#!">Legal</LinkNav>
-                                                </NavGridItem>
+                                                {Children.toArray(
+                                                        burgerSecondaryLinks[0].map(({ title, url }) => (
+                                                                <NavGridItem>
+                                                                        <LinkNav to={url}>{title}</LinkNav>
+                                                                </NavGridItem>
+                                                        ))
+                                                )}
                                         </ul>
                                         <ul>
-                                                <NavGridItem>
-                                                        <LinkNav to="#!">Support</LinkNav>
-                                                </NavGridItem>
-                                                <NavGridItem>
-                                                        <LinkNav to="#!">Contact</LinkNav>
-                                                </NavGridItem>
-                                                <NavGridItem>
-                                                        <LinkNav to="#!">Sitemap</LinkNav>
-                                                </NavGridItem>
-                                                <NavGridItem>
-                                                        <LinkNav to="#!">Cookie settings</LinkNav>
-                                                </NavGridItem>
+                                                {Children.toArray(
+                                                        burgerSecondaryLinks[1].map(({ title, url }) => (
+                                                                <NavGridItem>
+                                                                        <LinkNav to={url}>{title}</LinkNav>
+                                                                </NavGridItem>
+                                                        ))
+                                                )}
                                         </ul>
                                 </NavListGrid>
                         </Container>

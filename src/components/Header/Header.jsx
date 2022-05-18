@@ -11,6 +11,7 @@ import { useMedia } from '../../hooks/useMedia';
 import { useToggle } from '../../hooks/useToggle';
 import NavMobile from './NavMobile';
 import { mainNavLinks } from '../../data/linksData';
+import DropDownProduct from './DropDownProduct';
 
 const Header = () => {
         const { toggleTheme, mode } = useMode();
@@ -20,6 +21,9 @@ const Header = () => {
 
         // toggleBurger control burger menu state( open / close )
         const [toggleBurger, handleToggleBurger] = useToggle();
+
+        // toggle dropwdown menu state( open / close )
+        const [toggleDropdown, handleToggleDropdown] = useToggle();
 
         // close burger menu if resize screen
         const closeBurgerMenu = useMedia(['(min-width: 1024px)', '(min-width: 768px)'], ['false', 'true']);
@@ -118,6 +122,7 @@ const Header = () => {
                                 </Container>
                         </HeaderStyled>
                         {toggleBurger && <NavMobile navStyle={navMobileStyle} />}
+                        {toggleDropdown && <DropDownProduct />}
                 </>
         );
 };
