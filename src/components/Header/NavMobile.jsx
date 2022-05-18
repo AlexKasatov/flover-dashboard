@@ -1,8 +1,9 @@
-import React from 'react';
+import { Children } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { LinkNav } from './Header.styled';
+import { mainNavLinks } from '../../data/linksData';
 import {
         MobileNav,
         NavListFlex,
@@ -22,7 +23,7 @@ const NavMobile = ({ navStyle }) => (
                 <Wrapper>
                         <NavListFlex>
                                 <Container>
-                                        <NavListItem>
+                                        {/* <NavListItem>
                                                 <LinkNavMob to="#!">Home</LinkNavMob>
                                         </NavListItem>
                                         <NavListItem>
@@ -33,7 +34,14 @@ const NavMobile = ({ navStyle }) => (
                                         </NavListItem>
                                         <NavListItem>
                                                 <LinkNavMob to="#!">Pricing</LinkNavMob>
-                                        </NavListItem>
+                                        </NavListItem> */}
+                                        {Children.toArray(
+                                                mainNavLinks.map(({ title, url }) => (
+                                                        <NavListItem>
+                                                                <LinkNavMob to={url}>{title}</LinkNavMob>
+                                                        </NavListItem>
+                                                ))
+                                        )}
                                 </Container>
                         </NavListFlex>
                         <Container>

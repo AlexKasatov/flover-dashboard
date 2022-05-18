@@ -40,20 +40,6 @@ const Header = () => {
                                                                 <LogoType src={logoTypeIcon} alt="logotype" />
                                                         </Logo>
                                                         <NavLink>
-                                                                {/* <li>
-                                                                        <LinkNav to="#!">Home</LinkNav>
-                                                                </li>
-                                                                <li>
-                                                                        <LinkNav to="#!">Products</LinkNav>
-                                                                        <FiChevronDown />
-                                                                </li>
-                                                                <li>
-                                                                        <LinkNav to="#!">Resources</LinkNav>
-                                                                        <FiChevronDown />
-                                                                </li>
-                                                                <li>
-                                                                        <LinkNav to="#!">Pricing</LinkNav>
-                                                                </li> */}
                                                                 {Children.toArray(
                                                                         mainNavLinks.map(({ title, url, icon }) => (
                                                                                 <li>
