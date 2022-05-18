@@ -5,6 +5,7 @@ export const HeaderStyled = styled.header`
         background-color: ${({ theme }) => theme.backgroundColor};
         position: sticky;
         top: 0;
+        height: 100%;
         ul {
                 display: flex;
                 justify-content: space-between;
@@ -86,4 +87,9 @@ export const LogoType = styled.img`
 
 export const Logo = styled.div`
         cursor: pointer;
+        transform: scale(0.8);
+
+        @media (min-width: 1024px) {
+                transform: scale(1);
+        }
 `;
