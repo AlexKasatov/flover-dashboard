@@ -23,22 +23,11 @@ const NavMobile = ({ navStyle }) => (
                 <Wrapper>
                         <NavListFlex>
                                 <Container>
-                                        {/* <NavListItem>
-                                                <LinkNavMob to="#!">Home</LinkNavMob>
-                                        </NavListItem>
-                                        <NavListItem>
-                                                <LinkNavMob to="#!">Products</LinkNavMob>
-                                        </NavListItem>
-                                        <NavListItem>
-                                                <LinkNavMob to="#!">Resourses</LinkNavMob>
-                                        </NavListItem>
-                                        <NavListItem>
-                                                <LinkNavMob to="#!">Pricing</LinkNavMob>
-                                        </NavListItem> */}
                                         {Children.toArray(
-                                                mainNavLinks.map(({ title, url }) => (
+                                                mainNavLinks.map(({ title, url, icon }) => (
                                                         <NavListItem>
                                                                 <LinkNavMob to={url}>{title}</LinkNavMob>
+                                                                {icon}
                                                         </NavListItem>
                                                 ))
                                         )}

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { useState, Children } from 'react';
+import { useState, Children, useMemo } from 'react';
 import { FiMoon, FiSun, FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 import symbolIcon from '../../styles/img/symbol.svg';
 import logoTypeIcon from '../../styles/img/logotype.svg';
@@ -14,19 +14,35 @@ import { mainNavLinks } from '../../data/linksData';
 
 const Header = () => {
         const { toggleTheme, mode } = useMode();
+
         // fill control hover effect on theme icons
         const [fill, setFill] = useState('none');
-        const [dropDown, setDropDown] = useState(false);
-        const [toggle, handleToggle] = useToggle();
 
+        // toggleBurger control burger menu state( open / close )
+        const [toggleBurger, handleToggleBurger] = useToggle();
+
+        // close burger menu if resize screen
+        const closeBurgerMenu = useMedia(['(min-width: 1024px)', '(min-width: 768px)'], ['false', 'true']);
+        const handleToggleCloseBurgerMenu = () => closeBurgerMenu && toggleBurger && handleToggleBurger(() => false);
+        useMemo(() => {
+                handleToggleCloseBurgerMenu();
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [closeBurgerMenu]);
+
+        // dosen't dispay burger menu on desktop
         const burgerMenuDisplay = useMedia(['(min-width: 1024px)'], ['none']);
-        const navButtonDisplay = useMedia(['(min-width: 768px)', '(min-width: 364px)'], ['inline-block', 'none']);
         const burgerMenuStyle = { display: burgerMenuDisplay };
+
+        // dosen't dispay header's btns (login & sing up)  on mobile
+        const navButtonDisplay = useMedia(['(min-width: 768px)', '(min-width: 364px)'], ['inline-block', 'none']);
         const navButtonStyle = { display: navButtonDisplay };
 
+        // hover effect on theme icons
         const moonStyle = { color: 'var(--primary-600)', cursor: 'pointer', fill };
         const sunStyle = { color: 'var(--primary-600)', cursor: 'pointer', fill };
-        const navMobileStyle = { height: toggle ? '0' : 'auto' };
+
+        // display burger menu on toggleBruger
+        const navMobileStyle = { height: !toggleBurger ? '0' : 'auto' };
 
         return (
                 <>
@@ -84,15 +100,15 @@ const Header = () => {
                                                         <BtnPrimary style={navButtonStyle} type="button">
                                                                 Sign Up
                                                         </BtnPrimary>
-                                                        {toggle ? (
+                                                        {!toggleBurger ? (
                                                                 <FiMenu
-                                                                        onClick={handleToggle}
+                                                                        onClick={handleToggleBurger}
                                                                         size={24}
                                                                         style={burgerMenuStyle}
                                                                 />
                                                         ) : (
                                                                 <FiX
-                                                                        onClick={handleToggle}
+                                                                        onClick={handleToggleBurger}
                                                                         size={24}
                                                                         style={burgerMenuStyle}
                                                                 />
@@ -101,7 +117,7 @@ const Header = () => {
                                         </Wrapper>
                                 </Container>
                         </HeaderStyled>
-                        {!toggle && <NavMobile navStyle={navMobileStyle} />}
+                        {toggleBurger && <NavMobile navStyle={navMobileStyle} />}
                 </>
         );
 };

@@ -14,6 +14,9 @@ export const MobileNav = styled.nav`
         display: sticky;
         transition: all 0.3s ease-in-out;
         height: 100vh;
+        @media (min-width: 1024px) {
+                display: none;
+        }
 `;
 
 export const NavListFlex = styled.ul`
@@ -57,6 +60,9 @@ export const LinkNavMob = styled(LinkNav)`
 `;
 
 export const NavListItem = styled.li`
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
         padding: 0.5rem 0;
         height: 2.5rem;
 `;
