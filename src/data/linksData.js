@@ -21,14 +21,14 @@ export const mainNavLinks = [
                         },
 
                         {
-                                title: 'Limitless segmentation',
-                                url: '/segmentation',
-                                subTitle: 'Surface hidden trends.',
+                                title: 'Video tutorials',
+                                url: '/tutorials',
+                                subTitle: 'Get up and running on new features and techniques.',
                         },
                         {
-                                title: 'Group analytics',
-                                url: '/analytics',
-                                subTitle: 'Measure B2B account health.',
+                                title: 'Documentation',
+                                url: '/documentation',
+                                subTitle: 'All the boring stuff that you (hopefully won’t) need.',
                         },
                 ],
         },
@@ -62,36 +62,6 @@ export const mainNavLinks = [
                                 url: '/help',
                                 subTitle: 'Learn, fix a problem, and get answers to your questions.',
                         },
-                        {
-                                title: 'API reference',
-                                url: '/api-refs',
-                                subTitle: 'Complete reference documentation for API.',
-                        },
-                        {
-                                title: 'Setup 101',
-                                url: '/setup-101',
-                                subTitle: 'Get up and running as fast as possible with our 101 guide..',
-                        },
-                        {
-                                title: 'Video tutorials',
-                                url: '/tutorials',
-                                subTitle: 'Get up and running on new features and techniques.',
-                        },
-                        {
-                                title: 'Podcast',
-                                url: '/podcast',
-                                subTitle: 'Talks about the industry and the latest technologies.',
-                        },
-                        {
-                                title: 'University',
-                                url: '/university',
-                                subTitle: 'Short courses to become a master of advanced features.',
-                        },
-                        {
-                                title: 'Changelog',
-                                url: '/university',
-                                subTitle: 'Check out the latest updates and releases from our team.',
-                        },
                 ],
         },
         {
@@ -100,6 +70,26 @@ export const mainNavLinks = [
         },
 ];
 
+export const burgerMainLinks = [
+        {
+                title: 'home',
+                url: '/',
+        },
+        {
+                title: 'Products',
+                url: '/products',
+                icon: <FiChevronDown />,
+        },
+        {
+                title: 'Resources',
+                url: '/resources',
+                icon: <FiChevronDown />,
+        },
+        {
+                title: 'Pricing',
+                url: '/pricing',
+        },
+];
 export const burgerSecondaryLinks = [
         [
                 {

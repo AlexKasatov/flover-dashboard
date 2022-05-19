@@ -3,7 +3,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { LinkNav } from './Header.styled';
-import { mainNavLinks, burgerSecondaryLinks } from '../../data/linksData';
+import { burgerMainLinks, burgerSecondaryLinks } from '../../data/linksData';
 import {
         MobileNav,
         NavListFlex,
@@ -24,7 +24,7 @@ const NavMobile = ({ navStyle }) => (
                         <NavListFlex>
                                 <Container>
                                         {Children.toArray(
-                                                mainNavLinks.map(({ title, url, icon }) => (
+                                                burgerMainLinks.map(({ title, url, icon }) => (
                                                         <NavListItem>
                                                                 <LinkNavMob to={url}>{title}</LinkNavMob>
                                                                 {icon}

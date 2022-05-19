@@ -1,43 +1,58 @@
 import { Children } from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { Container } from '../../styles/Container';
-import { productItems } from '../../data/linksData';
-import { MobileNav } from './NavMobile.styled';
+import { FiChevronDown } from 'react-icons/fi';
+import { LinkNav } from './Header.styled';
 
 export const DropDownStyled = styled.ul`
-        background-color: white;
-        margin: 0;
-        padding: 0.5rem 0;
+        box-shadow: var(--shadow-lg);
+        border-radius: var(--radii);
+        background-color: ${({ theme }) => theme.bcPopUp};
         position: absolute;
-        top: 4rem;
-        display: flex;
-        justify-content: space-between;
-        flex-flow: column nowrap;
+        display: block;
+        z-index: 1;
+        min-width: 508px;
+        top: 3.8rem;
+        padding: 2.2rem;
+        outline: 1px solid var(--grey-200);
 
         li {
-                padding: 1rem;
+                display: block;
                 width: 100%;
-                padding: 0;
-                display: flex;
-                flex-wrap: wrap;
-                margin: 0;
-                justify-content: flex-start;
-                align-items: center;
         }
+`;
+
+export const Title = styled(LinkNav)`
+        color: ${({ theme }) => theme.fontColorBase};
+`;
+
+export const Subtitle = styled.h4`
+        color: ${({ theme }) => theme.textBase};
+        font-size: var(--text-sm);
+        font-weight: var(--fw-normal);
+        line-height: var(--text-lh-sm);
+`;
+
+export const Wrapper = styled.div`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 `;
 
 const DropDown = ({ dropdown, submenu }) =>
         dropdown && (
                 <DropDownStyled>
-                        {Children.toArray(
-                                submenu.map(({ title, subTitle, url }) => (
-                                        <li>
-                                                <NavLink to={url}>{title}</NavLink>
-                                                <p>{subTitle}</p>
-                                        </li>
-                                ))
-                        )}
+                        <Wrapper>
+                                {Children.toArray(
+                                        submenu.map(({ title, subTitle, url }) => (
+                                                <li>
+                                                        <div>
+                                                                <Title to={url}>{title}</Title>
+                                                                <Subtitle>{subTitle}</Subtitle>
+                                                        </div>
+                                                </li>
+                                        ))
+                                )}
+                        </Wrapper>
                 </DropDownStyled>
         );
 

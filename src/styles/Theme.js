@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     html {
         font-size: 16px;
         font-family: 'Inter', sans-serif;
+
     }
 
     /* Variables */
@@ -41,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
         /* Typography */
-        
+
             /* font-family */
             --ff: font-family: 'Inter', sans-serif;
 
@@ -131,7 +132,8 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: ${({ theme }) => theme.backgroundColor};
-        transition: all 1s ease;
+
+
 
     }
 
@@ -156,6 +158,7 @@ export const DarkMode = {
         textBase: 'var(--white)',
         textBaseHover: 'var(--primary-300)',
         backgroundColor: 'var(--gray-900)',
+        bcPopUp: 'var(--gray-800)',
 };
 
 export const LightMode = {
@@ -163,4 +166,5 @@ export const LightMode = {
         textBase: 'var(--gray-500)',
         textBaseHover: 'var(--gray-600)',
         backgroundColor: 'var(--white)',
+        bcPopUp: 'var(--white)',
 };
