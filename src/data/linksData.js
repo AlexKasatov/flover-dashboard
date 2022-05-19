@@ -10,6 +10,33 @@ export const mainNavLinks = [
                 icon: <FiChevronDown />,
                 submenu: [
                         {
+                                title: 'Interactive reports',
+                                url: '/reports',
+                                subTitle: 'Learn about your users.',
+                        },
+                        {
+                                title: 'Team dashboard',
+                                url: '/team-dashboard',
+                                subTitle: 'Monitor your metrics.',
+                        },
+
+                        {
+                                title: 'Limitless segmentation',
+                                url: '/segmentation',
+                                subTitle: 'Surface hidden trends.',
+                        },
+                        {
+                                title: 'Group analytics',
+                                url: '/analytics',
+                                subTitle: 'Measure B2B account health.',
+                        },
+                ],
+        },
+        {
+                title: 'Resources',
+                icon: <FiChevronDown />,
+                submenu: [
+                        {
                                 title: 'Blog',
                                 url: '/blog',
                                 subTitle: 'The latest industry news, updates and info.',
@@ -64,23 +91,6 @@ export const mainNavLinks = [
                                 title: 'Changelog',
                                 url: '/university',
                                 subTitle: 'Check out the latest updates and releases from our team.',
-                        },
-                ],
-        },
-        {
-                title: 'Resources',
-                icon: <FiChevronDown />,
-                submenu: [
-                        { title: 'Blog', ulr: '/blog', subTitle: 'The latest industry news, updates and info.' },
-                        {
-                                title: 'Customer stories',
-                                ulr: '/customer-stories',
-                                subTitle: 'Learn how our customers are making big changes.',
-                        },
-                        {
-                                title: 'Video tutorials',
-                                ulr: '/video-tutorials',
-                                subTitle: 'Get up and running on new features and techniques.',
                         },
                 ],
         },

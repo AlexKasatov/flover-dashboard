@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-unused-expressions */
+import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { LinkNav } from './Header.styled';
 import { useToggle } from '../../hooks/useToggle';
@@ -26,9 +27,34 @@ export const NavDropDownButton = styled.button`
 const NavList = ({ item }) => {
         // toggle dropwdown menu state( open / close )
         const [dropdown, handleDropdown] = useToggle();
+        const dropDownRef = useRef();
+
+        useEffect(() => {
+                const handler = (event) => {
+                        if (dropdown && dropDownRef.current && !dropDownRef.current.contains(event.target)) {
+                                handleDropdown(false);
+                        }
+                };
+                document.addEventListener('mousedown', handler);
+                document.addEventListener('touchstart', handler);
+                return () => {
+                        // Cleanup the event listener
+                        document.removeEventListener('mousedown', handler);
+                        document.removeEventListener('touchstart', handler);
+                };
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [dropdown]);
+
+        const onMouseEnter = () => {
+                window.innerWidth > 1200 && handleDropdown(true);
+        };
+
+        const onMouseLeave = () => {
+                window.innerWidth > 1200 && handleDropdown(false);
+        };
 
         return (
-                <NavListStyled>
+                <NavListStyled ref={dropDownRef} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
                         {item.submenu ? (
                                 <>
                                         <NavDropDownButton
@@ -40,7 +66,7 @@ const NavList = ({ item }) => {
                                                 {item.title}
                                                 {item.icon}
                                         </NavDropDownButton>
-                                        <DropDown dropdown={dropdown} />
+                                        <DropDown submenu={item.submenu} dropdown={dropdown} />
                                 </>
                         ) : (
                                 <LinkNav to={item.url}>{item.title}</LinkNav>
