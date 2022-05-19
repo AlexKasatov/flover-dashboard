@@ -11,8 +11,20 @@ export const DropDownStyled = styled.ul`
         padding: 0.5rem 0;
         position: absolute;
         top: 4rem;
-        display: none;
-        flex-flow: column wrap;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: column nowrap;
+
+        li {
+                padding: 1rem;
+                width: 100%;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0;
+                justify-content: flex-start;
+                align-items: center;
+        }
 `;
 
 const DropDown = ({ dropdown, submenu }) =>
