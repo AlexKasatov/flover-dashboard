@@ -72,7 +72,7 @@ export const mainNavLinks = [
 
 export const burgerMainLinks = [
         {
-                title: 'home',
+                title: 'Home',
                 url: '/',
         },
         {
