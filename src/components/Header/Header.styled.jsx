@@ -35,6 +35,10 @@ export const LinkNav = styled(Link)`
         line-height: var(--text-lh-md);
         font-weight: var(--fw-medium);
         color: ${({ theme }) => theme.textBase};
+
+        &:hover {
+                color: ${({ theme }) => theme.textBaseHover};
+        }
 `;
 
 export const Wrapper = styled.div`
@@ -45,7 +49,7 @@ export const Wrapper = styled.div`
 
 export const NavLink = styled.ul``;
 
-export const LeftNav = styled.nav`
+export const LeftNavStyled = styled.nav`
         display: flex;
         justify-content: space-around;
         align-items: center;

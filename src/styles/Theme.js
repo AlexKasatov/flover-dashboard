@@ -41,6 +41,9 @@ export const GlobalStyle = createGlobalStyle`
 
 
         /* Typography */
+        
+            /* font-family */
+            --ff: font-family: 'Inter', sans-serif;
 
             /* font-weight */
                 --fw-regular: 400;

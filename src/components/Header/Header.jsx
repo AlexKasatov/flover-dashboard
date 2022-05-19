@@ -1,17 +1,14 @@
 /* eslint-disable import/no-unresolved */
-import { useState, Children, useMemo } from 'react';
-import { FiMoon, FiSun, FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
-import symbolIcon from '../../styles/img/symbol.svg';
-import logoTypeIcon from '../../styles/img/logotype.svg';
+import { useState, useMemo } from 'react';
+import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
 import { useMode } from '../../hooks/useMode';
-import { HeaderStyled, Symbol, LogoType, Logo, Wrapper, LeftNav, LinkNav, RightNav, NavLink } from './Header.styled';
+import { HeaderStyled, Wrapper, RightNav } from './Header.styled';
 import { Container } from '../../styles/Container';
 import { BtnTerGrey, BtnPrimary } from '../../styles/UI/ButtonCTA';
 import { useMedia } from '../../hooks/useMedia';
 import { useToggle } from '../../hooks/useToggle';
 import NavMobile from './NavMobile';
-import { mainNavLinks } from '../../data/linksData';
-import DropDownProduct from './DropDownProduct';
+import LeftNav from './LeftNav';
 
 const Header = () => {
         const { toggleTheme, mode } = useMode();
@@ -21,9 +18,6 @@ const Header = () => {
 
         // toggleBurger control burger menu state( open / close )
         const [toggleBurger, handleToggleBurger] = useToggle();
-
-        // toggle dropwdown menu state( open / close )
-        const [toggleDropdown, handleToggleDropdown] = useToggle();
 
         // close burger menu if resize screen
         const closeBurgerMenu = useMedia(['(min-width: 1024px)', '(min-width: 768px)'], ['false', 'true']);
@@ -53,26 +47,7 @@ const Header = () => {
                         <HeaderStyled>
                                 <Container>
                                         <Wrapper>
-                                                <LeftNav>
-                                                        <Logo>
-                                                                <Symbol src={symbolIcon} alt="symbol" />
-
-                                                                <LogoType src={logoTypeIcon} alt="logotype" />
-                                                        </Logo>
-                                                        <NavLink>
-                                                                {Children.toArray(
-                                                                        mainNavLinks.map(({ title, url, icon }) => (
-                                                                                <li>
-                                                                                        <LinkNav to={url}>
-                                                                                                {title}
-                                                                                        </LinkNav>
-                                                                                        {icon}
-                                                                                </li>
-                                                                        ))
-                                                                )}
-                                                        </NavLink>
-                                                </LeftNav>
-
+                                                <LeftNav />
                                                 <RightNav>
                                                         {mode === 'light' ? (
                                                                 <FiMoon
@@ -122,7 +97,6 @@ const Header = () => {
                                 </Container>
                         </HeaderStyled>
                         {toggleBurger && <NavMobile navStyle={navMobileStyle} />}
-                        {toggleDropdown && <DropDownProduct />}
                 </>
         );
 };
