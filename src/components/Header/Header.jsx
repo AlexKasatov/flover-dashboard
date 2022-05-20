@@ -32,7 +32,7 @@ const Header = () => {
         const burgerMenuStyle = { display: burgerMenuDisplay };
 
         // dosen't dispay header's btns (login & sing up)  on mobile
-        const navButtonDisplay = useMedia(['(min-width: 768px)', '(min-width: 364px)'], ['inline-block', 'none']);
+        const navButtonDisplay = useMedia(['(min-width: 768px)', '(min-width: 320px)'], ['inline-block', 'none']);
         const navButtonStyle = { display: navButtonDisplay };
 
         // hover effect on theme icons

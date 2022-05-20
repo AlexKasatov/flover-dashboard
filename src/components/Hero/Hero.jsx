@@ -15,9 +15,7 @@ const Hero = () => (
                         <ButtonBase>Demo</ButtonBase>
                         <ButtonBase>Sign Up</ButtonBase>
                 </div>
-                <div>
-                        <img src={macbook} alt="macbook" />
-                </div>
+                <div>{/* <img src={macbook} alt="macbook" /> */}</div>
         </header>
 );
 
