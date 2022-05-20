@@ -37,11 +37,7 @@ export const Subtitle = styled.h4`
         }
 `;
 
-export const Wrapper = styled.div`
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-`;
+export const Wrapper = styled.div``;
 
 const DropDown = ({ dropdown, submenu }) =>
         dropdown && (

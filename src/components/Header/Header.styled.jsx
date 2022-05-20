@@ -65,7 +65,8 @@ export const LeftNavStyled = styled.nav`
 `;
 
 export const RightNav = styled.nav`
-        /* margin-left: 1rem; */
+        padding: 0 1rem;
+        margin-left: 1rem;
         display: flex;
         justify-content: space-around;
         align-items: center;

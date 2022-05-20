@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { BtnPrimary, ButtonBase } from '../../styles/UI/ButtonCTA';
 
 export const HeroBlock = styled.header`
-        margin: 6rem 0;
+        margin: 4rem 0;
 `;
 
 export const HeroSection = styled.section`
@@ -39,7 +39,7 @@ export const SubHeadingHero = styled.h2`
         /* // media queries desktop */
         @media (min-width: 1024px) {
                 font-size: var(--text-xl);
-                line-height: var(--text-xl);
+                line-height: var(--text-lh-xl);
         }
 `;
 
