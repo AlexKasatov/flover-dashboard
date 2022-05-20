@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ButtonBase = styled.button`
+        font-family: var(--ff);
         cursor: pointer;
         border: 1px solid Transparent;
         max-width: 124px;

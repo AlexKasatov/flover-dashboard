@@ -3,11 +3,11 @@ import { Container } from '../../styles/Container';
 import { FooterStyled } from './Footer.styled';
 
 const Footer = () => (
-        <FooterStyled>
-                <Container>
+        <Container>
+                <span>
                         <h4>Flover&copy; 2022 "FOOTER"</h4>
-                </Container>
-        </FooterStyled>
+                </span>
+        </Container>
 );
 
 export default Footer;
