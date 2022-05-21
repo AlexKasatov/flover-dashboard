@@ -37,21 +37,23 @@ export const socialProofData = [
                 logomark: CircoolesMark,
         },
 ];
-console.log(socialProofData);
 
 const SocialProof = () => (
         <div>
                 {Children.toArray(
-                        socialProofData.map(({ logotype, logomark, title }) => (
-                                <section>
-                                        <img scr={logotype} alt={title} />
-                                        <img scr={logomark} alt={title} />
-                                </section>
-                        ))
+                        socialProofData.map(({ title, logotype, logomark }) => <img src={logotype} alt={title} />)
                 )}
-
-                <div />
         </div>
+
+        // ? This map WORKS!
+        // <div>
+        //         {socialProofData.map((postdata, index) => (
+        //                 <>
+        //                         <img key={index} src={postdata.logotype} wrapped ui={false} alt={postdata.title} />
+        //                         <img key={index} src={postdata.logomark} wrapped ui={false} alt={postdata.title} />
+        //                 </>
+        //         ))}
+        // </div>
 );
 
 export default SocialProof;
