@@ -2,15 +2,21 @@ import React from 'react';
 import { SectionStyled } from './SectionHeader.styled';
 import { Heading, SubHeading, SupportText } from '../../styles/UI/Text';
 
-const SectionHeader = () => (
-        <SectionStyled>
-                <SubHeading>Features</SubHeading>
-                <Heading>Analytics that feels like it’s from the future</Heading>
-                <SupportText>
-                        Powerful, self-serve product and growth analytics to help you convert, engage, and retain more
-                        users. Trusted by over 4,000 startups.
-                </SupportText>
-        </SectionStyled>
-);
+const SectionHeader = (props) => {
+        const { heading, subheading, support } = props;
+        console.log(props);
+        return (
+                <SectionStyled>
+                        <Heading>What</Heading>
+                        <Heading>{heading}</Heading>
+                        <SubHeading />
+                        <Heading />
+                        <SupportText />
+                        {/* <SubHeading>{header.subheading}</SubHeading>
+                <Heading>{header.heading}</Heading>
+                <SupportText>{header.support}</SupportText> */}
+                </SectionStyled>
+        );
+};
 
 export default SectionHeader;

@@ -55,7 +55,7 @@ const NavList = ({ item }) => {
 
         return (
                 <NavListStyled ref={dropDownRef} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-                        {item.submenu ? (
+                        {item.body ? (
                                 <>
                                         <NavDropDownButton
                                                 type="button"
@@ -66,7 +66,7 @@ const NavList = ({ item }) => {
                                                 {item.title}
                                                 {item.icon}
                                         </NavDropDownButton>
-                                        <DropDown submenu={item.submenu} dropdown={dropdown} />
+                                        <DropDown body={item.body} dropdown={dropdown} />
                                 </>
                         ) : (
                                 <LinkNav to={item.url}>{item.title}</LinkNav>

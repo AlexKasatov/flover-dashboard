@@ -8,7 +8,7 @@ export const mainNavLinks = [
         {
                 title: 'Products',
                 icon: <FiChevronDown />,
-                submenu: [
+                body: [
                         {
                                 title: 'Interactive reports',
                                 url: '/reports',
@@ -35,7 +35,7 @@ export const mainNavLinks = [
         {
                 title: 'Resources',
                 icon: <FiChevronDown />,
-                submenu: [
+                body: [
                         {
                                 title: 'Blog',
                                 url: '/blog',

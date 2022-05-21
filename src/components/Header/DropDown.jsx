@@ -39,12 +39,12 @@ export const Subtitle = styled.h4`
 
 export const Wrapper = styled.div``;
 
-const DropDown = ({ dropdown, submenu }) =>
+const DropDown = ({ dropdown, body }) =>
         dropdown && (
                 <DropDownStyled>
                         <Wrapper>
                                 {Children.toArray(
-                                        submenu.map(({ title, subTitle, url }) => (
+                                        body.map(({ title, subTitle, url }) => (
                                                 <li>
                                                         <div>
                                                                 <Title to={url}>{title}</Title>
