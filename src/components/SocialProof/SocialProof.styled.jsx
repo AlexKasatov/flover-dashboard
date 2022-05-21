@@ -1,22 +1,6 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-        /* display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 3;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        margin: 0 auto;
-
-        @media (min-width: 1024px) {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-        } */
-
         display: flex;
         justify-content: center;
         align-items: center;

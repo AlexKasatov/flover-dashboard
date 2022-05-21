@@ -5,6 +5,7 @@ export const HeaderStyled = styled.header`
         background-color: ${({ theme }) => theme.backgroundColor};
         position: sticky;
         top: 0;
+        z-index: 1;
         height: 100%;
         ul {
                 display: flex;
