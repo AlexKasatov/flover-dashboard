@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-        display: grid;
+        /* display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 3;
         justify-content: center;
@@ -11,9 +11,18 @@ export const Wrapper = styled.div`
 
         @media (min-width: 1024px) {
                 display: flex;
-                justify-content: space-between;
+                flex-wrap: wrap;
+                justify-content: center;
                 align-items: center;
                 gap: 2rem;
+        } */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column nowrap;
+        @media (min-width: 1024px) {
+                flex-flow: row nowrap;
         }
 `;
 
