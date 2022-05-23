@@ -1,6 +1,8 @@
+import { FiMail } from 'react-icons/fi';
 import imgFeature1 from '../styles/img/features/1.avif';
 import imgFeature2 from '../styles/img/features/2.avif';
 import imgFeature3 from '../styles/img/features/3.avif';
+import CheckIcon from '../styles/img/features/check.svg';
 
 export const ladningContent = [
         {
@@ -10,13 +12,13 @@ export const ladningContent = [
                 subheading: 'Features',
                 content: [
                         {
-                                icon: 'component',
+                                icon: <FiMail />,
                                 heading: 'Share team inboxes',
                                 support: 'Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.',
                                 items: [
-                                        { icon: 'component', text: 'Leverage automation to move fast' },
-                                        { icon: 'component', text: 'Always give customers a human to chat to' },
-                                        { icon: 'component', text: 'Automate customer support and close leads faster' },
+                                        { icon: CheckIcon, text: 'Leverage automation to move fast' },
+                                        { icon: CheckIcon, text: 'Always give customers a human to chat to' },
+                                        { icon: CheckIcon, text: 'Automate customer support and close leads faster' },
                                 ],
                                 img: imgFeature1,
                         },

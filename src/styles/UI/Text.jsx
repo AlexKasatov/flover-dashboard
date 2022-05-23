@@ -15,9 +15,22 @@ export const Heading = styled.h1`
         letter-spacing: var(--ls);
 `;
 
+export const HeadingBase = styled(Heading)`
+        font-size: var(--display-xs);
+        line-height: var(--display-xs);
+        letter-spacing: normal;
+`;
+
 export const SupportText = styled.p`
         font-size: var(--text-xl);
         font-weight: var(--fw-normal);
         color: ${({ theme }) => theme.textBase};
         line-height: var(--text-xl);
+`;
+
+export const SupportTextBase = styled.p`
+        font-size: var(--text-md);
+        font-weight: var(--fw-normal);
+        line-height: var(--text-md);
+        color: ${({ theme }) => theme.textBase};
 `;

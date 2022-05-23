@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 export const SectionStyled = styled.header`
         text-align: center;
-        margin: 6rem 16rem;
+        margin: 4rem 0;
+
+        @media (min-width: 1024px) {
+                margin: 6rem 16rem;
+        }
 `;
 
 export const SectionSubHeading = styled.h1``;

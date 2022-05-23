@@ -18,11 +18,9 @@ const IconWrapper = styled.div`
         }
 `;
 
-const IconStyled = () => (
+const IconStyled = ({ children }) => (
         <div>
-                <IconWrapper>
-                        <FiMail size="24px" />
-                </IconWrapper>
+                <IconWrapper>{children}</IconWrapper>
         </div>
 );
 
