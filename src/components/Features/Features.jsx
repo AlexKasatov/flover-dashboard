@@ -3,6 +3,7 @@ import { Children } from 'react';
 import { Wrapper } from './Features.styled';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import { ladningContent } from '../../data/ladningContent';
+import FeaturesSection from './FeaturesSection';
 
 const Features = () => {
         const test = ladningContent.filter((item) => item.title === 'features').map((item) => item);
@@ -10,7 +11,6 @@ const Features = () => {
 
         return (
                 <Wrapper>
-                        <h1>test</h1>
                         {Children.toArray(
                                 ladningContent
                                         .filter((item) => item.title === 'features')
@@ -22,6 +22,7 @@ const Features = () => {
                                                 />
                                         ))
                         )}
+                        <FeaturesSection />
                 </Wrapper>
         );
 };
