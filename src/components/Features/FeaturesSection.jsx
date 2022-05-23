@@ -1,10 +1,10 @@
 import { Children } from 'react';
+import { Container } from '../../styles/Container';
 import IconStyled from '../../styles/UI/Icon';
 import { HeadingBase, SupportTextBase } from '../../styles/UI/Text';
 import FeaturesImg from './FeaturesImg';
 import FeaturesList from './FeaturesList';
 import { SectionFeature, AcrticleFeautre } from './Section.styled';
-import { Container } from '../../styles/Container';
 
 const FeaturesSection = ({ content }) => {
         console.log('🚀 ~ file: FeaturesSection.jsx ~ line 8 ~ FeaturesSection ~ content', content);

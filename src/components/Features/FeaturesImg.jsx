@@ -6,8 +6,8 @@ const SectionImg = styled(HeroImg)`
         box-shadow: var(--shadow-2xl);
         border-radius: 1rem;
         width: 100%;
-        object-fit: cover;
-        object-position: -20% 0;
+        object-fit: scale-down;
+        /* object-position: -20% 0; */
 `;
 
 const FeaturesImg = ({ img, alt }) => <SectionImg src={img} alt={alt} />;

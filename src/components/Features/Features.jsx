@@ -6,11 +6,9 @@ import { ladningContent } from '../../data/ladningContent';
 import FeaturesSection from './FeaturesSection';
 import { Container } from '../../styles/Container';
 
-const Features = () => {
-        const test = ladningContent.filter((item) => item.title === 'features').map((item) => item);
-
-        return (
-                <Wrapper>
+const Features = () => (
+        <Wrapper>
+                <Container>
                         {Children.toArray(
                                 ladningContent
                                         .filter((item) => item.title === 'features')
@@ -26,7 +24,7 @@ const Features = () => {
                                                 </>
                                         ))
                         )}
-                </Wrapper>
-        );
-};
+                </Container>
+        </Wrapper>
+);
 export default Features;
