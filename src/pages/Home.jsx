@@ -1,5 +1,6 @@
 import React from 'react';
 import Features from '../components/Features/Features';
+import FreeTrial from '../components/FreeTrial/FreeTrial';
 import Hero from '../components/Hero/Hero';
 import Integration from '../components/Integration/Integration';
 import Metrix from '../components/Metric/Metrix';
@@ -12,6 +13,7 @@ const Home = () => (
                 <Features />
                 <Integration />
                 <Metrix />
+                <FreeTrial />
         </>
 );
 

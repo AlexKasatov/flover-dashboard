@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import IconStyled from '../../styles/UI/Icon';
 
 export const SectionStyled = styled.header`
         display: flex;
@@ -7,10 +6,10 @@ export const SectionStyled = styled.header`
         align-items: center;
         text-align: center;
         justify-content: center;
-        margin: 4rem 0;
+        margin: 1rem 0;
 
         @media (min-width: 1024px) {
-                margin: 6rem 16rem;
+                margin: 6rem 0 2rem;
         }
 `;
 

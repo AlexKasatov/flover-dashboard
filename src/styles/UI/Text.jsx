@@ -49,3 +49,9 @@ export const SupportSml = styled.p`
         line-height: var(--text-lh-md);
         color: ${({ theme }) => theme.fontColorBase};
 `;
+
+export const HeaderPromo = styled(Heading)`
+        color: var(--primary-900);
+        font-size: var(--display-sm);
+        line-height: var(--display-sm);
+`;

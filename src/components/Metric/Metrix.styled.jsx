@@ -10,17 +10,28 @@ export const Wrapper = styled.div`
 
 export const MetricListStyled = styled.ul`
         display: flex;
-        flex-flow: row-reverse nowrap;
+        flex-flow: column nowrap;
         align-items: center;
         justify-content: center;
         text-align: center;
-        gap: 3rem;
+        margin: 0 auto;
+
+        @media (min-width: 1024px) {
+                flex-flow: row-reverse nowrap;
+                gap: 3rem;
+        }
 `;
 
 export const MetricItemStyled = styled.li`
-        &:nth-child(2n) {
-                padding: 0 3rem;
-                border-left: 1px solid var(--gray-200);
-                border-right: 1px solid var(--gray-200);
+        @media (min-width: 1024px) {
+                &:nth-child(2n) {
+                        padding: 0 3rem;
+                        border-left: 1px solid var(--gray-200);
+                        border-right: 1px solid var(--gray-200);
+                }
+        }
+        h2,
+        p {
+                margin: 1rem 0;
         }
 `;

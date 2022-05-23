@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 
         /* Radius  */
              --radii: 0.5rem;
+             --radii-1: 1rem;
 
         /* Box-Shadow */
             --shadow-xs: 0px 1px 2px rgba(16, 24, 40, 0.05);

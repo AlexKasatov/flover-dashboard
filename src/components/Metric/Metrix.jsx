@@ -18,6 +18,7 @@ const Metrix = () => (
                                                                 subheading={subheading}
                                                                 support={support}
                                                                 icon={icon}
+                                                                style={{ margin: '0 auto' }}
                                                         />
                                                         <MetricList content={content} />
                                                 </>
