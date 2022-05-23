@@ -20,11 +20,11 @@ const Features = () => {
                                                                 subheading={subheading}
                                                                 support={support}
                                                         />
+                                                        {/* Render 3 section here */}
                                                         <FeaturesSection content={content} />
                                                 </>
                                         ))
                         )}
-                        {/* тут будем также фильтр и мэпить и передавать пропсы */}
                 </Wrapper>
         );
 };

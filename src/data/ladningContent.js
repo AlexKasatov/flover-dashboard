@@ -1,4 +1,4 @@
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiZap, FiBarChart2 } from 'react-icons/fi';
 import imgFeature1 from '../styles/img/features/1.avif';
 import imgFeature2 from '../styles/img/features/2.avif';
 import imgFeature3 from '../styles/img/features/3.avif';
@@ -12,7 +12,7 @@ export const ladningContent = [
                 subheading: 'Features',
                 content: [
                         {
-                                icon: <FiMail />,
+                                icon: <FiMail size="24px" />,
                                 heading: 'Share team inboxes',
                                 support: 'Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.',
                                 items: [
@@ -23,34 +23,34 @@ export const ladningContent = [
                                 img: imgFeature1,
                         },
                         {
-                                icon: 'component',
+                                icon: <FiZap size="24px" />,
                                 heading: 'Deliver instant answers',
                                 support: 'An all-in-one customer service platform that helps you balance everything your customers need to be happy.',
                                 items: [
-                                        { icon: 'component', text: 'Keep your customers in the loop with live chat' },
-                                        { icon: 'component', text: 'Embed help articles right on your website' },
+                                        { icon: CheckIcon, text: 'Keep your customers in the loop with live chat' },
+                                        { icon: CheckIcon, text: 'Embed help articles right on your website' },
                                         {
-                                                icon: 'component',
+                                                icon: CheckIcon,
                                                 text: 'Customers never have to leave the page to find an answer',
                                         },
                                 ],
                                 img: imgFeature2,
                         },
                         {
-                                icon: 'component',
+                                icon: <FiBarChart2 size="24px" />,
                                 heading: 'Manage your team with reports',
                                 support: 'Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.',
                                 items: [
                                         {
-                                                icon: 'component',
+                                                icon: CheckIcon,
                                                 text: 'Filter, export, and drilldown on the data quickly',
                                         },
                                         {
-                                                icon: 'component',
+                                                icon: CheckIcon,
                                                 text: 'Save, schedule, and automate reports to your inbox',
                                         },
                                         {
-                                                icon: 'component',
+                                                icon: CheckIcon,
                                                 text: 'Connect the tools you already use with 100+ integrations',
                                         },
                                 ],

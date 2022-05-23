@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FiMail } from 'react-icons/fi';
 
@@ -16,11 +15,12 @@ const IconWrapper = styled.div`
         svg {
                 stroke: var(--primary-600);
         }
+        margin-bottom: 1.5rem;
 `;
 
-const IconStyled = ({ children }) => (
+const IconStyled = ({ icon }) => (
         <div>
-                <IconWrapper>{children}</IconWrapper>
+                <IconWrapper>{icon}</IconWrapper>
         </div>
 );
 

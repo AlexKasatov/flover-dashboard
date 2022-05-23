@@ -3,24 +3,33 @@ import IconStyled from '../../styles/UI/Icon';
 import { HeadingBase, SupportTextBase } from '../../styles/UI/Text';
 import FeaturesImg from './FeaturesImg';
 import FeaturesList from './FeaturesList';
+import { SectionFeature, AcrticleFeautre } from './Section.styled';
+import { Container } from '../../styles/Container';
 
-const FeaturesSection = ({ content }) => (
-        <>
-                {Children.toArray(
-                        content.map(({ icon, heading, support, items, img }) => (
-                                <>
-                                        <IconStyled icon={icon} />
-                                        <HeadingBase>{heading}</HeadingBase>
-                                        <SupportTextBase>{support}</SupportTextBase>
+const FeaturesSection = ({ content }) => {
+        console.log('🚀 ~ file: FeaturesSection.jsx ~ line 8 ~ FeaturesSection ~ content', content);
 
-                                        <FeaturesList items={items} />
+        return (
+                <>
+                        {Children.toArray(
+                                content.map(({ icon, heading, support, items, img }) => (
+                                        <SectionFeature>
+                                                <AcrticleFeautre>
+                                                        <IconStyled icon={icon} />
 
-                                        <FeaturesImg img={img} alt={heading} />
-                                        {/* Section IMG */}
-                                </>
-                        ))
-                )}
-        </>
-);
+                                                        <HeadingBase>{heading}</HeadingBase>
+
+                                                        <SupportTextBase>{support}</SupportTextBase>
+
+                                                        <FeaturesList items={items} />
+                                                </AcrticleFeautre>
+
+                                                <FeaturesImg img={img} alt={heading} />
+                                        </SectionFeature>
+                                ))
+                        )}
+                </>
+        );
+};
 
 export default FeaturesSection;
