@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { BtnPrimary } from '../../styles/UI/ButtonCTA';
 
 export const Wrapper = styled.section`
-        margin: 12rem auto;
+        margin: 3rem auto;
 
         display: flex;
         justify-content: center;

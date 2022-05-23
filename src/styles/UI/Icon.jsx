@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FiMail } from 'react-icons/fi';
 
 const IconWrapper = styled.div`
         display: flex;

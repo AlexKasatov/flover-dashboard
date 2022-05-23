@@ -3,6 +3,7 @@ import { Container } from '../../styles/Container';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import { Wrapper } from './Metrix.styled';
 import { ladningContent } from '../../data/ladningContent';
+import MetricList from './MetricList';
 
 const Metrix = () => (
         <Wrapper>
@@ -11,12 +12,15 @@ const Metrix = () => (
                                 ladningContent
                                         .filter((section) => section.title === 'metric')
                                         .map(({ heading, subheading, support, content, icon }) => (
-                                                <SectionHeader
-                                                        heading={heading}
-                                                        subheading={subheading}
-                                                        support={support}
-                                                        icon={icon}
-                                                />
+                                                <>
+                                                        <SectionHeader
+                                                                heading={heading}
+                                                                subheading={subheading}
+                                                                support={support}
+                                                                icon={icon}
+                                                        />
+                                                        <MetricList content={content} />
+                                                </>
                                         ))
                         )}
                 </Container>

@@ -34,3 +34,18 @@ export const SupportTextBase = styled.p`
         line-height: var(--text-md);
         color: ${({ theme }) => theme.textBase};
 `;
+
+export const HeadingColor = styled.h2`
+        font-size: var(--display-xl);
+        font-weight: var(--fw-semi-bold);
+        line-height: var(--display-xl);
+        letter-spacing: var(--ls);
+        color: var(--primary-600);
+`;
+
+export const SupportSml = styled.p`
+        font-size: var(--text-lg);
+        font-weight: var(--fw-medium);
+        line-height: var(--text-lh-md);
+        color: ${({ theme }) => theme.fontColorBase};
+`;
