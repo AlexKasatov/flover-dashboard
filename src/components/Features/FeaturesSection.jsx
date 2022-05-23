@@ -10,7 +10,7 @@ const FeaturesSection = ({ content }) => {
         console.log('🚀 ~ file: FeaturesSection.jsx ~ line 8 ~ FeaturesSection ~ content', content);
 
         return (
-                <>
+                <Container>
                         {Children.toArray(
                                 content.map(({ icon, heading, support, items, img }) => (
                                         <SectionFeature>
@@ -28,7 +28,7 @@ const FeaturesSection = ({ content }) => {
                                         </SectionFeature>
                                 ))
                         )}
-                </>
+                </Container>
         );
 };
 

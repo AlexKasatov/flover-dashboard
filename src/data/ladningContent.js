@@ -3,6 +3,10 @@ import imgFeature1 from '../styles/img/features/1.avif';
 import imgFeature2 from '../styles/img/features/2.avif';
 import imgFeature3 from '../styles/img/features/3.avif';
 import CheckIcon from '../styles/img/features/check.svg';
+import IconRow1 from '../styles/img/integration/Row.svg';
+import IconRow2 from '../styles/img/integration/Row-1.svg';
+import IconRow3 from '../styles/img/integration/Row-2.svg';
+import IconRow4 from '../styles/img/integration/Row-3.svg';
 
 export const ladningContent = [
         {
@@ -58,8 +62,35 @@ export const ladningContent = [
                         },
                 ],
         },
-        { title: 'integrations', body: ['integrations'] },
-        { title: 'power', body: ['power'] },
+        {
+                title: 'integrations',
+                heading: 'Get more value from your tools',
+                support: 'Connect your tools, connect your teams. With over 200 apps already available in our directory, your team’s favourite tools are just a click away.',
+                subheading: 'Integrations',
+                button: 'View all integrations',
+                content: [IconRow1, IconRow2, IconRow3, IconRow4],
+        },
+        {
+                title: 'metric',
+                icon: <FiZap size="24px" />,
+                heading: 'Unleash the full power of data',
+                support: 'Everything you need to convert, engage, and retain more users.',
+                subheading: 'Integrations',
+                content: [
+                        {
+                                number: '40+',
+                                text: 'Integrations',
+                        },
+                        {
+                                number: '600%',
+                                text: 'Return on investment',
+                        },
+                        {
+                                number: '4k+',
+                                text: 'Global customers',
+                        },
+                ],
+        },
         { title: 'quote', body: ['quote'] },
         { title: 'cta', body: ['cta'] },
         { title: 'footer', body: ['footer'] },

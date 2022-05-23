@@ -1,12 +1,12 @@
 import React from 'react';
 import { SectionStyled } from './SectionHeader.styled';
 import { Heading, SubHeading, SupportText } from '../../styles/UI/Text';
+import IconStyled from '../../styles/UI/Icon';
 
-const SectionHeader = ({ heading, subheading, support }) => (
+const SectionHeader = ({ heading, subheading, support, icon }) => (
         <SectionStyled>
+                {icon ? <IconStyled icon={icon} /> : <SubHeading>{subheading}</SubHeading>}
                 <Heading>{heading}</Heading>
-
-                <SubHeading>{subheading}</SubHeading>
 
                 <SupportText>{support}</SupportText>
         </SectionStyled>
