@@ -4,6 +4,7 @@ import { Wrapper } from './Features.styled';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import { ladningContent } from '../../data/ladningContent';
 import FeaturesSection from './FeaturesSection';
+import { Container } from '../../styles/Container';
 
 const Features = () => {
         const test = ladningContent.filter((item) => item.title === 'features').map((item) => item);

@@ -7,7 +7,7 @@ export const SectionFeature = styled.section`
         align-items: center;
         flex-direction: column;
 
-        @media (min-width: 768px) {
+        @media (min-width: 1280px) {
                 margin: 6rem 0 0 12rem;
                 display: grid;
                 justify-content: center;
