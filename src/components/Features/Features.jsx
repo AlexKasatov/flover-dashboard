@@ -5,7 +5,7 @@ import SectionHeader from '../SectionHeader/SectionHeader';
 import { ladningContent } from '../../data/ladningContent';
 
 const Features = () => {
-        const test = ladningContent.filter((item) => item.title === 'features').map((item) => item.header);
+        const test = ladningContent.filter((item) => item.title === 'features').map((item) => item);
         console.log('🚀 ~ file: Features.jsx ~ line 9 ~ Features ~ test', test);
 
         return (
@@ -14,7 +14,13 @@ const Features = () => {
                         {Children.toArray(
                                 ladningContent
                                         .filter((item) => item.title === 'features')
-                                        .map((item) => <SectionHeader header={item.header} />)
+                                        .map(({ heading, subheading, support }) => (
+                                                <SectionHeader
+                                                        heading={heading}
+                                                        subheading={subheading}
+                                                        support={support}
+                                                />
+                                        ))
                         )}
                 </Wrapper>
         );

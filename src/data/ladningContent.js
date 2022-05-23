@@ -5,12 +5,9 @@ import imgFeature3 from '../styles/img/features/3.avif';
 export const ladningContent = [
         {
                 title: 'features',
-                header: {
-                        subheading: 'Features',
-                        heading: 'Analytics that feels like it’s from the future',
-                        support: 'Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.',
-                },
-
+                heading: 'Analytics that feels like it’s from the future',
+                support: 'Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.',
+                subheading: 'Features',
                 content: [
                         {
                                 icon: 'component',
