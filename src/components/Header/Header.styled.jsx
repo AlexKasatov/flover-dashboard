@@ -95,6 +95,6 @@ export const Logo = styled.div`
         transform: scale(0.8);
 
         @media (min-width: 1024px) {
-                transform: scale(1);
+                transform: scale(0.9);
         }
 `;

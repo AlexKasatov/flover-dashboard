@@ -31,25 +31,6 @@ const Quote = () => {
                                                 insights we never thought possible.
                                         </HeadingLx>
                                         <AvatarText />
-                                        {/* {Children.toArray(
-                                                socialProofData.map(({ title, logotype, logomark }) => (
-                                                        <SocialProofImg
-                                                                title={title}
-                                                                logotype={logotype}
-                                                                logomark={logomark}
-                                                        />
-                                                ))
-                                        )} */}
-
-                                        {/* <FiArrowLeft onClick={handleImgLeft} />
-
-                                        <SocialProofImg
-                                                title={socialProofData[currentImg].title}
-                                                logotype={socialProofData[currentImg].logotype}
-                                                logomark={socialProofData[currentImg].logomark}
-                                        />
-
-                                        <FiArrowRight onClick={handleImgRigth} /> */}
                                         <Slider />
                                 </QuoteSection>
                         </Container>

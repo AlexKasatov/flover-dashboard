@@ -6,30 +6,26 @@ import FeaturesImg from './FeaturesImg';
 import FeaturesList from './FeaturesList';
 import { SectionFeature, AcrticleFeautre } from './Section.styled';
 
-const FeaturesSection = ({ content }) => {
-        console.log('🚀 ~ file: FeaturesSection.jsx ~ line 8 ~ FeaturesSection ~ content', content);
+const FeaturesSection = ({ content }) => (
+        <Container>
+                {Children.toArray(
+                        content.map(({ icon, heading, support, items, img }) => (
+                                <SectionFeature>
+                                        <AcrticleFeautre>
+                                                <IconStyled icon={icon} />
 
-        return (
-                <Container>
-                        {Children.toArray(
-                                content.map(({ icon, heading, support, items, img }) => (
-                                        <SectionFeature>
-                                                <AcrticleFeautre>
-                                                        <IconStyled icon={icon} />
+                                                <HeadingBase>{heading}</HeadingBase>
 
-                                                        <HeadingBase>{heading}</HeadingBase>
+                                                <SupportTextBase>{support}</SupportTextBase>
 
-                                                        <SupportTextBase>{support}</SupportTextBase>
+                                                <FeaturesList items={items} />
+                                        </AcrticleFeautre>
 
-                                                        <FeaturesList items={items} />
-                                                </AcrticleFeautre>
-
-                                                <FeaturesImg img={img} alt={heading} />
-                                        </SectionFeature>
-                                ))
-                        )}
-                </Container>
-        );
-};
+                                        <FeaturesImg img={img} alt={heading} />
+                                </SectionFeature>
+                        ))
+                )}
+        </Container>
+);
 
 export default FeaturesSection;

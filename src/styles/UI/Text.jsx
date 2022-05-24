@@ -21,6 +21,22 @@ export const Heading = styled.h1`
         letter-spacing: var(--ls);
 `;
 
+export const HeadingCTA = styled(Heading)`
+        margin: 0;
+
+        font-size: var(--display-sm);
+        font-weight: var(--fw-semi-bold);
+        line-height: var(--display-sm);
+        letter-spacing: normal;
+
+        @media (min-width: 1024px) {
+                max-width: 576px;
+                font-size: var(--display-lg);
+                line-height: var(--display-lg);
+                letter-spacing: var(--ls);
+        }
+`;
+
 export const HeadingTextLg = styled(Heading)`
         font-size: var(--text-lg);
         line-height: var(--text-lh-lg);

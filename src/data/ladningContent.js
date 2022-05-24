@@ -2,6 +2,7 @@ import { FiMail, FiZap, FiBarChart2 } from 'react-icons/fi';
 import imgFeature1 from '../styles/img/features/1.avif';
 import imgFeature2 from '../styles/img/features/2.avif';
 import imgFeature3 from '../styles/img/features/3.avif';
+import imgFeature4 from '../styles/img/features/4.avif';
 import CheckIcon from '../styles/img/features/check.svg';
 import IconRow1 from '../styles/img/integration/Row.svg';
 import IconRow2 from '../styles/img/integration/Row-1.svg';
@@ -91,7 +92,21 @@ export const ladningContent = [
                         },
                 ],
         },
-        { title: 'quote', body: ['quote'] },
-        { title: 'cta', body: ['cta'] },
+        {
+                title: 'cta',
+                heading: 'Join 4,000+ startups growing with Flover',
+                img: imgFeature4,
+                items: [
+                        { icon: CheckIcon, text: '30-day free trial' },
+                        {
+                                icon: CheckIcon,
+                                text: 'Access to all features',
+                        },
+                        {
+                                icon: CheckIcon,
+                                text: 'Peronalized onboarding',
+                        },
+                ],
+        },
         { title: 'footer', body: ['footer'] },
 ];

@@ -6,6 +6,7 @@ import Integration from '../components/Integration/Integration';
 import Metrix from '../components/Metric/Metrix';
 import SocialProof from '../components/SocialProof/SocialProof';
 import Quote from '../components/Quote/Quote';
+import CtaSection from '../components/CTA/CtaSection';
 
 const Home = () => (
         <>
@@ -16,6 +17,7 @@ const Home = () => (
                 <Metrix />
                 <FreeTrial />
                 <Quote />
+                <CtaSection />
         </>
 );
 
