@@ -22,6 +22,8 @@ export const HeadingBase = styled(Heading)`
 `;
 
 export const SupportText = styled.p`
+
+        
         font-size: var(--text-xl);
         font-weight: var(--fw-normal);
         color: ${({ theme }) => theme.textBase};
@@ -54,4 +56,8 @@ export const HeaderPromo = styled(Heading)`
         color: var(--primary-900);
         font-size: var(--display-sm);
         line-height: var(--display-sm);
+`;
+
+export const SupportTextColor = styled(SupportText)`
+        color: var(--primary-700);
 `;
