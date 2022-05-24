@@ -1,10 +1,11 @@
-import { useState, Children } from 'react';
+import { useState } from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import { Container } from '../../styles/Container';
 import AvatarText from './AvatarText';
 import { QuoteSection, Wrapper, HeadingLx } from './Quote.styled';
 import SocialProofImg from '../SocialProof/SocialProofImg';
 import { socialProofData } from '../../data/socialProof';
+import Slider from './Slider';
 
 const Quote = () => {
         const [currentImg, setCurrentImg] = useState(0);
@@ -16,7 +17,7 @@ const Quote = () => {
         };
 
         const handleImgLeft = () => {
-                if (currentImg > 0) {
+                if (currentImg > socialProofData.length) {
                         setCurrentImg((prev) => prev - 1);
                 }
         };
@@ -39,7 +40,8 @@ const Quote = () => {
                                                         />
                                                 ))
                                         )} */}
-                                        <FiArrowLeft onClick={handleImgLeft} />
+
+                                        {/* <FiArrowLeft onClick={handleImgLeft} />
 
                                         <SocialProofImg
                                                 title={socialProofData[currentImg].title}
@@ -47,7 +49,8 @@ const Quote = () => {
                                                 logomark={socialProofData[currentImg].logomark}
                                         />
 
-                                        <FiArrowRight onClick={handleImgRigth} />
+                                        <FiArrowRight onClick={handleImgRigth} /> */}
+                                        <Slider />
                                 </QuoteSection>
                         </Container>
                 </Wrapper>

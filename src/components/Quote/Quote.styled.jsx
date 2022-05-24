@@ -36,3 +36,16 @@ export const Avatar = styled.img`
         width: 4rem;
         margin: 2rem 0 1rem 0;
 `;
+
+export const SliderStyled = styled.div`
+        margin: 0 1rem;
+        display: flex;
+        gap: 5rem;
+        align-items: center;
+        justify-content: space-between;
+
+        svg {
+                cursor: pointer;
+                stroke: var(--gray-500);
+        }
+`;
