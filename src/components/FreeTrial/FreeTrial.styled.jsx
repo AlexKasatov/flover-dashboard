@@ -9,6 +9,9 @@ export const TrialFrame = styled.div`
         padding: 2.5rem 1.5rem;
         display: flex;
         flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
         min-height: 212px;
         min-width: 343px;
         width: 100%;
@@ -18,13 +21,10 @@ export const TrialFrame = styled.div`
 
         @media (min-width: 768px) {
                 padding: 4rem;
-
                 flex-flow: row nowrap;
                 justify-content: space-between;
                 align-items: flex-start;
-
                 max-width: 1216px;
-
                 max-height: 343px;
         }
 `;
@@ -42,6 +42,7 @@ export const ButtonsFrame = styled.div`
         justify-content: center;
         align-items: center;
         @media (min-width: 768px) {
+                gap: 0.8rem;
                 flex-flow: row nowrap;
                 justify-content: center;
                 align-items: center;

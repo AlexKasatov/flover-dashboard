@@ -7,12 +7,26 @@ export const SubHeading = styled.h2`
         line-height: var(--text-lh-md);
 `;
 
+export const SubHeadingTextMd = styled(SubHeading)`
+        font-weight: var(--fw-normal);
+        color: var(--gray-500);
+        margin: 0;
+`;
+
 export const Heading = styled.h1`
         font-size: var(--display-sm);
         font-weight: var(--fw-semi-bold);
         color: ${({ theme }) => theme.fontColorBase};
         line-height: var(--display-sm);
         letter-spacing: var(--ls);
+`;
+
+export const HeadingTextLg = styled(Heading)`
+        font-size: var(--text-lg);
+        line-height: var(--text-lh-lg);
+        font-weight: var(--fw-medium);
+        letter-spacing: normal;
+        margin: 0;
 `;
 
 export const HeadingBase = styled(Heading)`
@@ -22,12 +36,15 @@ export const HeadingBase = styled(Heading)`
 `;
 
 export const SupportText = styled.p`
-
-        
-        font-size: var(--text-xl);
-        font-weight: var(--fw-normal);
         color: ${({ theme }) => theme.textBase};
-        line-height: var(--text-xl);
+        font-size: var(--text-lg);
+        line-height: var(--text-lg);
+        font-weight: var(--fw-normal);
+
+        @media (min-width: 1024px) {
+                font-size: var(--text-xl);
+                line-height: var(--text-xl);
+        }
 `;
 
 export const SupportTextBase = styled.p`
@@ -53,6 +70,7 @@ export const SupportSml = styled.p`
 `;
 
 export const HeaderPromo = styled(Heading)`
+        letter-spacing: normal;
         color: var(--primary-900);
         font-size: var(--display-sm);
         line-height: var(--display-sm);

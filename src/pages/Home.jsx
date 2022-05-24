@@ -5,6 +5,7 @@ import Hero from '../components/Hero/Hero';
 import Integration from '../components/Integration/Integration';
 import Metrix from '../components/Metric/Metrix';
 import SocialProof from '../components/SocialProof/SocialProof';
+import Quote from '../components/Quote/Quote';
 
 const Home = () => (
         <>
@@ -14,6 +15,7 @@ const Home = () => (
                 <Integration />
                 <Metrix />
                 <FreeTrial />
+                <Quote />
         </>
 );
 
