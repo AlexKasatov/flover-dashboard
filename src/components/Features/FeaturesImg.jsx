@@ -10,6 +10,6 @@ export const SectionImg = styled(HeroImg)`
         /* object-position: -20% 0; */
 `;
 
-const FeaturesImg = ({ img, alt }) => <SectionImg src={img} alt={alt} />;
+const FeaturesImg = ({ img, alt }) => <SectionImg src={img} alt={alt} loading="lazy" />;
 
 export default FeaturesImg;

@@ -4,7 +4,7 @@ import { FooterSection, FooterStyled, FooterContent, FooterRow, LogoFooter } fro
 import { footerData } from '../../data/footerData';
 import FooterList from './FooterList';
 import logo from '../../styles/img/LogoFooter.svg';
-import { SupportTextBase } from '../../styles/UI/Text';
+import { SupportTextBase, SupportText } from '../../styles/UI/Text';
 import Copy from './Copy';
 
 const Footer = () => (
@@ -14,7 +14,8 @@ const Footer = () => (
                                 <LogoFooter>
                                         <img src={logo} alt="symbol" />
                                         <SupportTextBase>
-                                                Design amazing digital experiences that create more happy in the world.
+                                                Design amazing digital experiences that <br /> create more happy in the
+                                                world.
                                         </SupportTextBase>
                                 </LogoFooter>
 
@@ -22,7 +23,7 @@ const Footer = () => (
                                         {Children.toArray(
                                                 footerData.map(({ title, body }) => (
                                                         <FooterSection>
-                                                                <h5>{title}</h5>
+                                                                <SupportTextBase>{title}</SupportTextBase>
                                                                 <ul>
                                                                         <FooterList body={body} />
                                                                 </ul>

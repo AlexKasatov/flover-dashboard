@@ -15,25 +15,39 @@ export const FooterSection = styled.section`
         align-items: flex-start;
 `;
 
-export const FooterLink = styled(LinkNav)``;
+export const FooterLink = styled(LinkNav)`
+        text-decoration: none;
+        font-weight: var(--fw-medium);
+        color: var(--gray-200);
 
-export const FooterListStyled = styled.li``;
+        &:hover {
+                color: var(--white);
+        }
+`;
+
+export const FooterListStyled = styled.li`
+        padding: 0.5rem 0;
+`;
 
 export const FooterContent = styled.section`
-        padding: 4rem 0;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 1rem;
+        padding: 3rem 0;
+        margin: 0 1rem;
+        @media (min-width: 1024px) {
+                padding: 4rem 0;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                align-items: flex-start;
+                gap: 1rem;
+        }
 `;
 
 export const FooterRow = styled.div`
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
         justify-content: space-between;
         align-items: flex-start;
-        gap: 2rem;
+        gap: 3rem;
 `;
 
 export const LogoFooter = styled.div`
@@ -56,9 +70,14 @@ export const CopyStyled = styled.section`
 `;
 
 export const CopyBlock = styled.div`
+        margin: 0 1rem;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-flow: column wrap;
+        @media (min-width: 768px) {
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+        }
 `;
 
 export const IconItem = styled.li`

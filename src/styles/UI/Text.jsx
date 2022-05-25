@@ -64,9 +64,10 @@ export const SupportText = styled.p`
 `;
 
 export const SupportTextBase = styled.p`
+        margin-bottom: 0;
         font-size: var(--text-md);
         font-weight: var(--fw-normal);
-        line-height: var(--text-md);
+        line-height: var(--text-lh-md);
         color: ${({ theme }) => theme.textBase};
 `;
 
