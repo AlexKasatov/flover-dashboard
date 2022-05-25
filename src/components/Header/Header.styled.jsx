@@ -78,12 +78,6 @@ export const RightNav = styled.nav`
         }
 `;
 
-// export const Logo = styled.div`
-//         font-size: var(--display-sm);
-//         font-weight: var(--fw-semi-bold);
-//         line-height: var(--display-sm);
-// `;
-
 export const Symbol = styled.img``;
 
 export const LogoType = styled.img`

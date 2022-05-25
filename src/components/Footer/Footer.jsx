@@ -1,13 +1,39 @@
-import React from 'react';
+import { Children } from 'react';
 import { Container } from '../../styles/Container';
-import { FooterStyled } from './Footer.styled';
+import { FooterSection, FooterStyled, FooterContent, FooterRow, LogoFooter } from './Footer.styled';
+import { footerData } from '../../data/footerData';
+import FooterList from './FooterList';
+import logo from '../../styles/img/LogoFooter.svg';
+import { SupportTextBase } from '../../styles/UI/Text';
+import Copy from './Copy';
 
 const Footer = () => (
-        <Container>
-                <span>
-                        <h4>Flover&copy; 2022 "FOOTER"</h4>
-                </span>
-        </Container>
+        <FooterStyled>
+                <Container>
+                        <FooterContent>
+                                <LogoFooter>
+                                        <img src={logo} alt="symbol" />
+                                        <SupportTextBase>
+                                                Design amazing digital experiences that create more happy in the world.
+                                        </SupportTextBase>
+                                </LogoFooter>
+
+                                <FooterRow>
+                                        {Children.toArray(
+                                                footerData.map(({ title, body }) => (
+                                                        <FooterSection>
+                                                                <h5>{title}</h5>
+                                                                <ul>
+                                                                        <FooterList body={body} />
+                                                                </ul>
+                                                        </FooterSection>
+                                                ))
+                                        )}
+                                </FooterRow>
+                        </FooterContent>
+                </Container>
+                <Copy> </Copy>
+        </FooterStyled>
 );
 
 export default Footer;

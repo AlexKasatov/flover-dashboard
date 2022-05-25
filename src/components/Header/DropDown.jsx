@@ -1,6 +1,5 @@
 import { Children } from 'react';
 import styled from 'styled-components';
-import { FiChevronDown } from 'react-icons/fi';
 import { LinkNav } from './Header.styled';
 
 export const DropDownStyled = styled.ul`

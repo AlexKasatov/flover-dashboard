@@ -13,7 +13,7 @@ export const CtaBtnMore = styled(BtnTerGrey)`
 `;
 
 export const Wrapper = styled.div`
-        margin: 6rem auto 0 auto;
+        margin: 6rem auto 6rem auto;
 `;
 
 export const CtaBlock = styled.section`
