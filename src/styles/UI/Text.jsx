@@ -68,7 +68,7 @@ export const SupportTextBase = styled.p`
         font-size: var(--text-md);
         font-weight: var(--fw-normal);
         line-height: var(--text-lh-md);
-        color: ${({ theme }) => theme.textBase};
+        color: ${({ theme }) => theme.text.headingSm};
 `;
 
 export const HeadingColor = styled.h2`

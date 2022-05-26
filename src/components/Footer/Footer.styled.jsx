@@ -4,7 +4,7 @@ import { SupportTextBase } from '../../styles/UI/Text';
 
 export const FooterStyled = styled.footer`
         margin: 0 auto;
-        background-color: var(--gray-800);
+        background-color: ${({ theme }) => theme.bgrndSection};
 `;
 
 export const FooterSection = styled.section`
@@ -18,10 +18,10 @@ export const FooterSection = styled.section`
 export const FooterLink = styled(LinkNav)`
         text-decoration: none;
         font-weight: var(--fw-medium);
-        color: var(--gray-200);
+        color: ${({ theme }) => theme.text.link};
 
         &:hover {
-                color: var(--white);
+                color: ${({ theme }) => theme.text.linkHover};
         }
 `;
 
@@ -52,9 +52,8 @@ export const FooterRow = styled.div`
 
 export const LogoFooter = styled.div`
         img {
-                svg {
-                        fill: var(--gray-100);
-                }
+                filter: ${({ theme }) => theme.invertedBack};
+                margin-bottom: 1rem;
         }
 `;
 
@@ -64,9 +63,10 @@ export const CopyText = styled(SupportTextBase)`
 `;
 
 export const CopyStyled = styled.section`
+        border-top: 0.5px solid var(--gray-300);
         padding: 3rem 0;
         margin: 0 auto;
-        background-color: var(--gray-900);
+        background-color: ${({ theme }) => theme.bgrndSection};
 `;
 
 export const CopyBlock = styled.div`
@@ -83,8 +83,8 @@ export const CopyBlock = styled.div`
 export const IconItem = styled.li`
         svg {
                 cursor: pointer;
-                fill: var(--gray-100);
-                stroke: var(--gray-900);
+                fill: ${({ theme }) => theme.fontColorBase};
+                stroke: ${({ theme }) => theme.bgrndSection};
                 stroke-width: 1;
         }
 `;

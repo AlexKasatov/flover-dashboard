@@ -4,7 +4,7 @@ import { FooterSection, FooterStyled, FooterContent, FooterRow, LogoFooter } fro
 import { footerData } from '../../data/footerData';
 import FooterList from './FooterList';
 import logo from '../../styles/img/LogoFooter.svg';
-import { SupportTextBase, SupportText } from '../../styles/UI/Text';
+import { SupportTextBase } from '../../styles/UI/Text';
 import Copy from './Copy';
 
 const Footer = () => (

@@ -161,10 +161,14 @@ export const DarkMode = {
                 secondary: 'var(--gray-700)',
         },
         inverted: 'invert(100%)',
+        invertedBack: 'invert(0)',
         text: {
+                link: 'var(--gray-200)',
+                linkHover: 'var(--gray-600)',
                 headingOnColor: 'var(--white)',
                 supportOnColor: 'var(--primary-200)',
                 subheading: 'var(--primary-300)',
+                headingSm: 'var(--gray-400)',
         },
         icon: {
                 wraperSm: 'var(--gray-700)',
@@ -187,10 +191,14 @@ export const LightMode = {
                 secondary: 'var(--gray-500)',
         },
         inverted: 'invert(0)',
+        invertedBack: 'invert(100%)',
         text: {
+                link: 'var(--gray-500)',
+                linkHover: 'var(--gray-600)',
                 headingOnColor: 'var(--primary-900)',
                 supportOnColor: 'var(--primary-700)',
                 subheading: 'var(--primary-700)',
+                headingSm: 'var(--gray-400)',
         },
         icon: {
                 wraperSm: 'var(--primary-100)',
