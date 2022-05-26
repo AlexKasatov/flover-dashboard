@@ -157,14 +157,16 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const DarkMode = {
+        bgrndSection: 'var(--gray-900)',
         fontColorBase: 'var(--gray-100)',
         textBase: 'var(--white)',
         textBaseHover: 'var(--primary-300)',
-        backgroundColor: 'var(--gray-900)',
+        backgroundColor: 'var(--gray-800)',
         bcPopUp: 'var(--gray-800)',
 };
 
 export const LightMode = {
+        bgrndSection: 'var(--gray-50)',
         fontColorBase: 'var(--gray-900)',
         textBase: 'var(--gray-500)',
         textBaseHover: 'var(--gray-600)',

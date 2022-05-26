@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Container } from '../../styles/Container';
 
 export const MainWrapper = styled.main`
-        background-color: var(--white);
+        background-color: ${({ theme }) => theme.backgroundColor};
 `;
 
 // HERE RENDER ALL CONTENT

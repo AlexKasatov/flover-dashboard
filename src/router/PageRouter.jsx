@@ -6,6 +6,7 @@ import About from '../pages/About';
 import Home from '../pages/Home';
 
 const PageRouter = () => (
+        // ! Change BrowserRouter to HashRouter to enable hash routing for github pages
         <BrowserRouter>
                 <Routes>
                         <Route path="/" element={<Layout />}>

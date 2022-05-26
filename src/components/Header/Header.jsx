@@ -29,7 +29,7 @@ const Header = () => {
 
         // dosen't dispay burger menu on desktop
         const burgerMenuDisplay = useMedia(['(min-width: 1024px)'], ['none']);
-        const burgerMenuStyle = { display: burgerMenuDisplay };
+        const burgerMenuStyle = { display: burgerMenuDisplay, stroke: mode === 'light' ? 'black' : 'white' };
 
         // dosen't dispay header's btns (login & sing up)  on mobile
         const navButtonDisplay = useMedia(['(min-width: 768px)', '(min-width: 320px)'], ['inline-block', 'none']);

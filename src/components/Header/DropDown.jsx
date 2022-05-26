@@ -5,7 +5,7 @@ import { LinkNav } from './Header.styled';
 export const DropDownStyled = styled.ul`
         box-shadow: var(--shadow-lg);
         border-radius: var(--radii);
-        background-color: ${({ theme }) => theme.bcPopUp};
+        background-color: ${({ theme }) => theme.bgrndSection};
         position: absolute;
         display: block;
         z-index: 1;
