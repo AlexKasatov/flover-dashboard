@@ -19,9 +19,9 @@ export const NavDropDownButton = styled.button`
         font-weight: var(--fw-medium);
         color: ${({ theme }) => theme.textBase};
 
-        &:hover {
+        /* &:hover {
                 color: ${({ theme }) => theme.textBaseHover};
-        }
+        } */
 `;
 
 const NavList = ({ item }) => {

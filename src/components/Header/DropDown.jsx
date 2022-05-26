@@ -31,9 +31,6 @@ export const Subtitle = styled.h4`
         font-weight: var(--fw-normal);
         line-height: var(--text-lh-sm);
         margin: 0.6rem 0;
-        &:hover {
-                color: ${({ theme }) => theme.textBase};
-        }
 `;
 
 export const Wrapper = styled.div``;

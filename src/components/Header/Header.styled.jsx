@@ -21,7 +21,7 @@ export const HeaderStyled = styled.header`
                 align-items: center;
                 cursor: pointer;
 
-                *:hover {
+                & button:hover {
                         color: ${({ theme }) => theme.textBaseHover};
                 }
                 & svg {
