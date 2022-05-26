@@ -20,3 +20,7 @@ export const Wrapper = styled.div`
                 transform: scale(0.9);
         }
 `;
+
+export const LogoTypeInverted = styled.img`
+        filter: ${({ theme }) => theme.inverted};
+`;

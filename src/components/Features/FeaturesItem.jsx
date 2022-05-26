@@ -6,13 +6,14 @@ const Wrapper = styled.div`
         display: flex;
         flex-direction: row nowrap;
         align-items: center;
+        padding: 0.7rem 0;
 `;
 
 const Icon = styled.img``;
 
 const IconWrapper = styled.div`
         display: flex;
-        background-color: var(--primary-100);
+        background-color: ${({ theme }) => theme.icon.wraperSm};
         border-radius: 50%;
         justify-content: center;
         align-items: center;

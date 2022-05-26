@@ -8,11 +8,11 @@ const IconWrapper = styled.div`
         width: 3rem;
         text-align: center;
         border-radius: 333px;
-        background-color: var(--primary-100);
-        outline: 8px solid var(--primary-50);
+        background-color: ${({ theme }) => theme.icon.wraperMd};
+        outline: 8px solid ${({ theme }) => theme.icon.outline};
         padding: 1rem;
         svg {
-                stroke: var(--primary-600);
+                stroke: ${({ theme }) => theme.icon.color};
         }
         margin-bottom: 1.5rem;
 `;

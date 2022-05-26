@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SubHeading = styled.h2`
         font-size: var(--text-md);
         font-weight: var(--fw-semi-bold);
-        color: var(--primary-700);
+        color: ${({ theme }) => theme.text.subheading};
         line-height: var(--text-lh-md);
 `;
 
@@ -64,7 +64,7 @@ export const SupportText = styled.p`
 `;
 
 export const SupportTextBase = styled.p`
-        margin-bottom: 0;
+        margin: 0;
         font-size: var(--text-md);
         font-weight: var(--fw-normal);
         line-height: var(--text-lh-md);
@@ -88,11 +88,11 @@ export const SupportSml = styled.p`
 
 export const HeaderPromo = styled(Heading)`
         letter-spacing: normal;
-        color: var(--primary-900);
+        color: ${({ theme }) => theme.text.headingOnColor};
         font-size: var(--display-sm);
         line-height: var(--display-sm);
 `;
 
 export const SupportTextColor = styled(SupportText)`
-        color: var(--primary-700);
+        color: ${({ theme }) => theme.text.supportOnColor};
 `;

@@ -16,7 +16,7 @@ export const TrialFrame = styled.div`
         min-width: 343px;
         width: 100%;
         height: 100%;
-        background-color: var(--primary-50);
+        background-color: ${({ theme }) => theme.blockElement};
         border-radius: var(--radii-1);
 
         @media (min-width: 768px) {
@@ -60,6 +60,7 @@ export const BtnActive = styled(BtnPrimary)`
 `;
 
 export const BtnMore = styled(BtnTerGrey)`
+        color: ${({ theme }) => theme.btn.secondary};
         min-width: 295px;
         width: 100%;
         border: 1px solid var(--gray-300);

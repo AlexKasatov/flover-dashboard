@@ -157,6 +157,23 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const DarkMode = {
+        btn: {
+                secondary: 'var(--gray-700)',
+        },
+        inverted: 'invert(100%)',
+        text: {
+                headingOnColor: 'var(--white)',
+                supportOnColor: 'var(--primary-200)',
+                subheading: 'var(--primary-300)',
+        },
+        icon: {
+                wraperSm: 'var(--gray-700)',
+                wraperMd: 'var(--gray-600)',
+                outline: 'var(--gray-700)',
+                color: 'var(--white)',
+        },
+        iconWraper: 'var(--gray-700)',
+        blockElement: 'var(--primary-800)',
         bgrndSection: 'var(--gray-900)',
         fontColorBase: 'var(--gray-100)',
         textBase: 'var(--white)',
@@ -166,6 +183,24 @@ export const DarkMode = {
 };
 
 export const LightMode = {
+        btn: {
+                secondary: 'var(--gray-500)',
+        },
+        inverted: 'invert(0)',
+        text: {
+                headingOnColor: 'var(--primary-900)',
+                supportOnColor: 'var(--primary-700)',
+                subheading: 'var(--primary-700)',
+        },
+        icon: {
+                wraperSm: 'var(--primary-100)',
+                wraperMd: 'var(--primary-100)',
+                outline: 'var(--primary-50)',
+                color: 'var(--primary-600)',
+        },
+        iconWraper: 'var(--primary-100)',
+
+        blockElement: 'var(--primary-50)',
         bgrndSection: 'var(--gray-50)',
         fontColorBase: 'var(--gray-900)',
         textBase: 'var(--gray-500)',
