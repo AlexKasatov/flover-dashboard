@@ -13,6 +13,10 @@ export const FooterSection = styled.section`
         flex-flow: column nowrap;
         justify-content: flex-start;
         align-items: flex-start;
+
+        /* p {
+                margin-bottom: 1rem;
+        } */
 `;
 
 export const FooterLink = styled(LinkNav)`
@@ -51,6 +55,7 @@ export const FooterRow = styled.div`
 `;
 
 export const LogoFooter = styled.div`
+        margin-bottom: 2rem;
         img {
                 filter: ${({ theme }) => theme.invertedBack};
                 margin-bottom: 1rem;
@@ -58,8 +63,12 @@ export const LogoFooter = styled.div`
 `;
 
 export const CopyText = styled(SupportTextBase)`
-        margin: 0;
+        margin-bottom: 1rem;
+
         color: var(--gray-400);
+        @media (min-width: 1024px) {
+                margin: 0;
+        }
 `;
 
 export const CopyStyled = styled.section`
