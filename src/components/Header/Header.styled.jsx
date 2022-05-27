@@ -69,6 +69,7 @@ export const RightNav = styled.nav`
         padding: 0 1rem;
         margin-left: 1rem;
         display: flex;
+        flex-flow: row wrap;
         justify-content: space-around;
         align-items: center;
 

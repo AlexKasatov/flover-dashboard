@@ -10,8 +10,9 @@ export const MobileNav = styled.nav`
         box-shadow: var(--shadow-lg);
         border-radius: var(--radii);
         max-width: var(--container-sm);
-        margin: 30px auto;
-        display: sticky;
+
+        top: 0;
+        display: absolute;
         transition: all 0.3s ease-in-out;
         height: 100vh;
         @media (min-width: 1024px) {

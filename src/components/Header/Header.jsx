@@ -43,61 +43,55 @@ const Header = () => {
         const navMobileStyle = { height: !toggleBurger ? '0' : 'auto' };
 
         return (
-                <>
-                        <HeaderStyled>
-                                <Container>
-                                        <Wrapper>
-                                                <LeftNav />
-                                                <RightNav>
-                                                        {mode === 'light' ? (
-                                                                <FiMoon
-                                                                        style={moonStyle}
-                                                                        size={24}
-                                                                        onClick={toggleTheme}
-                                                                        type="button"
-                                                                        onMouseEnter={() =>
-                                                                                setFill('var(--primary-600)')
-                                                                        }
-                                                                        onMouseLeave={() => setFill('none')}
-                                                                />
-                                                        ) : (
-                                                                <FiSun
-                                                                        style={sunStyle}
-                                                                        size={24}
-                                                                        onClick={toggleTheme}
-                                                                        type="button"
-                                                                        onMouseEnter={() =>
-                                                                                setFill('var(--primary-600)')
-                                                                        }
-                                                                        onMouseLeave={() => setFill('none')}
-                                                                />
-                                                        )}
+                <HeaderStyled>
+                        <Container>
+                                <Wrapper>
+                                        <LeftNav />
+                                        <RightNav>
+                                                {mode === 'light' ? (
+                                                        <FiMoon
+                                                                style={moonStyle}
+                                                                size={24}
+                                                                onClick={toggleTheme}
+                                                                type="button"
+                                                                onMouseEnter={() => setFill('var(--primary-600)')}
+                                                                onMouseLeave={() => setFill('none')}
+                                                        />
+                                                ) : (
+                                                        <FiSun
+                                                                style={sunStyle}
+                                                                size={24}
+                                                                onClick={toggleTheme}
+                                                                type="button"
+                                                                onMouseEnter={() => setFill('var(--primary-600)')}
+                                                                onMouseLeave={() => setFill('none')}
+                                                        />
+                                                )}
 
-                                                        <BtnTerGrey style={navButtonStyle} type="button">
-                                                                Log In
-                                                        </BtnTerGrey>
-                                                        <BtnPrimary style={navButtonStyle} type="button">
-                                                                Sign Up
-                                                        </BtnPrimary>
-                                                        {!toggleBurger ? (
-                                                                <FiMenu
-                                                                        onClick={handleToggleBurger}
-                                                                        size={24}
-                                                                        style={burgerMenuStyle}
-                                                                />
-                                                        ) : (
-                                                                <FiX
-                                                                        onClick={handleToggleBurger}
-                                                                        size={24}
-                                                                        style={burgerMenuStyle}
-                                                                />
-                                                        )}
-                                                </RightNav>
-                                        </Wrapper>
-                                </Container>
-                        </HeaderStyled>
-                        {toggleBurger && <NavMobile navStyle={navMobileStyle} />}
-                </>
+                                                <BtnTerGrey style={navButtonStyle} type="button">
+                                                        Log In
+                                                </BtnTerGrey>
+                                                <BtnPrimary style={navButtonStyle} type="button">
+                                                        Sign Up
+                                                </BtnPrimary>
+                                                {!toggleBurger ? (
+                                                        <FiMenu
+                                                                onClick={handleToggleBurger}
+                                                                size={24}
+                                                                style={burgerMenuStyle}
+                                                        />
+                                                ) : (
+                                                        <FiX
+                                                                onClick={handleToggleBurger}
+                                                                size={24}
+                                                                style={burgerMenuStyle}
+                                                        />
+                                                )}
+                                        </RightNav>
+                                </Wrapper>
+                                {toggleBurger && <NavMobile navStyle={navMobileStyle} />}
+                        </Container>
+                </HeaderStyled>
         );
 };
 
