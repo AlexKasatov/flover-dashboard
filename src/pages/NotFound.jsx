@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const NotFound = () => {
         const navigate = useNavigate();
-        const handlgeBack = () => {
+        const handleBack = () => {
                 navigate(-1);
         };
 
@@ -23,10 +23,10 @@ const NotFound = () => {
                 <Wrapper>
                         <SectionHeader
                                 heading="Page not found..."
-                                support="Sorry, the page you are looking for doesn't exist or has been moved. Try searching our site"
+                                support="Sorry, the page you are looking for doesn't exist or has been moved."
                                 subheading="404 error"
                         />
-                        <BtnActive onClick={handlgeBack}>Back</BtnActive>
+                        <BtnActive onClick={handleBack}>Back</BtnActive>
                         <img src={error} alt="error" />
                 </Wrapper>
         );
