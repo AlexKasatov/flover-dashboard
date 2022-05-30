@@ -7,7 +7,7 @@ import Home from '../pages/Home';
 
 const PageRouter = () => (
         // ! Change BrowserRouter to HashRouter to enable hash routing for github pages
-        <BrowserRouter>
+        <HashRouter>
                 <Routes>
                         <Route path="/" element={<Layout />}>
                                 <Route path="/about" replace={false} element={<About />} />
@@ -15,7 +15,7 @@ const PageRouter = () => (
                                 <Route path="/" replace={false} element={<Home />} />
                         </Route>
                 </Routes>
-        </BrowserRouter>
+        </HashRouter>
 );
 
 export default PageRouter;

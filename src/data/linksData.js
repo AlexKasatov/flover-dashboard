@@ -91,42 +91,39 @@ export const burgerMainLinks = [
         },
 ];
 export const burgerSecondaryLinks = [
-        [
-                {
-                        title: 'About',
-                        url: '/about',
-                },
-                {
-                        title: 'Press',
-                        url: '/press',
-                },
-                {
-                        title: 'Careers',
-                        url: '/careers',
-                },
-                {
-                        title: 'Legal',
-                        url: '/legal',
-                },
-        ],
-        [
-                {
-                        title: 'Support',
-                        url: '/support',
-                },
-                {
-                        title: 'Contact',
-                        url: '/contact',
-                },
-                {
-                        title: 'Sitemap',
-                        url: '/sitemap',
-                },
-                {
-                        title: 'Cookie settings',
-                        url: '/cookie-settings',
-                },
-        ],
+        {
+                title: 'About',
+                url: '/about',
+        },
+        {
+                title: 'Press',
+                url: '/press',
+        },
+        {
+                title: 'Careers',
+                url: '/careers',
+        },
+        {
+                title: 'Legal',
+                url: '/legal',
+        },
+
+        {
+                title: 'Support',
+                url: '/support',
+        },
+        {
+                title: 'Contact',
+                url: '/contact',
+        },
+        {
+                title: 'Sitemap',
+                url: '/sitemap',
+        },
+        {
+                title: 'Cookie settings',
+                url: '/cookie-settings',
+        },
 ];
 
 export const productItems = [

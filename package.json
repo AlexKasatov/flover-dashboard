@@ -1,6 +1,6 @@
 {
-  "homepage": "https://alexkasatov.github.io",
-  "name": "dashboard-app",
+  "name": "flower-app",
+  "homepage": "https://alexkasatov.github.io/dashboard-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

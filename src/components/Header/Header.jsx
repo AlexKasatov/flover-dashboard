@@ -89,7 +89,9 @@ const Header = () => {
                                                 )}
                                         </RightNav>
                                 </Wrapper>
-                                {toggleBurger && <NavMobile navStyle={navMobileStyle} />}
+                                {toggleBurger && (
+                                        <NavMobile handleToggleBurger={handleToggleBurger} navStyle={navMobileStyle} />
+                                )}
                         </Container>
                 </HeaderStyled>
         );
