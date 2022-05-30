@@ -1,7 +1,4 @@
 import { Children } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
-import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
 import { LinkNav } from './Header.styled';
 import { burgerMainLinks, burgerSecondaryLinks } from '../../data/linksData';
 import {
@@ -18,49 +15,50 @@ import {
 } from './NavMobile.styled';
 import { Container } from '../../styles/Container';
 
-const NavMobile = ({ navStyle }) => (
-        <MobileNav style={navStyle}>
-                <Wrapper>
-                        <NavListFlex>
+const NavMobile = ({ navStyle, handleToggleBurger }) => {
+        const handleCloseBurger = () => {
+                handleToggleBurger();
+        };
+
+        return (
+                <MobileNav style={navStyle}>
+                        <Wrapper>
                                 <Container>
-                                        {Children.toArray(
-                                                burgerMainLinks.map(({ title, url, icon }) => (
-                                                        <NavListItem>
-                                                                <LinkNavMob to={url}>{title}</LinkNavMob>
-                                                                {icon}
-                                                        </NavListItem>
-                                                ))
-                                        )}
+                                        <NavListFlex>
+                                                {Children.toArray(
+                                                        burgerMainLinks.map(({ title, url, icon }) => (
+                                                                <NavListItem>
+                                                                        <LinkNavMob
+                                                                                onClick={handleCloseBurger}
+                                                                                to={url}
+                                                                        >
+                                                                                {title}
+                                                                        </LinkNavMob>
+                                                                        {icon}
+                                                                </NavListItem>
+                                                        ))
+                                                )}
+                                        </NavListFlex>
+
+                                        <NavListGrid>
+                                                {Children.toArray(
+                                                        burgerSecondaryLinks.map(({ title, url }) => (
+                                                                <NavGridItem>
+                                                                        <LinkNav onClick={handleCloseBurger} to={url}>
+                                                                                {title}
+                                                                        </LinkNav>
+                                                                </NavGridItem>
+                                                        ))
+                                                )}
+                                        </NavListGrid>
                                 </Container>
-                        </NavListFlex>
-                        <Container>
-                                <NavListGrid>
-                                        <ul>
-                                                {Children.toArray(
-                                                        burgerSecondaryLinks[0].map(({ title, url }) => (
-                                                                <NavGridItem>
-                                                                        <LinkNav to={url}>{title}</LinkNav>
-                                                                </NavGridItem>
-                                                        ))
-                                                )}
-                                        </ul>
-                                        <ul>
-                                                {Children.toArray(
-                                                        burgerSecondaryLinks[1].map(({ title, url }) => (
-                                                                <NavGridItem>
-                                                                        <LinkNav to={url}>{title}</LinkNav>
-                                                                </NavGridItem>
-                                                        ))
-                                                )}
-                                        </ul>
-                                </NavListGrid>
-                        </Container>
-                        <NavBtnList>
-                                <BtnLogin>Login</BtnLogin>
-                                <BtnSignup>Sign up</BtnSignup>
-                        </NavBtnList>
-                </Wrapper>
-        </MobileNav>
-);
+                                <NavBtnList>
+                                        <BtnLogin>Login</BtnLogin>
+                                        <BtnSignup>Sign up</BtnSignup>
+                                </NavBtnList>
+                        </Wrapper>
+                </MobileNav>
+        );
+};
 
 export default NavMobile;
