@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BtnMore } from '../../components/FreeTrial/FreeTrial.styled';
 import { BtnMain } from '../../components/Integration/Integration.styled';
 
 export const Wrapper = styled.section`
@@ -69,5 +70,15 @@ export const LoginForm = styled.form`
 `;
 
 export const LoginBtn = styled(BtnMain)`
+        margin-top: 1.5rem;
         min-width: 343px;
+`;
+export const LoginIcon = styled(BtnMore)`
+        margin-top: 1rem;
+        vertical-align: middle;
+        min-width: 343px;
+        img {
+                vertical-align: middle;
+                padding-right: 0.5rem;
+        }
 `;

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
-import { Wrapper, LoginBlock, LoginText, LoginForm, LoginBtn } from './Login.styled';
+import { Wrapper, LoginBlock, LoginText, LoginForm, LoginBtn, LoginIcon } from './Login.styled';
+import googleIcon from '../../styles/img/auth/google.svg';
 
 const LogIn = () => {
         const {
@@ -50,13 +50,11 @@ const LogIn = () => {
                                                                 })}
                                                         />
                                                 </label>
-
                                                 {errors?.email && (
                                                         <TextErrorSm>
                                                                 {errors?.email?.message || 'Hm... something went wrong'}
                                                         </TextErrorSm>
                                                 )}
-
                                                 <label htmlFor="password">
                                                         Password
                                                         <input
@@ -68,15 +66,18 @@ const LogIn = () => {
                                                                 })}
                                                         />
                                                 </label>
-
                                                 {errors?.password && (
                                                         <TextErrorSm>
                                                                 {errors?.password?.message ||
                                                                         'Hm... something went wrong'}
                                                         </TextErrorSm>
                                                 )}
-
                                                 <LoginBtn type="submit">Sign In</LoginBtn>
+
+                                                <LoginIcon type="button">
+                                                        <img src={googleIcon} alt="google-icon" /> Sign in with Google
+                                                </LoginIcon>
+
                                                 <div>
                                                         <TextNormalSm>Don’t have an account?</TextNormalSm>
 
