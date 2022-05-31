@@ -1,21 +1,23 @@
 import { useEffect } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { Container } from '../../styles/Container';
-import {
-        HeadingBase,
-        HeadingCTA,
-        SupportText,
-        SupportTextColor,
-        TextErrorSm,
-        TextNormalSm,
-        LinkSmMd,
-} from '../../styles/UI/Text';
-import { Wrapper, LoginBlock, LoginText, LoginForm } from './Login.styled';
-import { BtnActive } from '../../components/FreeTrial/FreeTrial.styled';
-import { LinkNav } from '../../components/Header/Header.styled';
-import { BtnMain } from '../../components/Integration/Integration.styled';
+import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
+import { Wrapper, LoginBlock, LoginText, LoginForm, LoginBtn } from './Login.styled';
 
 const LogIn = () => {
+        const {
+                register,
+                formState: { errors, isValid },
+                handleSubmit,
+                reset,
+        } = useForm({ mode: 'onBlur' });
+
+        const onSubmit = (data) => {
+                console.log(JSON.stringify(data));
+                reset();
+        };
+
         useEffect(() => {
                 window.scrollTo(0, 0);
         }, []);
@@ -26,26 +28,55 @@ const LogIn = () => {
                                 <LoginBlock>
                                         <LoginText>
                                                 <h1>🔐</h1>
-                                                <HeadingCTA>Log in to your account</HeadingCTA>
-                                                <SupportText>Welcome back! Please enter your details.</SupportText>
+                                                <HeadingSmSbBase>Log in to your account</HeadingSmSbBase>
+                                                <SubHeadTextMdNorm style={{ margin: '1rem 0 3rem 0' }}>
+                                                        Welcome back! Please enter your details.
+                                                </SubHeadTextMdNorm>
                                         </LoginText>
 
-                                        <LoginForm>
+                                        <LoginForm onSubmit={handleSubmit(onSubmit)}>
                                                 <label htmlFor="email">
                                                         Email
-                                                        <input type="email" id="email" placeholder="Enter your email" />
+                                                        <input
+                                                                type="email"
+                                                                id="email"
+                                                                placeholder="Enter your email"
+                                                                {...register('email', {
+                                                                        required: 'Email is required',
+                                                                        pattern: {
+                                                                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                                                                message: 'Invalid email address',
+                                                                        },
+                                                                })}
+                                                        />
                                                 </label>
 
-                                                <TextErrorSm>Error Message</TextErrorSm>
+                                                {errors?.email && (
+                                                        <TextErrorSm>
+                                                                {errors?.email?.message || 'Hm... something went wrong'}
+                                                        </TextErrorSm>
+                                                )}
 
                                                 <label htmlFor="password">
                                                         Password
-                                                        <input type="password" id="password" placeholder="••••••••" />
+                                                        <input
+                                                                type="password"
+                                                                id="password"
+                                                                placeholder="••••••••"
+                                                                {...register('password', {
+                                                                        required: 'Password is required',
+                                                                })}
+                                                        />
                                                 </label>
 
-                                                <TextErrorSm>Error Message</TextErrorSm>
+                                                {errors?.password && (
+                                                        <TextErrorSm>
+                                                                {errors?.password?.message ||
+                                                                        'Hm... something went wrong'}
+                                                        </TextErrorSm>
+                                                )}
 
-                                                <BtnMain type="submit">Sign In</BtnMain>
+                                                <LoginBtn type="submit">Sign In</LoginBtn>
                                                 <div>
                                                         <TextNormalSm>Don’t have an account?</TextNormalSm>
 

@@ -121,3 +121,27 @@ export const LinkSmMd = styled(Link)`
         line-height: var(--text-lg-sm);
         font-weight: var(--fw-medium);
 `;
+
+// ====== NEW-HEADINGS ========
+
+/* Display sm/Semibold  Gray/900 */
+export const HeadingSmSbBase = styled.h3`
+        margin: 0;
+        font-size: var(--display-sm);
+        font-weight: var(--fw-semi-bold);
+        line-height: var(--display-sm);
+        letter-spacing: var(--ls);
+        color: ${({ theme }) => theme.text.fontColorBase};
+`;
+
+// ====== NEW-SUB-HEADINGS ========
+
+/* Text md/Normal Gray/500 */
+export const SubHeadTextMdNorm = styled.h4`
+        margin: 0;
+        font-size: var(--text-md);
+        font-weight: var(--fw-semi-normal);
+        line-height: var(--text-lh-md);
+        letter-spacing: normal;
+        color: ${({ theme }) => theme.textBase};
+`;

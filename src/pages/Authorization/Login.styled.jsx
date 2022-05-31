@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BtnMain } from '../../components/Integration/Integration.styled';
 
 export const Wrapper = styled.section`
         margin: 5rem auto;
@@ -24,6 +25,7 @@ export const LoginForm = styled.form`
         align-items: center;
 
         label {
+                color: ${({ theme }) => theme.fontColorBase};
                 display: block;
                 font-size: var(--text-sm);
                 line-height: var(--text-lh-sm);
@@ -32,7 +34,7 @@ export const LoginForm = styled.form`
         }
 
         input {
-                color: ${({ theme }) => theme.textBase};
+                color: var(--gray-500);
                 font-size: var(--text-md);
                 line-height: var(--text-lh-md);
                 font-family: var(--ff);
@@ -50,7 +52,7 @@ export const LoginForm = styled.form`
         }
 
         input::placeholder {
-                color: ${({ theme }) => theme.textBase};
+                color: var(--gray-500);
                 font-size: var(--text-md);
                 line-height: var(--text-lh-md);
                 font-family: var(--ff);
@@ -64,4 +66,8 @@ export const LoginForm = styled.form`
                 justify-content: space-between;
                 gap: 0.5rem;
         }
+`;
+
+export const LoginBtn = styled(BtnMain)`
+        min-width: 343px;
 `;
