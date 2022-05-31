@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import { Container } from '../../styles/Container';
 import {
         HeadingBase,
@@ -8,47 +8,54 @@ import {
         SupportTextColor,
         TextErrorSm,
         TextNormalSm,
+        LinkSmMd,
 } from '../../styles/UI/Text';
 import { Wrapper, LoginBlock, LoginText, LoginForm } from './Login.styled';
 import { BtnActive } from '../../components/FreeTrial/FreeTrial.styled';
 import { LinkNav } from '../../components/Header/Header.styled';
+import { BtnMain } from '../../components/Integration/Integration.styled';
 
-const LogIn = () => (
-        <Wrapper>
-                <Container>
-                        <LoginBlock>
-                                <LoginText>
-                                        <h1>🔐</h1>
-                                        <HeadingCTA>Log in to your account</HeadingCTA>
-                                        <SupportText>Welcome back! Please enter your details.</SupportText>
-                                </LoginText>
+const LogIn = () => {
+        useEffect(() => {
+                window.scrollTo(0, 0);
+        }, []);
 
-                                <LoginForm>
-                                        <label htmlFor="email">
-                                                Email
-                                                <input type="email" id="email" placeholder="Enter your email" />
-                                        </label>
+        return (
+                <Wrapper>
+                        <Container>
+                                <LoginBlock>
+                                        <LoginText>
+                                                <h1>🔐</h1>
+                                                <HeadingCTA>Log in to your account</HeadingCTA>
+                                                <SupportText>Welcome back! Please enter your details.</SupportText>
+                                        </LoginText>
 
-                                        <TextErrorSm>Error Message</TextErrorSm>
+                                        <LoginForm>
+                                                <label htmlFor="email">
+                                                        Email
+                                                        <input type="email" id="email" placeholder="Enter your email" />
+                                                </label>
 
-                                        <label htmlFor="password">
-                                                Password
-                                                <input type="password" id="password" placeholder="••••••••" />
-                                        </label>
+                                                <TextErrorSm>Error Message</TextErrorSm>
 
-                                        <TextErrorSm>Error Message</TextErrorSm>
+                                                <label htmlFor="password">
+                                                        Password
+                                                        <input type="password" id="password" placeholder="••••••••" />
+                                                </label>
 
-                                        <BtnActive type="submit">Sign In</BtnActive>
-                                        <div>
-                                                <TextNormalSm>Don’t have an account?</TextNormalSm>
-                                                <Link to="/signup">
-                                                        <SupportTextColor>Sign Up</SupportTextColor>
-                                                </Link>
-                                        </div>
-                                </LoginForm>
-                        </LoginBlock>
-                </Container>
-        </Wrapper>
-);
+                                                <TextErrorSm>Error Message</TextErrorSm>
+
+                                                <BtnMain type="submit">Sign In</BtnMain>
+                                                <div>
+                                                        <TextNormalSm>Don’t have an account?</TextNormalSm>
+
+                                                        <LinkSmMd to="/signup">Sign Up</LinkSmMd>
+                                                </div>
+                                        </LoginForm>
+                                </LoginBlock>
+                        </Container>
+                </Wrapper>
+        );
+};
 
 export default LogIn;

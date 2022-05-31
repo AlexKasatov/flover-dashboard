@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const SubHeading = styled.h2`
         font-size: var(--text-md);
@@ -109,4 +110,14 @@ export const TextNormalSm = styled.p`
         font-weight: var(--fw-normal);
         line-height: var(--text-lh-sm);
         color: ${({ theme }) => theme.textBase};
+`;
+
+// ======== LINKS =============
+
+export const LinkSmMd = styled(Link)`
+        text-decoration: none;
+        color: ${({ theme }) => theme.text.supportOnColor};
+        font-size: var(--text-sm);
+        line-height: var(--text-lg-sm);
+        font-weight: var(--fw-medium);
 `;
