@@ -96,3 +96,17 @@ export const HeaderPromo = styled(Heading)`
 export const SupportTextColor = styled(SupportText)`
         color: ${({ theme }) => theme.text.supportOnColor};
 `;
+
+export const TextErrorSm = styled.p`
+        font-size: var(--text-sm);
+        font-weight: var(--fw-normal);
+        line-height: var(--text-lh-sm);
+        color: var(--error-500);
+`;
+
+export const TextNormalSm = styled.p`
+        font-size: var(--text-sm);
+        font-weight: var(--fw-normal);
+        line-height: var(--text-lh-sm);
+        color: ${({ theme }) => theme.textBase};
+`;

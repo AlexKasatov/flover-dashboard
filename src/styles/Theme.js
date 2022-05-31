@@ -123,7 +123,9 @@ export const GlobalStyle = createGlobalStyle`
                 --primary-800: #53389E;
                 --primary-900: #42307D;
 
-                /* TODO Add Warning, Error, Succes colors */
+                /* Error */
+
+                --error-500: #F04438;
 
 
 

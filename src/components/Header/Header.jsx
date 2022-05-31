@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import { useState, useMemo } from 'react';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import { useMode } from '../../hooks/useMode';
 import { HeaderStyled, Wrapper, RightNav } from './Header.styled';
 import { Container } from '../../styles/Container';
@@ -68,12 +69,18 @@ const Header = () => {
                                                         />
                                                 )}
 
-                                                <BtnTerGrey style={navButtonStyle} type="button">
-                                                        Log In
-                                                </BtnTerGrey>
-                                                <BtnPrimary style={navButtonStyle} type="button">
-                                                        Sign Up
-                                                </BtnPrimary>
+                                                <Link to="/login">
+                                                        <BtnTerGrey style={navButtonStyle} type="button">
+                                                                Log In
+                                                        </BtnTerGrey>
+                                                </Link>
+
+                                                <Link to="/signup">
+                                                        <BtnPrimary style={navButtonStyle} type="button">
+                                                                Sign Up
+                                                        </BtnPrimary>
+                                                </Link>
+
                                                 {!toggleBurger ? (
                                                         <FiMenu
                                                                 onClick={handleToggleBurger}
