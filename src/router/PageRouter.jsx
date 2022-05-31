@@ -1,21 +1,27 @@
-import React from 'react';
+import { Children } from 'react';
 import { Route, Routes, HashRouter, BrowserRouter } from 'react-router-dom';
 import Layout from './Layout';
 import NotFound from '../pages/NotFound';
 import About from '../pages/About';
 import Home from '../pages/Home';
+import { publicRoutes } from './routes';
 
 const PageRouter = () => (
         // ! Change BrowserRouter to HashRouter to enable hash routing for github pages
-        <HashRouter>
+        <BrowserRouter>
                 <Routes>
                         <Route path="/" element={<Layout />}>
-                                <Route path="/about" replace={false} element={<About />} />
+                                {Children.toArray(
+                                        publicRoutes.map(({ index, element, path, replace }) => (
+                                                <Route path={path} index={index} replace={replace} element={element} />
+                                        ))
+                                )}
+                                {/* <Route path="/about" replace={false} element={<About />} />
                                 <Route path="*" replace={false} element={<NotFound />} />
-                                <Route path="/" replace={false} element={<Home />} />
+                                <Route path="/" replace={false} element={<Home />} /> */}
                         </Route>
                 </Routes>
-        </HashRouter>
+        </BrowserRouter>
 );
 
 export default PageRouter;
