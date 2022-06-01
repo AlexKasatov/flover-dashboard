@@ -7,13 +7,6 @@ export const Wrapper = styled.section`
         height: 100vh;
 `;
 
-export const BtnWrapper = styled.div`
-        display: flex;
-        flex-direction: column nowrap;
-        justify-content: center;
-        align-items: center;
-`;
-
 export const LoginBlock = styled.div`
         display: flex;
         justify-content: center;
@@ -27,14 +20,14 @@ export const LoginText = styled.div`
 
 export const LoginForm = styled.form`
         max-height: 500px;
-        position: relative;
         display: flex;
         flex-flow: column wrap;
         justify-content: center;
+        align-items: center;
 
         label {
                 color: ${({ theme }) => theme.fontColorBase};
-
+                display: block;
                 font-size: var(--text-sm);
                 line-height: var(--text-lh-sm);
                 font-family: var(--ff);
@@ -51,12 +44,12 @@ export const LoginForm = styled.form`
                 margin-bottom: 1.5rem;
                 min-width: 343px;
                 min-height: 44px;
-                display: inline-block;
-
-                background-color: transparent;
+                display: block;
+                height: 100%;
                 padding: 0.6rem 0.8rem;
-                border: hidden;
-                outline: none;
+                border: 1px var(--gray-300) solid;
+                border-radius: var(--radii);
+                box-shadow: var(--shadow-xs);
         }
 
         input::placeholder {
@@ -74,32 +67,6 @@ export const LoginForm = styled.form`
                 justify-content: space-between;
                 gap: 0.5rem;
         }
-
-        i {
-                color: var(--gray-500);
-                margin-right: 0.5rem;
-                cursor: pointer;
-                vertical-align: middle;
-                padding-right: 0.5rem;
-                padding-bottom: 0.6rem;
-
-                &:hover {
-                        color: var(--gray-800);
-                }
-        }
-`;
-export const InputField = styled.div`
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: center;
-        border: 1px var(--gray-300) solid;
-        border-radius: var(--radii);
-        box-shadow: var(--shadow-xs);
-        max-height: 3.5rem;
-        min-width: 400px;
-        margin-top: 0.375rem;
-        margin-bottom: 1.5rem;
 `;
 
 export const LoginBtn = styled(BtnMain)`
