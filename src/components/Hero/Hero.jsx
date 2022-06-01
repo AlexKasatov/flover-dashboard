@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiPlayCircle } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import macbook from '../../styles/img/mac-hq-low.avif';
 import { Container } from '../../styles/Container';
 import {
@@ -28,7 +29,9 @@ const Hero = () => (
                                                         <FiPlayCircle size="20px" style={{ marginRight: '0.5rem' }} />
                                                         Demo
                                                 </Btn2xlbase>
-                                                <Btn2xlpmr>Sign Up</Btn2xlpmr>
+                                                <Link to="/signup">
+                                                        <Btn2xlpmr>Sign Up</Btn2xlpmr>
+                                                </Link>
                                         </ButtonWrapper>
                                 </div>
 

@@ -1,4 +1,5 @@
 import { Children } from 'react';
+import { Link } from 'react-router-dom';
 import { Container } from '../../styles/Container';
 import { HeadingCTA } from '../../styles/UI/Text';
 import { Wrapper, CtaBlock, CtaBlockTextButton, BtnBlock, CtaBtn, CtaBtnMore } from './CtaSection.styled';
@@ -18,7 +19,9 @@ const CtaSection = () => (
                                                                 <HeadingCTA>{heading}</HeadingCTA>
                                                                 <FeaturesList items={items} />
                                                                 <BtnBlock>
-                                                                        <CtaBtn>Get Started</CtaBtn>
+                                                                        <Link to="/signup">
+                                                                                <CtaBtn>Get Started</CtaBtn>
+                                                                        </Link>
                                                                         <CtaBtnMore>More Info</CtaBtnMore>
                                                                 </BtnBlock>
                                                         </CtaBlockTextButton>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container } from '../../styles/Container';
 import { HeaderPromo, SupportTextColor } from '../../styles/UI/Text';
 import { TrialWrapper, TrialFrame, ButtonsFrame, TextFrame, BtnActive, BtnMore } from './FreeTrial.styled';
@@ -16,7 +17,9 @@ const FreeTrial = () => (
                                 {/* subheading here */}
                                 <ButtonsFrame>
                                         <BtnMore>Learn more</BtnMore>
-                                        <BtnActive>Get Started</BtnActive>
+                                        <Link to="/signup">
+                                                <BtnActive>Get Started</BtnActive>
+                                        </Link>
                                 </ButtonsFrame>
                         </TrialFrame>
                 </Container>

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { Container } from '../../styles/Container';
@@ -14,7 +14,7 @@ const SignUp = () => {
 
         const {
                 register,
-                formState: { errors, isValid },
+                formState: { errors },
                 handleSubmit,
                 reset,
         } = useForm({ mode: 'onBlur' });
