@@ -40,7 +40,7 @@ export const InputBlock = styled.div`
         font-weight: var(--fw-normal);
         margin-top: 0.375rem;
         margin-bottom: 1.5rem;
-
+        background-color: var(--white);
         width: 100%;
         max-width: 343px;
         min-height: 44px;
