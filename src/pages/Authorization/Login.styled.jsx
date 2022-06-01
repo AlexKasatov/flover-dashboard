@@ -70,10 +70,18 @@ export const LoginForm = styled.form`
 `;
 
 export const LoginBtn = styled(BtnMain)`
+        margin: 0 auto;
         margin-top: 1.5rem;
         min-width: 343px;
+        max-width: 400px;
+        width: 100%;
 `;
 export const LoginIcon = styled(BtnMore)`
+        margin: 0 auto;
+        margin-top: 1.5rem;
+        min-width: 343px;
+        max-width: 400px;
+        width: 100%;
         margin-top: 1rem;
         vertical-align: middle;
         min-width: 343px;

@@ -4,6 +4,7 @@ import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { Wrapper, LoginBlock, LoginText, LoginForm, LoginBtn, LoginIcon } from './Login.styled';
 import googleIcon from '../../styles/img/auth/google.svg';
+import { SignUpForm, SignUpBlock, InputBlock } from './SignUp.styled';
 
 const SignUp = () => {
         const {
@@ -25,7 +26,7 @@ const SignUp = () => {
         return (
                 <Wrapper>
                         <Container>
-                                <LoginBlock>
+                                <SignUpBlock>
                                         <LoginText>
                                                 <h1>🔐</h1>
                                                 <HeadingSmSbBase>Create an account</HeadingSmSbBase>
@@ -34,9 +35,9 @@ const SignUp = () => {
                                                 </SubHeadTextMdNorm>
                                         </LoginText>
 
-                                        <LoginForm onSubmit={handleSubmit(onSubmit)}>
-                                                <label htmlFor="userName">
-                                                        User Name
+                                        <SignUpForm onSubmit={handleSubmit(onSubmit)}>
+                                                <label htmlFor="userName">User Name</label>
+                                                <InputBlock>
                                                         <input
                                                                 placeholder="Enter your user name"
                                                                 {...register('userName', {
@@ -47,15 +48,19 @@ const SignUp = () => {
                                                                         },
                                                                 })}
                                                         />
-                                                </label>
+                                                </InputBlock>
+
+                                                {/* ERROR MESSAGE */}
                                                 {errors?.userName && (
                                                         <TextErrorSm>
                                                                 {errors?.userName?.message ||
                                                                         'Hm... something went wrong'}
                                                         </TextErrorSm>
                                                 )}
-                                                <label htmlFor="password">
-                                                        Password
+
+                                                <label htmlFor="password">Password</label>
+
+                                                <InputBlock>
                                                         <input
                                                                 type="password"
                                                                 id="password"
@@ -64,13 +69,16 @@ const SignUp = () => {
                                                                         required: 'Password is required',
                                                                 })}
                                                         />
-                                                </label>
+                                                </InputBlock>
+
+                                                {/* ERROR MESSAGE */}
                                                 {errors?.password && (
                                                         <TextErrorSm>
                                                                 {errors?.password?.message ||
                                                                         'Hm... something went wrong'}
                                                         </TextErrorSm>
                                                 )}
+
                                                 <LoginBtn type="submit">Sign In</LoginBtn>
 
                                                 <LoginIcon type="button">
@@ -82,8 +90,8 @@ const SignUp = () => {
 
                                                         <LinkSmMd to="/signup">Sign Up</LinkSmMd>
                                                 </div>
-                                        </LoginForm>
-                                </LoginBlock>
+                                        </SignUpForm>
+                                </SignUpBlock>
                         </Container>
                 </Wrapper>
         );
