@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FiPlayCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import macbook from '../../styles/img/mac-hq-low.avif';
@@ -14,13 +15,40 @@ import {
         HeroBlock,
 } from './Hero.styled';
 
+const textAnimation = {
+        hidden: {
+                x: -200,
+                opacity: 0,
+        },
+        visible: (custom) => ({
+                x: 0,
+                opacity: 1,
+
+                transition: { delay: custom * 0.3 },
+        }),
+};
+
+const imgAnimation = {
+        hidden: {
+                y: 200,
+                opacity: 0,
+        },
+        visible: {
+                y: 0,
+                opacity: 1,
+                transition: { delay: 0.7, type: 'spring', stiffness: 100 },
+        },
+};
+
 const Hero = () => (
-        <HeroBlock>
+        <HeroBlock as={motion.header} initial="hidden" whileInView="visible">
                 <Container>
                         <HeroSection>
                                 <div>
-                                        <HeadingHero>Beautiful analytics to grow smarter</HeadingHero>
-                                        <SubHeadingHero>
+                                        <HeadingHero as={motion.h1} custom={1} variants={textAnimation}>
+                                                Beautiful analytics to grow smarter
+                                        </HeadingHero>
+                                        <SubHeadingHero as={motion.h2} custom={2} variants={textAnimation}>
                                                 Powerful, self-serve product and growth analytics to help you convert,
                                                 engage, and retain more users. Trusted by over 4,000 startups.
                                         </SubHeadingHero>
@@ -36,7 +64,13 @@ const Hero = () => (
                                 </div>
 
                                 <div>
-                                        <HeroImg src={macbook} alt="macbook" />
+                                        <HeroImg
+                                                as={motion.img}
+                                                custom={4}
+                                                variants={imgAnimation}
+                                                src={macbook}
+                                                alt="macbook"
+                                        />
                                 </div>
                         </HeroSection>
                 </Container>

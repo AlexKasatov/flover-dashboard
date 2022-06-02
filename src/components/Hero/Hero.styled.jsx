@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { BtnPrimary, ButtonBase } from '../../styles/UI/ButtonCTA';
 
 export const HeroBlock = styled.header`
-        margin: 4rem 0;
+        padding: 4rem 0;
 `;
 
 export const HeroSection = styled.section`
