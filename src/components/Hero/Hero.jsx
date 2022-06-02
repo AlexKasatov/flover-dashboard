@@ -1,4 +1,6 @@
-import React from 'react';
+/* eslint-disable react/display-name */
+import { motion } from 'framer-motion';
+import { forwardRef } from 'react';
 import { FiPlayCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import macbook from '../../styles/img/mac-hq-low.avif';
@@ -14,8 +16,19 @@ import {
         HeroBlock,
 } from './Hero.styled';
 
-const Hero = () => (
-        <HeroBlock>
+const textAnimation = {
+        hidden: {
+                x: -100,
+                opacity: 0,
+        },
+        visible: {
+                x: 0,
+                opacity: 0,
+        },
+};
+
+export const Hero = forwardRef((ref) => (
+        <HeroBlock ref={ref}>
                 <Container>
                         <HeroSection>
                                 <div>
@@ -41,6 +54,7 @@ const Hero = () => (
                         </HeroSection>
                 </Container>
         </HeroBlock>
-);
+));
 
-export default Hero;
+const MHero = motion(Hero);
+export default MHero;
