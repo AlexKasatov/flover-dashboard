@@ -30,8 +30,11 @@ const SignUp = () => {
                         // sing up user
                         singup(email, password);
                 }
-                navigate('/dashboard');
+
                 reset();
+
+                // redirect
+                // navigate('/dashboard');
         };
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
