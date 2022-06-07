@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
         // }, []);
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        const value = useMemo(() => ({ currentUser, isLoading, singup, login, logout }), [currentUser, isLoading]);
+        const value = useMemo(() => ({ currentUser, isLoading, singup, login, logout }), [currentUser]);
 
         return <AuthContext.Provider value={value}>{!isLoading && children}</AuthContext.Provider>;
 };
