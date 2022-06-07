@@ -1,13 +1,16 @@
 import { GlobalStyle } from './styles/Theme';
 import ContextProvider from './context';
 import PageRouter from './router/PageRouter';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
         return (
-                <ContextProvider>
-                        <GlobalStyle />
-                        <PageRouter />
-                </ContextProvider>
+                <AuthProvider>
+                        <ContextProvider>
+                                <GlobalStyle />
+                                <PageRouter />
+                        </ContextProvider>
+                </AuthProvider>
         );
 }
 

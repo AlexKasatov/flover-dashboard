@@ -4,7 +4,7 @@ import Layout from './Layout';
 import NotFound from '../pages/NotFound';
 import About from '../pages/About';
 import Home from '../pages/Home';
-import { publicRoutes } from './routes';
+import { publicRoutes, privateRoutes } from './routes';
 
 const PageRouter = () => (
         // ! Change BrowserRouter to HashRouter to enable hash routing for github pages
@@ -13,6 +13,12 @@ const PageRouter = () => (
                         <Route path="/" element={<Layout />}>
                                 {Children.toArray(
                                         publicRoutes.map(({ index, element, path, replace }) => (
+                                                <Route path={path} index={index} replace={replace} element={element} />
+                                        ))
+                                )}
+
+                                {Children.toArray(
+                                        privateRoutes.map(({ index, element, path, replace }) => (
                                                 <Route path={path} index={index} replace={replace} element={element} />
                                         ))
                                 )}
