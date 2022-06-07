@@ -8,9 +8,11 @@ import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
 import googleIcon from '../../styles/img/auth/google.svg';
 import { SignUpForm, SignUpBlock, InputBlock, ErrorBlock, Wrapper, TextSeparator } from './SignUp.styled';
 import { useToggle } from '../../hooks/useToggle';
+import { useAuth } from '../../context/AuthContext';
 
 const SignUp = () => {
         const [isVisible, setIsVisible] = useToggle();
+        const { curentUser, setCurentUser, registerUser } = useAuth();
 
         const {
                 register,
@@ -20,7 +22,12 @@ const SignUp = () => {
         } = useForm({ mode: 'onBlur' });
 
         const onSubmit = (data) => {
-                console.log(JSON.stringify(data));
+                console.log(data);
+                const email = 'test@gmail.com';
+                const password = '123456';
+                // console.log(JSON.stringify(data));
+                setCurentUser(JSON.stringify(data));
+                registerUser(email, password);
                 reset();
         };
         const toggleVisible = () => {

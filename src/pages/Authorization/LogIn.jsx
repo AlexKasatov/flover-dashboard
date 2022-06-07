@@ -8,9 +8,11 @@ import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
 import googleIcon from '../../styles/img/auth/google.svg';
 import { SignUpForm, SignUpBlock, InputBlock, ErrorBlock, Wrapper, TextSeparator } from './SignUp.styled';
 import { useToggle } from '../../hooks/useToggle';
+import { useAuth } from '../../context/AuthContext';
 
-const SignUp = () => {
+const Login = () => {
         const [isVisible, setIsVisible] = useToggle();
+        const { setCurentUser } = useAuth();
 
         const {
                 register,
@@ -21,6 +23,7 @@ const SignUp = () => {
 
         const onSubmit = (data) => {
                 console.log(JSON.stringify(data));
+                setCurentUser(data);
                 reset();
         };
         const toggleVisible = () => {
@@ -127,4 +130,4 @@ const SignUp = () => {
         );
 };
 
-export default SignUp;
+export default Login;

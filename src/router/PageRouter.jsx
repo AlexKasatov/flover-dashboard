@@ -1,9 +1,6 @@
 import { Children } from 'react';
 import { Route, Routes, HashRouter, BrowserRouter } from 'react-router-dom';
 import Layout from './Layout';
-import NotFound from '../pages/NotFound';
-import About from '../pages/About';
-import Home from '../pages/Home';
 import { publicRoutes, privateRoutes } from './routes';
 
 const PageRouter = () => (
