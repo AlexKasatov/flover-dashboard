@@ -4,6 +4,7 @@ import SignUp from '../pages/Authorization/SignUp';
 import NotFound from '../pages/NotFound';
 import UserProfile from '../app/pages/UserProfile';
 import RequireAuth from '../context/RequireAuth';
+import Dashboard from '../app/pages/Dashboard';
 
 export const publicRoutes = [
         { index: true, element: <Home />, replace: false },
@@ -15,10 +16,21 @@ export const publicRoutes = [
 export const privateRoutes = [
         {
                 index: false,
-                path: 'user/:id',
+                path: '/user',
                 element: (
                         <RequireAuth>
                                 <UserProfile />
+                        </RequireAuth>
+                ),
+                replace: false,
+        },
+
+        {
+                index: false,
+                path: '/dashboard',
+                element: (
+                        <RequireAuth>
+                                <Dashboard />
                         </RequireAuth>
                 ),
                 replace: false,

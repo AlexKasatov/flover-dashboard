@@ -1,5 +1,9 @@
-import React from 'react';
+import { useAuth } from '../../context/AuthContext';
 
-const UserProfile = () => <div>UserProfile Page</div>;
+const UserProfile = () => {
+        const { currentUser } = useAuth();
+
+        return currentUser && <div style={{ marginBottom: '10rem' }}>{currentUser?.email}</div>;
+};
 
 export default UserProfile;

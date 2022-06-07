@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
@@ -12,7 +13,8 @@ import { useAuth } from '../../context/AuthContext';
 
 const SignUp = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { curentUser, setCurentUser, registerUser } = useAuth();
+        const { currentUser, logout, singup } = useAuth();
+        const navigate = useNavigate();
 
         const {
                 register,
@@ -22,12 +24,13 @@ const SignUp = () => {
         } = useForm({ mode: 'onBlur' });
 
         const onSubmit = (data) => {
-                console.log(data);
-                const email = 'test@gmail.com';
-                const password = '123456';
-                // console.log(JSON.stringify(data));
-                setCurentUser(JSON.stringify(data));
-                registerUser(email, password);
+                const { email, password } = data;
+
+                if (data) {
+                        // sing up user
+                        singup(email, password);
+                }
+                navigate('/dashboard');
                 reset();
         };
         const toggleVisible = () => {
@@ -55,6 +58,12 @@ const SignUp = () => {
         return (
                 <Wrapper>
                         <Container>
+                                <h1>{currentUser?.email}</h1>
+                                <h1>{currentUser?.displayName}</h1>
+
+                                <button type="button" onClick={logout}>
+                                        LOGOUT
+                                </button>
                                 <SignUpBlock>
                                         <LoginText>
                                                 <h1>👋</h1>

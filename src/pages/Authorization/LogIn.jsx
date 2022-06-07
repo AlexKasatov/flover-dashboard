@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
@@ -12,7 +13,8 @@ import { useAuth } from '../../context/AuthContext';
 
 const Login = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { setCurentUser } = useAuth();
+        const { login } = useAuth();
+        const navigate = useNavigate();
 
         const {
                 register,
@@ -22,9 +24,12 @@ const Login = () => {
         } = useForm({ mode: 'onBlur' });
 
         const onSubmit = (data) => {
-                console.log(JSON.stringify(data));
-                setCurentUser(data);
+                const { email, password } = data;
+                if (email && password) {
+                        login(email, password);
+                }
                 reset();
+                navigate('/dashboard');
         };
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
