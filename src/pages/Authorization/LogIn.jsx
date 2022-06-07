@@ -29,9 +29,7 @@ const Login = () => {
                         login(email, password);
                 }
                 reset();
-
-                // redirect
-                // navigate('/dashboard');
+                navigate('/dashboard');
         };
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
