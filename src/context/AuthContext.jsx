@@ -12,13 +12,10 @@ export const AuthProvider = ({ children }) => {
 
         const singup = async (email, password) => {
                 try {
-                        setIsLoading(true);
                         const user = await createUserWithEmailAndPassword(auth, email, password);
                         console.log(user);
                 } catch (error) {
                         console.log(error.message);
-                } finally {
-                        setIsLoading(false);
                 }
         };
 
@@ -50,5 +47,5 @@ export const AuthProvider = ({ children }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         const value = useMemo(() => ({ currentUser, isLoading, singup, login, logout }), [currentUser]);
 
-        return <AuthContext.Provider value={value}>{!isLoading && children}</AuthContext.Provider>;
+        return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

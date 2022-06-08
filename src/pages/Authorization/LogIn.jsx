@@ -23,13 +23,13 @@ const Login = () => {
                 reset,
         } = useForm({ mode: 'onBlur' });
 
-        const onSubmit = (data) => {
-                const { email, password } = data;
+        const onSubmit = async (data) => {
+                const { email, password } = await data;
                 if (email && password) {
-                        login(email, password);
+                        await login(email, password);
                 }
-                reset();
-                navigate('/dashboard');
+                await reset();
+                await navigate('/dashboard');
         };
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);

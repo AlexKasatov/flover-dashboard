@@ -23,15 +23,15 @@ const SignUp = () => {
                 reset,
         } = useForm({ mode: 'onBlur' });
 
-        const onSubmit = (data) => {
-                const { email, password } = data;
+        const onSubmit = async (data) => {
+                const { email, password } = await data;
 
                 if (data) {
                         // sing up user
-                        singup(email, password);
+                        await singup(email, password);
                 }
-                navigate('/dashboard');
-                reset();
+                await reset();
+                await navigate('/dashboard');
         };
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
