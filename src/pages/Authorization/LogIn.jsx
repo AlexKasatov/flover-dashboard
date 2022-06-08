@@ -92,6 +92,7 @@ const Login = () => {
                                                 <InputBlock style={errorPasword}>
                                                         <input
                                                                 type={isVisible ? 'text' : 'password'}
+                                                                autoComplete="on"
                                                                 placeholder="••••••••"
                                                                 {...register('password', {
                                                                         required: 'Password is required',

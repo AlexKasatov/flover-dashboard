@@ -13,7 +13,7 @@ import { useAuth } from '../../context/AuthContext';
 
 const SignUp = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { currentUser, logout, singup } = useAuth();
+        const { currentUser, logout, singup, setIsLoading, setError } = useAuth();
         const navigate = useNavigate();
 
         const {
@@ -24,14 +24,19 @@ const SignUp = () => {
         } = useForm({ mode: 'onBlur' });
 
         const onSubmit = async (data) => {
-                const { email, password } = await data;
-
-                if (data) {
+                try {
+                        const { email, password } = await data;
                         // sing up user
-                        await singup(email, password);
+                        setIsLoading(true);
+                        if (email && password) {
+                                await singup(email, password);
+                        }
+                        await reset();
+                        await navigate('/dashboard');
+                } catch (error) {
+                        setError(error.message);
                 }
-                await reset();
-                await navigate('/dashboard');
+                setIsLoading(false);
         };
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
@@ -127,6 +132,7 @@ const SignUp = () => {
                                                 <InputBlock style={errorPasword}>
                                                         <input
                                                                 type={isVisible ? 'text' : 'password'}
+                                                                autoComplete="on"
                                                                 placeholder="••••••••"
                                                                 {...register('password', {
                                                                         required: 'Password is required',
