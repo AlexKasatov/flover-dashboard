@@ -10,10 +10,11 @@ import googleIcon from '../../styles/img/auth/google.svg';
 import { SignUpForm, SignUpBlock, InputBlock, ErrorBlock, Wrapper, TextSeparator } from './SignUp.styled';
 import { useToggle } from '../../hooks/useToggle';
 import { useAuth } from '../../context/AuthContext';
+import { SpinnerXl } from '../../styles/UI/Spinners';
 
 const Login = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { login } = useAuth();
+        const { login, isLoading } = useAuth();
         const navigate = useNavigate();
 
         const {
@@ -53,84 +54,89 @@ const Login = () => {
         return (
                 <Wrapper>
                         <Container>
-                                <SignUpBlock>
-                                        <LoginText>
-                                                <h1>🔐</h1>
-                                                <HeadingSmSbBase>Log in to your account</HeadingSmSbBase>
-                                                <SubHeadTextMdNorm style={{ margin: '1rem 0 3rem 0' }}>
-                                                        Welcome back! Please enter your details.
-                                                </SubHeadTextMdNorm>
-                                        </LoginText>
+                                {isLoading ? (
+                                        <SpinnerXl />
+                                ) : (
+                                        <SignUpBlock>
+                                                <LoginText>
+                                                        <h1>🔐</h1>
+                                                        <HeadingSmSbBase>Log in to your account</HeadingSmSbBase>
+                                                        <SubHeadTextMdNorm style={{ margin: '1rem 0 3rem 0' }}>
+                                                                Welcome back! Please enter your details.
+                                                        </SubHeadTextMdNorm>
+                                                </LoginText>
 
-                                        <SignUpForm onSubmit={handleSubmit(onSubmit)}>
-                                                {/* EMAIL */}
-                                                <label htmlFor="email">E-mail</label>
-                                                <InputBlock style={errorEmail}>
-                                                        <input
-                                                                placeholder="Enter your e-mail"
-                                                                {...register('email', {
-                                                                        required: 'User name is required',
-                                                                        pattern: {
-                                                                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                                                                message: 'Invalid email address',
-                                                                        },
-                                                                })}
-                                                        />
-                                                </InputBlock>
-                                                {/* ERROR MESSAGE */}
-                                                <ErrorBlock>
-                                                        {errors?.email && (
-                                                                <TextErrorSm>
-                                                                        {errors?.email?.message ||
-                                                                                'Hm... something went wrong'}
-                                                                </TextErrorSm>
-                                                        )}
-                                                </ErrorBlock>
-
-                                                {/* PASSWORD */}
-                                                <label htmlFor="password">Password</label>
-                                                <InputBlock style={errorPasword}>
-                                                        <input
-                                                                type={isVisible ? 'text' : 'password'}
-                                                                autoComplete="on"
-                                                                placeholder="••••••••"
-                                                                {...register('password', {
-                                                                        required: 'Password is required',
-                                                                })}
-                                                        />
-
-                                                        <i>
-                                                                {isVisible ? (
-                                                                        <FiEyeOff onClick={toggleVisible} />
-                                                                ) : (
-                                                                        <FiEye onClick={toggleVisible} />
+                                                <SignUpForm onSubmit={handleSubmit(onSubmit)}>
+                                                        {/* EMAIL */}
+                                                        <label htmlFor="email">E-mail</label>
+                                                        <InputBlock style={errorEmail}>
+                                                                <input
+                                                                        placeholder="Enter your e-mail"
+                                                                        {...register('email', {
+                                                                                required: 'User name is required',
+                                                                                pattern: {
+                                                                                        value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                                                                        message: 'Invalid email address',
+                                                                                },
+                                                                        })}
+                                                                />
+                                                        </InputBlock>
+                                                        {/* ERROR MESSAGE */}
+                                                        <ErrorBlock>
+                                                                {errors?.email && (
+                                                                        <TextErrorSm>
+                                                                                {errors?.email?.message ||
+                                                                                        'Hm... something went wrong'}
+                                                                        </TextErrorSm>
                                                                 )}
-                                                        </i>
-                                                </InputBlock>
-                                                {/* ERROR MESSAGE */}
-                                                <ErrorBlock>
-                                                        {errors?.password && (
-                                                                <TextErrorSm>
-                                                                        {errors?.password?.message ||
-                                                                                'Hm... something went wrong'}
-                                                                </TextErrorSm>
-                                                        )}
-                                                </ErrorBlock>
+                                                        </ErrorBlock>
 
-                                                {/* BUTTONS */}
-                                                <LoginBtn type="submit">Sign In</LoginBtn>
+                                                        {/* PASSWORD */}
+                                                        <label htmlFor="password">Password</label>
+                                                        <InputBlock style={errorPasword}>
+                                                                <input
+                                                                        type={isVisible ? 'text' : 'password'}
+                                                                        autoComplete="on"
+                                                                        placeholder="••••••••"
+                                                                        {...register('password', {
+                                                                                required: 'Password is required',
+                                                                        })}
+                                                                />
 
-                                                <LoginIcon type="button">
-                                                        <img src={googleIcon} alt="google-icon" /> Sign in with Google
-                                                </LoginIcon>
+                                                                <i>
+                                                                        {isVisible ? (
+                                                                                <FiEyeOff onClick={toggleVisible} />
+                                                                        ) : (
+                                                                                <FiEye onClick={toggleVisible} />
+                                                                        )}
+                                                                </i>
+                                                        </InputBlock>
+                                                        {/* ERROR MESSAGE */}
+                                                        <ErrorBlock>
+                                                                {errors?.password && (
+                                                                        <TextErrorSm>
+                                                                                {errors?.password?.message ||
+                                                                                        'Hm... something went wrong'}
+                                                                        </TextErrorSm>
+                                                                )}
+                                                        </ErrorBlock>
 
-                                                <TextSeparator>
-                                                        <TextNormalSm>Don’t have an account?</TextNormalSm>
+                                                        {/* BUTTONS */}
+                                                        <LoginBtn type="submit">Sign In</LoginBtn>
 
-                                                        <LinkSmMd to="/signup">Sign Up</LinkSmMd>
-                                                </TextSeparator>
-                                        </SignUpForm>
-                                </SignUpBlock>
+                                                        <LoginIcon type="button">
+                                                                <img src={googleIcon} alt="google-icon" /> Sign in with
+                                                                Google
+                                                        </LoginIcon>
+
+                                                        <TextSeparator>
+                                                                <TextNormalSm>Don’t have an account?</TextNormalSm>
+
+                                                                <LinkSmMd to="/signup">Sign Up</LinkSmMd>
+                                                        </TextSeparator>
+                                                </SignUpForm>
+                                        </SignUpBlock>
+                                )}
                         </Container>
                 </Wrapper>
         );
