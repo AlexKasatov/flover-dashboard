@@ -14,7 +14,7 @@ import { SpinnerXl } from '../../styles/UI/Spinners';
 
 const Login = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { login, isLoading, error } = useAuth();
+        const { login, isLoading, error, singUpWithGoogle } = useAuth();
         const navigate = useNavigate();
 
         const {
@@ -31,6 +31,12 @@ const Login = () => {
                         reset();
                 }
                 if (!error) navigate('/dashboard');
+        };
+
+        const googleSignIn = async () => {
+                singUpWithGoogle();
+                // eslint-disable-next-line no-unused-expressions
+                (await !error) && navigate('/dashboard');
         };
 
         const toggleVisible = () => {
@@ -123,9 +129,11 @@ const Login = () => {
                                                         </ErrorBlock>
 
                                                         {/* BUTTONS */}
-                                                        <LoginBtn type="submit">Sign In</LoginBtn>
+                                                        <LoginBtn onClick={googleSignIn} type="submit">
+                                                                Sign In
+                                                        </LoginBtn>
 
-                                                        <LoginIcon type="button">
+                                                        <LoginIcon onClick={singUpWithGoogle} type="button">
                                                                 <img src={googleIcon} alt="google-icon" /> Sign in with
                                                                 Google
                                                         </LoginIcon>

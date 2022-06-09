@@ -14,7 +14,7 @@ import { SpinnerXl } from '../../styles/UI/Spinners';
 
 const SignUp = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { currentUser, logout, singup, error, isLoading } = useAuth();
+        const { currentUser, logout, singup, error, isLoading, singUpWithGoogle } = useAuth();
         const navigate = useNavigate();
 
         const {
@@ -26,13 +26,20 @@ const SignUp = () => {
 
         const onSubmit = async (data) => {
                 const { email, password, userName } = data;
+                console.log('🚀 ~ file: SignUp.jsx ~ line 29 ~ onSubmit ~ data', data);
+
                 // sing up user
-                if (email && password) {
+                if (email && password && userName) {
                         singup(email, password, userName);
                 }
                 reset();
                 if (!error) navigate('/dashboard');
         };
+
+        const signUpWithGoogle = async () => {
+                singUpWithGoogle();
+        };
+
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
         };
@@ -162,7 +169,8 @@ const SignUp = () => {
                                                         {/* BUTTONS */}
                                                         <LoginBtn type="submit">Sign Up</LoginBtn>
 
-                                                        <LoginIcon type="button">
+                                                        {/* SIGN UP WITH GOOGLE OPEN POPUP */}
+                                                        <LoginIcon type="button" onClick={signUpWithGoogle}>
                                                                 <img src={googleIcon} alt="google-icon" /> Sign up with
                                                                 Google
                                                         </LoginIcon>
