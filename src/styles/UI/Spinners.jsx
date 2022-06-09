@@ -5,7 +5,7 @@ export const SpinnerXl = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 12rem auto;
+        margin: 20rem auto;
 
         width: 88px;
         height: 88px;
@@ -13,7 +13,7 @@ export const SpinnerXl = styled.div`
         background: radial-gradient(farthest-side, #6941c6 94%, #0000) top/14.1px 14.1px no-repeat,
                 conic-gradient(#0000 30%, #6941c6);
         -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 14.1px), #000 0);
-        animation: spinner-c7wet2 1.2s infinite linear;
+        animation: spinner-c7wet2 1.1s infinite linear;
 
         @keyframes spinner-c7wet2 {
                 100% {

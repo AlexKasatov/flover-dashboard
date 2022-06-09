@@ -14,7 +14,7 @@ import { SpinnerXl } from '../../styles/UI/Spinners';
 
 const Login = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { login, isLoading } = useAuth();
+        const { login, isLoading, setIsLoading, setError } = useAuth();
         const navigate = useNavigate();
 
         const {
@@ -25,12 +25,19 @@ const Login = () => {
         } = useForm({ mode: 'onBlur' });
 
         const onSubmit = async (data) => {
-                const { email, password } = await data;
-                if (email && password) {
-                        await login(email, password);
+                try {
+                        setIsLoading(true);
+                        const { email, password } = await data;
+                        if (email && password) {
+                                await login(email, password);
+                                await reset();
+                                await navigate('/dashboard');
+                        }
+                } catch (error) {
+                        setError(error);
+                } finally {
+                        setIsLoading(false);
                 }
-                await reset();
-                await navigate('/dashboard');
         };
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
