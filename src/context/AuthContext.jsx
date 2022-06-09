@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../firebase';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AuthContext = createContext();
 
@@ -13,16 +15,29 @@ export const AuthProvider = ({ children }) => {
         const [error, setError] = useState('');
 
         const singup = async (email, password) => {
-                const user = await createUserWithEmailAndPassword(auth, email, password);
-                console.log(user);
+                // const user = await createUserWithEmailAndPassword(auth, email, password);
+                try {
+                        await toast.promise(createUserWithEmailAndPassword(auth, email, password), {
+                                pending: 'Wait a sec...',
+                                success: `Hi, you're all set! 👌`,
+                        });
+                } catch (error) {
+                        toast.error(error.message.slice(10), {
+                                position: toast.POSITION.TOP_CENTER,
+                        });
+                }
         };
 
         const login = async (email, password) => {
                 try {
-                        const user = await signInWithEmailAndPassword(auth, email, password);
-                        console.log(user);
+                        await toast.promise(signInWithEmailAndPassword(auth, email, password), {
+                                pending: 'Wait a sec...',
+                                success: `Hi, you're logged in! 👌`,
+                        });
                 } catch (error) {
-                        console.log(error.message);
+                        toast.error(error.message.slice(10), {
+                                position: toast.POSITION.TOP_CENTER,
+                        });
                 }
         };
 
@@ -47,5 +62,20 @@ export const AuthProvider = ({ children }) => {
         //         [currentUser]
         // );
 
-        return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+        return (
+                <AuthContext.Provider value={value}>
+                        {children}
+                        <ToastContainer
+                                position="top-right"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                        />
+                </AuthContext.Provider>
+        );
 };

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
@@ -34,7 +35,9 @@ const Login = () => {
                                 await navigate('/dashboard');
                         }
                 } catch (error) {
-                        setError(error);
+                        // setError(error.message);
+                        // setIsLoading(false);
+                        // toast(error.message);
                 } finally {
                         setIsLoading(false);
                 }
