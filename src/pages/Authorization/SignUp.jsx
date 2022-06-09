@@ -25,10 +25,10 @@ const SignUp = () => {
         } = useForm({ mode: 'onBlur' });
 
         const onSubmit = async (data) => {
-                const { email, password } = data;
+                const { email, password, userName } = data;
                 // sing up user
                 if (email && password) {
-                        singup(email, password);
+                        singup(email, password, userName);
                 }
                 reset();
                 if (!error) navigate('/dashboard');

@@ -1,7 +1,13 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import uuid from 'react-uuid';
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import {
+        createUserWithEmailAndPassword,
+        onAuthStateChanged,
+        signInWithEmailAndPassword,
+        signOut,
+        updateProfile,
+} from 'firebase/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../firebase';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,17 +21,22 @@ export const AuthProvider = ({ children }) => {
         const [isLoading, setIsLoading] = useState(false);
         const [error, setError] = useState('');
 
-        const singup = async (email, password) => {
-                // const user = await createUserWithEmailAndPassword(auth, email, password);
-                
+        const singup = async (email, password, userName) => {
+                const { user } = createUserWithEmailAndPassword(auth, email, password);
+
                 try {
                         setIsLoading(true);
-                        await toast.promise(createUserWithEmailAndPassword(auth, email, password), {
+
+                        // ? Works with toast
+                        await toast.promise(user, {
                                 pending: 'Wait a sec...',
                                 success: `Hi, you're all set! 👌`,
                                 toastId: uuid(),
                         });
+
+                        console.log(currentUser);
                 } catch (error) {
+                        console.log(error);
                         setError(error);
                         toast.error(error.message.slice(10), {
                                 position: toast.POSITION.TOP_CENTER,
