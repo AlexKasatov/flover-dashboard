@@ -14,7 +14,7 @@ import { SpinnerXl } from '../../styles/UI/Spinners';
 
 const SignUp = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { currentUser, logout, singup, setIsLoading, setError, isLoading } = useAuth();
+        const { currentUser, logout, singup, error, isLoading } = useAuth();
         const navigate = useNavigate();
 
         const {
@@ -25,20 +25,13 @@ const SignUp = () => {
         } = useForm({ mode: 'onBlur' });
 
         const onSubmit = async (data) => {
-                try {
-                        const { email, password } = await data;
-                        // sing up user
-                        setIsLoading(true);
-                        if (email && password) {
-                                await singup(email, password);
-                        }
-                        await reset();
-                        await navigate('/dashboard');
-                } catch (error) {
-                        setError(error.message);
-                } finally {
-                        setIsLoading(false);
+                const { email, password } = data;
+                // sing up user
+                if (email && password) {
+                        singup(email, password);
                 }
+                reset();
+                if (!error) navigate('/dashboard');
         };
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);

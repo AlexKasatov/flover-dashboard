@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
@@ -15,7 +14,7 @@ import { SpinnerXl } from '../../styles/UI/Spinners';
 
 const Login = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { login, isLoading, setIsLoading, setError } = useAuth();
+        const { login, isLoading, error } = useAuth();
         const navigate = useNavigate();
 
         const {
@@ -25,23 +24,15 @@ const Login = () => {
                 reset,
         } = useForm({ mode: 'onBlur' });
 
-        const onSubmit = async (data) => {
-                try {
-                        setIsLoading(true);
-                        const { email, password } = await data;
-                        if (email && password) {
-                                await login(email, password);
-                                await reset();
-                                await navigate('/dashboard');
-                        }
-                } catch (error) {
-                        // setError(error.message);
-                        // setIsLoading(false);
-                        // toast(error.message);
-                } finally {
-                        setIsLoading(false);
+        const onSubmit = (data) => {
+                const { email, password } = data;
+                if (email && password) {
+                        login(email, password);
+                        reset();
                 }
+                if (!error) navigate('/dashboard');
         };
+
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
         };

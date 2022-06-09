@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
+import uuid from 'react-uuid';
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { toast, ToastContainer } from 'react-toastify';
@@ -16,33 +17,60 @@ export const AuthProvider = ({ children }) => {
 
         const singup = async (email, password) => {
                 // const user = await createUserWithEmailAndPassword(auth, email, password);
+                
                 try {
+                        setIsLoading(true);
                         await toast.promise(createUserWithEmailAndPassword(auth, email, password), {
                                 pending: 'Wait a sec...',
                                 success: `Hi, you're all set! 👌`,
+                                toastId: uuid(),
                         });
                 } catch (error) {
+                        setError(error);
                         toast.error(error.message.slice(10), {
                                 position: toast.POSITION.TOP_CENTER,
+                                toastId: uuid(),
                         });
+                } finally {
+                        setIsLoading(false);
                 }
         };
 
         const login = async (email, password) => {
                 try {
+                        setIsLoading(true);
                         await toast.promise(signInWithEmailAndPassword(auth, email, password), {
                                 pending: 'Wait a sec...',
                                 success: `Hi, you're logged in! 👌`,
+                                toastId: uuid(),
                         });
                 } catch (error) {
                         toast.error(error.message.slice(10), {
                                 position: toast.POSITION.TOP_CENTER,
+                                toastId: uuid(),
                         });
+                } finally {
+                        setIsLoading(false);
                 }
         };
 
         const logout = async () => {
-                await signOut(auth);
+                try {
+                        setIsLoading(true);
+                        await toast.promise(signOut(auth), {
+                                pending: 'Wait a sec...',
+                                success: `Hi, you're logged out! 👌`,
+                                toastId: uuid(),
+                        });
+                } catch (error) {
+                        await setError(error);
+                        toast.error(error.message.slice(10), {
+                                position: toast.POSITION.TOP_CENTER,
+                                toastId: uuid(),
+                        });
+                } finally {
+                        setIsLoading(false);
+                }
         };
 
         useEffect(() => {
@@ -51,31 +79,20 @@ export const AuthProvider = ({ children }) => {
                 });
         }, []);
 
-        // useEffect(() => {
-        //         singup();
-        // }, []);
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        const value = { currentUser, isLoading, setIsLoading, singup, login, logout, setError };
+
+        const value = { currentUser, isLoading, setIsLoading, singup, login, logout, setError, error };
+
         // const value = useMemo(
-        //         () => ({ currentUser, isLoading, setIsLoading, singup, login, logout, setError }),
+        //         () => ({ currentUser, isLoading, setIsLoading, singup, login, logout, setError, error }),
+        //         // eslint-disable-next-line react-hooks/exhaustive-deps
         //         [currentUser]
         // );
 
         return (
                 <AuthContext.Provider value={value}>
                         {children}
-                        <ToastContainer
-                                position="top-right"
-                                autoClose={5000}
-                                hideProgressBar={false}
-                                newestOnTop={false}
-                                closeOnClick
-                                rtl={false}
-                                pauseOnFocusLoss
-                                draggable
-                                pauseOnHover
-                        />
+                        <ToastContainer />
                 </AuthContext.Provider>
         );
 };
