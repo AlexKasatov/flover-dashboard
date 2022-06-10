@@ -33,10 +33,9 @@ const Login = () => {
                 if (!error) navigate('/dashboard');
         };
 
-        const googleSignIn = async () => {
+        const googleSignIn = () => {
                 singUpWithGoogle();
-                // eslint-disable-next-line no-unused-expressions
-                (await !error) && navigate('/dashboard');
+                navigate('/dashboard');
         };
 
         const toggleVisible = () => {
@@ -129,11 +128,9 @@ const Login = () => {
                                                         </ErrorBlock>
 
                                                         {/* BUTTONS */}
-                                                        <LoginBtn onClick={googleSignIn} type="submit">
-                                                                Sign In
-                                                        </LoginBtn>
+                                                        <LoginBtn type="submit">Sign In</LoginBtn>
 
-                                                        <LoginIcon onClick={singUpWithGoogle} type="button">
+                                                        <LoginIcon onClick={googleSignIn} type="button">
                                                                 <img src={googleIcon} alt="google-icon" /> Sign in with
                                                                 Google
                                                         </LoginIcon>

@@ -8,7 +8,6 @@ import {
         signOut,
         GoogleAuthProvider,
         signInWithPopup,
-        signInWithGoogle,
         updateProfile,
 } from 'firebase/auth';
 import { toast, ToastContainer } from 'react-toastify';
