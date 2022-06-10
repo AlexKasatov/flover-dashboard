@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
@@ -14,15 +14,20 @@ import { SpinnerXl } from '../../styles/UI/Spinners';
 
 const SignUp = () => {
         const [isVisible, setIsVisible] = useToggle();
+        const [isVisible2, setIsVisible2] = useToggle();
         const { currentUser, logout, singup, error, isLoading, singUpWithGoogle } = useAuth();
         const navigate = useNavigate();
+        const inputPassword = useRef();
 
         const {
                 register,
                 formState: { errors },
                 handleSubmit,
+                watch,
                 reset,
         } = useForm({ mode: 'onBlur' });
+
+        inputPassword.current = watch('password', '');
 
         const onSubmit = async (data) => {
                 const { email, password, userName } = data;
@@ -44,15 +49,19 @@ const SignUp = () => {
                 setIsVisible((prev) => !prev);
         };
 
+        const toggleVisible2 = () => {
+                setIsVisible2((prev) => !prev);
+        };
+
         useEffect(() => {
                 window.scrollTo(0, 0);
         }, []);
 
         //  === Error Styling ===
-        const errorUser = errors?.userName && {
-                marginBottom: '0',
-                border: '1px solid var(--error-500)',
-        };
+        // const errorUser = errors?.userName && {
+        //         marginBottom: '0',
+        //         border: '1px solid var(--error-500)',
+        // };
         const errorEmail = errors?.email && {
                 marginBottom: '0',
                 border: '1px solid var(--error-500)',
@@ -85,7 +94,7 @@ const SignUp = () => {
 
                                                 <SignUpForm onSubmit={handleSubmit(onSubmit)}>
                                                         {/* USERNAME */}
-                                                        <label htmlFor="userName">Name</label>
+                                                        {/* <label htmlFor="userName">Name</label>
                                                         <InputBlock style={errorUser}>
                                                                 <input
                                                                         placeholder="Enter your user name"
@@ -97,7 +106,7 @@ const SignUp = () => {
                                                                                 },
                                                                         })}
                                                                 />
-                                                        </InputBlock>
+                                                        </InputBlock> */}
                                                         {/* ERROR MESSAGE */}
                                                         <ErrorBlock>
                                                                 {errors?.userName && (
@@ -156,11 +165,52 @@ const SignUp = () => {
                                                                         )}
                                                                 </i>
                                                         </InputBlock>
+
                                                         {/* ERROR MESSAGE */}
                                                         <ErrorBlock>
                                                                 {errors?.password && (
                                                                         <TextErrorSm>
                                                                                 {errors?.password?.message ||
+                                                                                        'Hm... something went wrong'}
+                                                                        </TextErrorSm>
+                                                                )}
+                                                        </ErrorBlock>
+
+                                                        {/* REPEAT-PASSWORD */}
+                                                        <label htmlFor="passwrodRepeat">Repeat Password</label>
+                                                        <InputBlock style={errorPasword}>
+                                                                <input
+                                                                        type={isVisible2 ? 'text' : 'password'}
+                                                                        autoComplete="on"
+                                                                        placeholder="••••••••"
+                                                                        {...register('passwrodRepeat', {
+                                                                                required: 'Password is required',
+                                                                                pattern: {
+                                                                                        value: /^(?=.{10,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?\W).*$/,
+                                                                                        message: 'A password containing at least 1 uppercase, 1 lowercase, 1 digit, 1 special character and have a length of at least of 10',
+                                                                                },
+
+                                                                                validate: (value) =>
+                                                                                        value ===
+                                                                                                inputPassword.current ||
+                                                                                        'The passwords do not match',
+                                                                        })}
+                                                                />
+
+                                                                <i>
+                                                                        {isVisible2 ? (
+                                                                                <FiEyeOff onClick={toggleVisible2} />
+                                                                        ) : (
+                                                                                <FiEye onClick={toggleVisible2} />
+                                                                        )}
+                                                                </i>
+                                                        </InputBlock>
+
+                                                        {/* ERROR MESSAGE */}
+                                                        <ErrorBlock>
+                                                                {errors?.passwrodRepeat && (
+                                                                        <TextErrorSm>
+                                                                                {errors?.passwrodRepeat?.message ||
                                                                                         'Hm... something went wrong'}
                                                                         </TextErrorSm>
                                                                 )}
