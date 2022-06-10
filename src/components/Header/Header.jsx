@@ -11,7 +11,13 @@ import { useToggle } from '../../hooks/useToggle';
 import NavMobile from './NavMobile';
 import LeftNav from './LeftNav';
 
+import { useAuth } from '../../context/AuthContext';
+
 const Header = () => {
+        // AUTH
+        const { currentUser, logout } = useAuth();
+
+        // change mode toggler
         const { toggleTheme, mode } = useMode();
 
         // fill control hover effect on theme icons
@@ -49,6 +55,7 @@ const Header = () => {
                                 <Wrapper>
                                         <LeftNav />
                                         <RightNav>
+                                                {/* change theme icon style */}
                                                 {mode === 'light' ? (
                                                         <FiMoon
                                                                 style={moonStyle}
@@ -69,18 +76,32 @@ const Header = () => {
                                                         />
                                                 )}
 
-                                                <Link to="/login">
-                                                        <BtnTerGrey style={navButtonStyle} type="button">
-                                                                Log In
-                                                        </BtnTerGrey>
-                                                </Link>
+                                                {/* Sing In & Sign Up section */}
+                                                {!currentUser && (
+                                                        <Link to="/login">
+                                                                <BtnTerGrey style={navButtonStyle} type="button">
+                                                                        Log In
+                                                                </BtnTerGrey>
+                                                        </Link>
+                                                )}
 
-                                                <Link to="/signup">
-                                                        <BtnPrimary style={navButtonStyle} type="button">
-                                                                Sign Up
+                                                {currentUser ? (
+                                                        <BtnPrimary
+                                                                onClick={logout}
+                                                                style={navButtonStyle}
+                                                                type="button"
+                                                        >
+                                                                Log Out
                                                         </BtnPrimary>
-                                                </Link>
+                                                ) : (
+                                                        <Link to="/signup">
+                                                                <BtnPrimary style={navButtonStyle} type="button">
+                                                                        Sign Up
+                                                                </BtnPrimary>
+                                                        </Link>
+                                                )}
 
+                                                {/* Burger Menu on mobile */}
                                                 {!toggleBurger ? (
                                                         <FiMenu
                                                                 onClick={handleToggleBurger}

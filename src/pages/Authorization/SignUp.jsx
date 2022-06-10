@@ -30,12 +30,12 @@ const SignUp = () => {
         inputPassword.current = watch('password', '');
 
         const onSubmit = async (data) => {
-                const { email, password, userName } = data;
+                const { email, password } = data;
                 console.log('🚀 ~ file: SignUp.jsx ~ line 29 ~ onSubmit ~ data', data);
 
                 // sing up user
-                if (email && password && userName) {
-                        singup(email, password, userName);
+                if (email && password) {
+                        singup(email, password);
                 }
                 reset();
                 if (!error) navigate('/dashboard');
@@ -66,7 +66,13 @@ const SignUp = () => {
                 marginBottom: '0',
                 border: '1px solid var(--error-500)',
         };
+
         const errorPasword = errors?.password && {
+                marginBottom: '0',
+                border: '1px solid var(--error-500)',
+        };
+
+        const errorPasswrodRepeat = errors?.passwrodRepeat && {
                 marginBottom: '0',
                 border: '1px solid var(--error-500)',
         };
@@ -178,7 +184,7 @@ const SignUp = () => {
 
                                                         {/* REPEAT-PASSWORD */}
                                                         <label htmlFor="passwrodRepeat">Repeat Password</label>
-                                                        <InputBlock style={errorPasword}>
+                                                        <InputBlock style={errorPasswrodRepeat}>
                                                                 <input
                                                                         type={isVisible2 ? 'text' : 'password'}
                                                                         autoComplete="on"
