@@ -6,20 +6,18 @@ import UserProfile from '../app/pages/UserProfile';
 import RequireAuth from '../context/RequireAuth';
 import Dashboard from '../app/pages/Dashboard';
 import Pricing from '../pages/Pricing';
+import ForgotPass from '../pages/Authorization/ForgotPass';
 
 export const publicRoutes = [
         { index: true, element: <Home />, replace: false },
         { index: false, path: '/login', element: <LogIn />, replace: false },
         { index: false, path: '/signup', element: <SignUp />, replace: false },
         { index: false, path: '*', element: <NotFound />, replace: false },
+
         {
                 index: false,
-                path: '/pricing',
-                element: (
-                        <RequireAuth>
-                                <Pricing />
-                        </RequireAuth>
-                ),
+                path: '/forgot-password',
+                element: <ForgotPass />,
                 replace: false,
         },
 ];

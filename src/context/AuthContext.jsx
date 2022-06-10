@@ -59,6 +59,8 @@ export const AuthProvider = ({ children }) => {
                                 toastId: uuid(),
                         });
                 } catch (error) {
+                        setError(error.code);
+                        console.log(error.code);
                         toast.error(error.message.slice(10), {
                                 position: toast.POSITION.TOP_CENTER,
                                 toastId: uuid(),
@@ -86,6 +88,8 @@ export const AuthProvider = ({ children }) => {
                         setIsLoading(false);
                 }
         };
+
+        const resetPassword = (auth, email) => {};
 
         // * Auth with Google
         const singUpWithGoogle = () => {

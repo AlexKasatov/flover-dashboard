@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
@@ -12,37 +12,45 @@ import { useToggle } from '../../hooks/useToggle';
 import { useAuth } from '../../context/AuthContext';
 import { SpinnerXl } from '../../styles/UI/Spinners';
 
-const Login = () => {
+const ForgotPass = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { currentUser, login, isLoading, error, singUpWithGoogle, setError } = useAuth();
+        const [isVisible2, setIsVisible2] = useToggle();
+        const { currentUser, logout, singup, error, isLoading, singUpWithGoogle } = useAuth();
         const navigate = useNavigate();
+        const inputPassword = useRef();
 
         const {
                 register,
                 formState: { errors },
                 handleSubmit,
-
+                watch,
                 reset,
         } = useForm({ mode: 'onBlur' });
 
-        const onSubmit = (data) => {
+        inputPassword.current = watch('password', '');
+
+        const onSubmit = async (data) => {
                 const { email, password } = data;
+                console.log('🚀 ~ file: SignUp.jsx ~ line 29 ~ onSubmit ~ data', data);
+
+                // sing up user
                 if (email && password) {
-                        login(email, password);
+                        singup(email, password);
                 }
-                if (!error) {
-                        navigate('/dashboard');
-                        reset();
-                }
+                reset();
+                if (!error) navigate('/dashboard');
         };
 
-        const googleSignIn = () => {
+        const signUpWithGoogle = async () => {
                 singUpWithGoogle();
-                navigate('/dashboard');
         };
 
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
+        };
+
+        const toggleVisible2 = () => {
+                setIsVisible2((prev) => !prev);
         };
 
         useEffect(() => {
@@ -55,25 +63,35 @@ const Login = () => {
                 marginBottom: '0',
                 border: '1px solid var(--error-500)',
         };
+
         const errorPasword = errors?.password && {
                 marginBottom: '0',
                 border: '1px solid var(--error-500)',
         };
 
-        const errorWrongPassword = error === 'auth/wrong-password';
+        const errorPasswrodRepeat = errors?.passwrodRepeat && {
+                marginBottom: '0',
+                border: '1px solid var(--error-500)',
+        };
 
         return (
                 <Wrapper>
                         <Container>
+                                <h1>{currentUser?.email}</h1>
+                                <h1>{currentUser?.displayName}</h1>
+                                <button type="button" onClick={logout}>
+                                        LOGOUT
+                                </button>
+
                                 {isLoading ? (
                                         <SpinnerXl />
                                 ) : (
                                         <SignUpBlock>
                                                 <LoginText>
-                                                        <h1>🔐</h1>
-                                                        <HeadingSmSbBase>Log in to your account</HeadingSmSbBase>
+                                                        <h1>🤫</h1>
+                                                        <HeadingSmSbBase>Restore Your Password</HeadingSmSbBase>
                                                         <SubHeadTextMdNorm style={{ margin: '1rem 0 3rem 0' }}>
-                                                                Welcome back! Please enter your details.
+                                                                Start your 30-day free trial.
                                                         </SubHeadTextMdNorm>
                                                 </LoginText>
 
@@ -102,57 +120,17 @@ const Login = () => {
                                                                 )}
                                                         </ErrorBlock>
 
-                                                        {/* PASSWORD */}
-                                                        <label htmlFor="password">Password</label>
-                                                        <InputBlock style={errorPasword}>
-                                                                <input
-                                                                        type={isVisible ? 'text' : 'password'}
-                                                                        autoComplete="on"
-                                                                        placeholder="••••••••"
-                                                                        {...register('password', {
-                                                                                required: 'Password is required',
-                                                                        })}
-                                                                />
-
-                                                                <i>
-                                                                        {isVisible ? (
-                                                                                <FiEyeOff onClick={toggleVisible} />
-                                                                        ) : (
-                                                                                <FiEye onClick={toggleVisible} />
-                                                                        )}
-                                                                </i>
-                                                        </InputBlock>
-                                                        {/* ERROR MESSAGE */}
-                                                        <ErrorBlock>
-                                                                {errors?.password && (
-                                                                        <TextErrorSm>
-                                                                                {errors?.password?.message ||
-                                                                                        'Hm... something went wrong'}
-                                                                        </TextErrorSm>
-                                                                )}
-
-                                                                {errorWrongPassword && (
-                                                                        <>
-                                                                                <TextErrorSm>
-                                                                                        Forgot Password?
-                                                                                </TextErrorSm>
-                                                                                <LinkSmMd to="/forgot-password">
-                                                                                        Restore Password
-                                                                                </LinkSmMd>
-                                                                        </>
-                                                                )}
-                                                        </ErrorBlock>
-
                                                         {/* BUTTONS */}
-                                                        <LoginBtn type="submit">Sign In</LoginBtn>
+                                                        <LoginBtn type="submit">Reset Password</LoginBtn>
 
-                                                        <LoginIcon onClick={googleSignIn} type="button">
-                                                                <img src={googleIcon} alt="google-icon" /> Sign in with
+                                                        {/* SIGN UP WITH GOOGLE OPEN POPUP */}
+                                                        {/* <LoginIcon type="button" onClick={signUpWithGoogle}>
+                                                                <img src={googleIcon} alt="google-icon" /> Sign up with
                                                                 Google
-                                                        </LoginIcon>
+                                                        </LoginIcon> */}
 
                                                         <TextSeparator>
-                                                                <TextNormalSm>Don’t have an account?</TextNormalSm>
+                                                                <TextNormalSm>Create new account?</TextNormalSm>
 
                                                                 <LinkSmMd to="/signup">Sign Up</LinkSmMd>
                                                         </TextSeparator>
@@ -164,4 +142,4 @@ const Login = () => {
         );
 };
 
-export default Login;
+export default ForgotPass;
