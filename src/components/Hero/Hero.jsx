@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiPlayCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import macbook from '../../styles/img/mac-hq-low.avif';
+import macbook from '../../styles/img/mac-hero.webp';
 import { Container } from '../../styles/Container';
 import {
         Btn2xlpmr,

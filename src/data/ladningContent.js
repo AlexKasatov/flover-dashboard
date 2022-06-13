@@ -1,8 +1,8 @@
 import { FiMail, FiZap, FiBarChart2 } from 'react-icons/fi';
-import imgFeature1 from '../styles/img/features/1.avif';
-import imgFeature2 from '../styles/img/features/2.avif';
-import imgFeature3 from '../styles/img/features/3.avif';
-import imgFeature4 from '../styles/img/features/4.avif';
+import imgFeature1 from '../styles/img/features/1.webp';
+import imgFeature2 from '../styles/img/features/2.webp';
+import imgFeature3 from '../styles/img/features/3.webp';
+import imgFeature4 from '../styles/img/features/4.webp';
 import CheckIcon from '../styles/img/features/check.svg';
 import IconRow1 from '../styles/img/integration/Row.svg';
 import IconRow2 from '../styles/img/integration/Row-1.svg';

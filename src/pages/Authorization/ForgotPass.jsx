@@ -1,12 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
-import googleIcon from '../../styles/img/auth/google.svg';
 import { SignUpForm, SignUpBlock, InputBlock, ErrorBlock, Wrapper, TextSeparator } from './SignUp.styled';
 import { useAuth } from '../../context/AuthContext';
 import { SpinnerXl } from '../../styles/UI/Spinners';
@@ -99,13 +97,12 @@ const ForgotPass = () => {
                                                         </ErrorBlock>
 
                                                         {/* BUTTONS */}
+                                                        <TextSeparator>
+                                                                {responseMessage && (
+                                                                        <LinkSmMd to="/login">Log In</LinkSmMd>
+                                                                )}
+                                                        </TextSeparator>
                                                         <LoginBtn type="submit">Reset Password</LoginBtn>
-
-                                                        {/* SIGN UP WITH GOOGLE OPEN POPUP */}
-                                                        {/* <LoginIcon type="button" onClick={signUpWithGoogle}>
-                                                                <img src={googleIcon} alt="google-icon" /> Sign up with
-                                                                Google
-                                                        </LoginIcon> */}
 
                                                         <TextSeparator>
                                                                 <TextNormalSm>Create new account?</TextNormalSm>
