@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
@@ -8,49 +8,27 @@ import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
 import googleIcon from '../../styles/img/auth/google.svg';
 import { SignUpForm, SignUpBlock, InputBlock, ErrorBlock, Wrapper, TextSeparator } from './SignUp.styled';
-import { useToggle } from '../../hooks/useToggle';
 import { useAuth } from '../../context/AuthContext';
 import { SpinnerXl } from '../../styles/UI/Spinners';
 
 const ForgotPass = () => {
-        const [isVisible, setIsVisible] = useToggle();
-        const [isVisible2, setIsVisible2] = useToggle();
-        const { currentUser, logout, singup, error, isLoading, singUpWithGoogle } = useAuth();
+        const { currentUser, logout, error, responseMessage, isLoading, sendResetEmail } = useAuth();
+
         const navigate = useNavigate();
-        const inputPassword = useRef();
 
         const {
                 register,
                 formState: { errors },
                 handleSubmit,
-                watch,
                 reset,
         } = useForm({ mode: 'onBlur' });
 
-        inputPassword.current = watch('password', '');
-
         const onSubmit = async (data) => {
-                const { email, password } = data;
-                console.log('🚀 ~ file: SignUp.jsx ~ line 29 ~ onSubmit ~ data', data);
+                const { email } = data;
+                // send password reset link on email
+                if (email) await sendResetEmail(email);
 
-                // sing up user
-                if (email && password) {
-                        singup(email, password);
-                }
                 reset();
-                if (!error) navigate('/dashboard');
-        };
-
-        const signUpWithGoogle = async () => {
-                singUpWithGoogle();
-        };
-
-        const toggleVisible = () => {
-                setIsVisible((prev) => !prev);
-        };
-
-        const toggleVisible2 = () => {
-                setIsVisible2((prev) => !prev);
         };
 
         useEffect(() => {
@@ -60,16 +38,6 @@ const ForgotPass = () => {
         //  === Error Styling ===
 
         const errorEmail = errors?.email && {
-                marginBottom: '0',
-                border: '1px solid var(--error-500)',
-        };
-
-        const errorPasword = errors?.password && {
-                marginBottom: '0',
-                border: '1px solid var(--error-500)',
-        };
-
-        const errorPasswrodRepeat = errors?.passwrodRepeat && {
                 marginBottom: '0',
                 border: '1px solid var(--error-500)',
         };
@@ -91,7 +59,7 @@ const ForgotPass = () => {
                                                         <h1>🤫</h1>
                                                         <HeadingSmSbBase>Restore Your Password</HeadingSmSbBase>
                                                         <SubHeadTextMdNorm style={{ margin: '1rem 0 3rem 0' }}>
-                                                                Start your 30-day free trial.
+                                                                Type your email address
                                                         </SubHeadTextMdNorm>
                                                 </LoginText>
 
@@ -102,7 +70,7 @@ const ForgotPass = () => {
                                                                 <input
                                                                         placeholder="Enter your e-mail"
                                                                         {...register('email', {
-                                                                                required: 'User name is required',
+                                                                                required: 'Email is required',
                                                                                 pattern: {
                                                                                         value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                                                                                         message: 'Invalid email address',
@@ -117,6 +85,16 @@ const ForgotPass = () => {
                                                                                 {errors?.email?.message ||
                                                                                         'Hm... something went wrong'}
                                                                         </TextErrorSm>
+                                                                )}
+
+                                                                {error && (
+                                                                        <TextErrorSm>
+                                                                                {errors?.message ||
+                                                                                        'Hm... something went wrong'}
+                                                                        </TextErrorSm>
+                                                                )}
+                                                                {responseMessage && (
+                                                                        <TextNormalSm>{responseMessage}</TextNormalSm>
                                                                 )}
                                                         </ErrorBlock>
 

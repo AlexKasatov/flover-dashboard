@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -36,9 +37,14 @@ const Login = () => {
                 }
         };
 
+        // ? old code works fine
+        // const googleSignIn = () => {
+        //         singUpWithGoogle();
+        //         navigate('/dashboard');
+        // };
+
         const googleSignIn = () => {
                 singUpWithGoogle();
-                navigate('/dashboard');
         };
 
         const toggleVisible = () => {

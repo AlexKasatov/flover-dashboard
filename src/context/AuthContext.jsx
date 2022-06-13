@@ -4,6 +4,7 @@ import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import {
         createUserWithEmailAndPassword,
         onAuthStateChanged,
+        sendPasswordResetEmail,
         signInWithEmailAndPassword,
         signOut,
         GoogleAuthProvider,
@@ -22,6 +23,7 @@ export const AuthProvider = ({ children }) => {
         const [currentUser, setCurentUser] = useState('');
         const [isLoading, setIsLoading] = useState(false);
         const [error, setError] = useState('');
+        const [responseMessage, setResponseMessage] = useState('');
         const provider = new GoogleAuthProvider();
 
         // * update user profile
@@ -73,11 +75,23 @@ export const AuthProvider = ({ children }) => {
         const logout = async () => {
                 try {
                         setIsLoading(true);
-                        await toast.promise(signOut(auth), {
-                                pending: 'Wait a sec...',
-                                success: `Hi, you're logged out! 👌`,
-                                toastId: uuid(),
-                        });
+                        await toast.promise(
+                                signOut(auth),
+                                {
+                                        pending: 'Wait a sec...',
+                                        success: `Hi, you're logged out! 👌`,
+                                        toastId: uuid(),
+                                },
+                                {
+                                        position: 'top-center',
+                                        autoClose: 5000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                }
+                        );
                 } catch (error) {
                         await setError(error);
                         toast.error(error.message.slice(10), {
@@ -89,7 +103,29 @@ export const AuthProvider = ({ children }) => {
                 }
         };
 
-        const resetPassword = (auth, email) => {};
+        const sendResetEmail = (email) => {
+                sendPasswordResetEmail(auth, email)
+                        .then(() => {
+                                setResponseMessage('Check your email for password reset link');
+                                // Password reset email sent!
+
+                                toast.success('📧 Gotcha! Check your email for password reset link', {
+                                        position: 'top-center',
+                                        autoClose: 5000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                });
+                        })
+                        .catch((error) => {
+                                const errorMessage = error.message;
+                                toast.error(errorMessage.slice(10), {});
+                                setError(errorMessage);
+                                // ..
+                        });
+        };
 
         // * Auth with Google
         const singUpWithGoogle = () => {
@@ -147,6 +183,8 @@ export const AuthProvider = ({ children }) => {
                 setError,
                 error,
                 updateProfileName,
+                sendResetEmail,
+                responseMessage,
         };
 
         return (
