@@ -1,4 +1,5 @@
 import loadable, { lazy } from '@loadable/component';
+import pMinDelay from 'p-min-delay';
 import { Suspense } from 'react';
 import { SpinnerXl } from '../styles/UI/Spinners';
 
@@ -10,7 +11,7 @@ const RequireAuth = loadable(() => import('../context/RequireAuth'));
 const Dashboard = loadable(() => import('../app/pages/Dashboard'));
 const Pricing = loadable(() => import('../pages/Pricing'));
 const ForgotPass = loadable(() => import('../pages/Authorization/ForgotPass'));
-const Home = lazy(() => import('../pages/Home'));
+const Home = lazy(() => pMinDelay(import('../pages/Home'), 2000));
 
 export const publicRoutes = [
         {
@@ -22,7 +23,7 @@ export const publicRoutes = [
                 ),
                 replace: false,
         },
-        { index: false, path: '/login', element: <LogIn />, replace: false },
+        { index: false, path: '/login', element: <LogIn fallback={<SpinnerXl />} />, replace: false },
         { index: false, path: '/signup', element: <SignUp />, replace: false },
         { index: false, path: '*', element: <NotFound />, replace: false },
 

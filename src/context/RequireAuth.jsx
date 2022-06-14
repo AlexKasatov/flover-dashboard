@@ -3,7 +3,7 @@ import { useAuth } from './AuthContext';
 
 const RequireAuth = ({ children }) => {
         const location = useLocation();
-        console.log();
+
         const { currentUser } = useAuth();
 
         if (!currentUser) {
