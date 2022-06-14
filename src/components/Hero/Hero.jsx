@@ -40,6 +40,30 @@ const imgAnimation = {
         },
 };
 
+const btnLeftAnimation = {
+        hidden: {
+                x: -200,
+                opacity: 0,
+        },
+        visible: {
+                x: 0,
+                opacity: 1,
+                transition: { delay: 1, type: 'tween', stiffness: 100 },
+        },
+};
+
+const btnRightAnimation = {
+        hidden: {
+                x: 200,
+                opacity: 0,
+        },
+        visible: {
+                x: 0,
+                opacity: 1,
+                transition: { delay: 1, type: 'tween', stiffness: 100 },
+        },
+};
+
 const Hero = () => (
         <HeroBlock as={motion.header} initial="hidden" whileInView="visible">
                 <Container>
@@ -53,12 +77,14 @@ const Hero = () => (
                                                 engage, and retain more users. Trusted by over 4,000 startups.
                                         </SubHeadingHero>
                                         <ButtonWrapper>
-                                                <Btn2xlbase>
+                                                <Btn2xlbase as={motion.button} variants={btnLeftAnimation}>
                                                         <FiPlayCircle size="20px" style={{ marginRight: '0.5rem' }} />
                                                         Demo
                                                 </Btn2xlbase>
                                                 <Link to="/signup">
-                                                        <Btn2xlpmr>Sign Up</Btn2xlpmr>
+                                                        <Btn2xlpmr as={motion.button} variants={btnRightAnimation}>
+                                                                Sign Up
+                                                        </Btn2xlpmr>
                                                 </Link>
                                         </ButtonWrapper>
                                 </div>
