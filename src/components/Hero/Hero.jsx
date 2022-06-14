@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FiPlayCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -48,7 +47,7 @@ const btnLeftAnimation = {
         visible: {
                 x: 0,
                 opacity: 1,
-                transition: { delay: 1, type: 'tween', stiffness: 100 },
+                transition: { delay: 1, type: 'spring', stiffness: 70 },
         },
 };
 
@@ -60,7 +59,7 @@ const btnRightAnimation = {
         visible: {
                 x: 0,
                 opacity: 1,
-                transition: { delay: 1, type: 'tween', stiffness: 100 },
+                transition: { delay: 1, type: 'spring', stiffness: 70 },
         },
 };
 
