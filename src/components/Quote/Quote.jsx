@@ -1,41 +1,35 @@
-import { useState } from 'react';
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 import { Container } from '../../styles/Container';
 import AvatarText from './AvatarText';
 import { QuoteSection, Wrapper, HeadingLx } from './Quote.styled';
-import SocialProofImg from '../SocialProof/SocialProofImg';
-import { socialProofData } from '../../data/socialProof';
 import Slider from './Slider';
 
-const Quote = () => {
-        const [currentImg, setCurrentImg] = useState(0);
+const textAnimation = {
+        hidden: {
+                x: -200,
+                opacity: 0,
+        },
+        visible: (custom) => ({
+                x: 0,
+                opacity: 1,
 
-        const handleImgRigth = () => {
-                if (currentImg < socialProofData.length - 1) {
-                        setCurrentImg((prev) => prev + 1);
-                }
-        };
-
-        const handleImgLeft = () => {
-                if (currentImg > socialProofData.length) {
-                        setCurrentImg((prev) => prev - 1);
-                }
-        };
-
-        return (
-                <Wrapper>
-                        <Container>
-                                <QuoteSection>
-                                        <HeadingLx>
-                                                Flover has saved us thousands of hours of work and has unlock data
-                                                insights we never thought possible.
-                                        </HeadingLx>
-                                        <AvatarText />
-                                        <Slider />
-                                </QuoteSection>
-                        </Container>
-                </Wrapper>
-        );
+                transition: { delay: custom * 0.3 },
+        }),
 };
+
+const Quote = () => (
+        <Wrapper as={motion.div} initial="hidden" whileInView="visible">
+                <Container>
+                        <QuoteSection>
+                                <HeadingLx as={motion.h1} variants={textAnimation} custom={1}>
+                                        Flover has saved us thousands of hours of work and has unlock data insights we
+                                        never thought possible.
+                                </HeadingLx>
+                                <AvatarText />
+                                <Slider />
+                        </QuoteSection>
+                </Container>
+        </Wrapper>
+);
 
 export default Quote;

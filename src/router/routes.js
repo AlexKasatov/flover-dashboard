@@ -12,7 +12,7 @@ const RequireAuth = loadable(() => import('../context/RequireAuth'));
 const Dashboard = loadable(() => import('../app/pages/Dashboard'));
 const Pricing = loadable(() => import('../pages/Pricing'));
 const ForgotPass = loadable(() => import('../pages/Authorization/ForgotPass'));
-const Home = lazy(() => pMinDelay(import('../pages/Home'), 1200));
+const Home = lazy(() => pMinDelay(import('../pages/Home'), 1000));
 
 export const publicRoutes = [
         {

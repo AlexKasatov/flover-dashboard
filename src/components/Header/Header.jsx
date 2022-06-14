@@ -1,4 +1,5 @@
 /* eslint-disable import/no-unresolved */
+import { motion, useAnimation } from 'framer-motion';
 import { useState, useMemo } from 'react';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -12,6 +13,19 @@ import NavMobile from './NavMobile';
 import LeftNav from './LeftNav';
 
 import { useAuth } from '../../context/AuthContext';
+
+// Animation props
+const headerAnimation = {
+        hidden: {
+                y: 50,
+                opacity: 0,
+        },
+        visible: {
+                y: 0,
+                opacity: 1,
+                transition: { delay: 0.3, type: 'spring', stiffness: 100 },
+        },
+};
 
 const Header = () => {
         // AUTH
@@ -50,7 +64,13 @@ const Header = () => {
         const navMobileStyle = { height: !toggleBurger ? '0' : 'auto' };
 
         return (
-                <HeaderStyled>
+                <HeaderStyled
+                        as={motion.header}
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={headerAnimation}
+                        viewport={{ once: true }}
+                >
                         <Container>
                                 <Wrapper>
                                         <LeftNav />
