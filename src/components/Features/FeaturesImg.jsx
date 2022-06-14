@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { HeroImg } from '../Hero/Hero.styled';
 
 export const SectionImg = styled(HeroImg)`
@@ -10,6 +11,28 @@ export const SectionImg = styled(HeroImg)`
         /* object-position: -20% 0; */
 `;
 
-const FeaturesImg = ({ img, alt }) => <SectionImg src={img} alt={alt} loading="lazy" />;
+const imgAnimation = {
+        hidden: {
+                y: -50,
+                opacity: 0,
+        },
+        visible: {
+                y: 0,
+                opacity: 1,
+                transition: { delay: 0.7, type: 'spring', stiffness: 100 },
+        },
+};
+
+const FeaturesImg = ({ img, alt }) => (
+        <SectionImg
+                as={motion.img}
+                initial="hidden"
+                whileInView="visible"
+                variants={imgAnimation}
+                src={img}
+                alt={alt}
+                loading="lazy"
+        />
+);
 
 export default FeaturesImg;
