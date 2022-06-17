@@ -65,11 +65,11 @@ const Header = () => {
 
         return (
                 <HeaderStyled
-                        as={motion.header}
-                        initial="hidden"
-                        whileInView="visible"
-                        variants={headerAnimation}
-                        viewport={{ once: true }}
+                // as={motion.header}
+                // initial="hidden"
+                // whileInView="visible"
+                // variants={headerAnimation}
+                // viewport={{ once: true }}
                 >
                         <Container>
                                 <Wrapper>

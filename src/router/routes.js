@@ -7,10 +7,13 @@ import { SpinnerXl } from '../styles/UI/Spinners';
 const LogIn = loadable(() => import('../pages/Authorization/LogIn'));
 const NotFound = loadable(() => import('../pages/NotFound'));
 const SignUp = loadable(() => import('../pages/Authorization/SignUp'));
+
 const UserProfile = loadable(() => import('../app/pages/UserProfile'));
 const RequireAuth = loadable(() => import('../context/RequireAuth'));
+
 const Dashboard = loadable(() => import('../app/pages/Dashboard'));
 const Pricing = loadable(() => import('../pages/Pricing'));
+
 const ForgotPass = loadable(() => import('../pages/Authorization/ForgotPass'));
 const Home = lazy(() => pMinDelay(import('../pages/Home'), 1000));
 
@@ -27,7 +30,7 @@ export const publicRoutes = [
         {
                 index: false,
                 path: '/login',
-                element: <LogIn fallback={<SpinnerXl />} />,
+                element: <LogIn />,
                 replace: false,
         },
         { index: false, path: '/signup', element: <SignUp />, replace: false },

@@ -7,9 +7,10 @@ import Metrix from '../components/Metric/Metrix';
 import SocialProof from '../components/SocialProof/SocialProof';
 import Quote from '../components/Quote/Quote';
 import CtaSection from '../components/CTA/CtaSection';
+import { pageTransition } from '../animation/page';
 
 const Home = () => (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <motion.div initial="hidden" animate="enter" exit="exit" variants={pageTransition}>
                 <Hero>home</Hero>
                 <SocialProof />
                 <Features />

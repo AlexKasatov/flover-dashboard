@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
@@ -11,11 +12,12 @@ import { SignUpForm, SignUpBlock, InputBlock, ErrorBlock, Wrapper, TextSeparator
 import { useToggle } from '../../hooks/useToggle';
 import { useAuth } from '../../context/AuthContext';
 import { SpinnerXl } from '../../styles/UI/Spinners';
+import { pageTransitionSingle } from '../../animation/page';
 
 const SignUp = () => {
         const [isVisible, setIsVisible] = useToggle();
         const [isVisible2, setIsVisible2] = useToggle();
-        const { currentUser, logout, singup, error, isLoading, singUpWithGoogle } = useAuth();
+        const { singup, error, isLoading, singUpWithGoogle } = useAuth();
         const navigate = useNavigate();
         const inputPassword = useRef();
 
@@ -31,7 +33,6 @@ const SignUp = () => {
 
         const onSubmit = async (data) => {
                 const { email, password } = data;
-                console.log('🚀 ~ file: SignUp.jsx ~ line 29 ~ onSubmit ~ data', data);
 
                 // sing up user
                 if (email && password) {
@@ -58,10 +59,6 @@ const SignUp = () => {
         }, []);
 
         //  === Error Styling ===
-        // const errorUser = errors?.userName && {
-        //         marginBottom: '0',
-        //         border: '1px solid var(--error-500)',
-        // };
         const errorEmail = errors?.email && {
                 marginBottom: '0',
                 border: '1px solid var(--error-500)',
@@ -78,14 +75,14 @@ const SignUp = () => {
         };
 
         return (
-                <Wrapper>
+                <Wrapper
+                        as={motion.section}
+                        initial="hidden"
+                        animate="enter"
+                        exit="exit"
+                        variants={pageTransitionSingle}
+                >
                         <Container>
-                                <h1>{currentUser?.email}</h1>
-                                <h1>{currentUser?.displayName}</h1>
-                                <button type="button" onClick={logout}>
-                                        LOGOUT
-                                </button>
-
                                 {isLoading ? (
                                         <SpinnerXl />
                                 ) : (

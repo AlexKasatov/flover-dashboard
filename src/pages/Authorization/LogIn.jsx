@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
@@ -12,6 +13,7 @@ import { SignUpForm, SignUpBlock, InputBlock, ErrorBlock, Wrapper, TextSeparator
 import { useToggle } from '../../hooks/useToggle';
 import { useAuth } from '../../context/AuthContext';
 import { SpinnerXl } from '../../styles/UI/Spinners';
+import { pageTransitionSingle } from '../../animation/page';
 
 const Login = () => {
         const [isVisible, setIsVisible] = useToggle();
@@ -66,10 +68,14 @@ const Login = () => {
                 border: '1px solid var(--error-500)',
         };
 
-        const errorWrongPassword = error === 'auth/wrong-password';
-
         return (
-                <Wrapper>
+                <Wrapper
+                        as={motion.section}
+                        initial="hidden"
+                        animate="enter"
+                        exit="exit"
+                        variants={pageTransitionSingle}
+                >
                         <Container>
                                 {isLoading ? (
                                         <SpinnerXl />
@@ -137,16 +143,9 @@ const Login = () => {
                                                                         </TextErrorSm>
                                                                 )}
 
-                                                                {errorWrongPassword && (
-                                                                        <>
-                                                                                <TextErrorSm>
-                                                                                        Forgot Password?
-                                                                                </TextErrorSm>
-                                                                                <LinkSmMd to="/forgot-password">
-                                                                                        Restore Password
-                                                                                </LinkSmMd>
-                                                                        </>
-                                                                )}
+                                                                <LinkSmMd to="/forgot-password">
+                                                                        Restore Password
+                                                                </LinkSmMd>
                                                         </ErrorBlock>
 
                                                         {/* BUTTONS */}

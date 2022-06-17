@@ -2,15 +2,17 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
 import { LoginText, LoginBtn, LoginIcon } from './Login.styled';
 import { SignUpForm, SignUpBlock, InputBlock, ErrorBlock, Wrapper, TextSeparator } from './SignUp.styled';
 import { useAuth } from '../../context/AuthContext';
 import { SpinnerXl } from '../../styles/UI/Spinners';
+import { pageTransitionSingle } from '../../animation/page';
 
 const ForgotPass = () => {
-        const { currentUser, logout, error, responseMessage, isLoading, sendResetEmail } = useAuth();
+        const { currentUser, error, responseMessage, isLoading, sendResetEmail } = useAuth();
 
         const navigate = useNavigate();
 
@@ -41,14 +43,14 @@ const ForgotPass = () => {
         };
 
         return (
-                <Wrapper>
+                <Wrapper
+                        as={motion.section}
+                        initial="hidden"
+                        animate="enter"
+                        exit="exit"
+                        variants={pageTransitionSingle}
+                >
                         <Container>
-                                <h1>{currentUser?.email}</h1>
-                                <h1>{currentUser?.displayName}</h1>
-                                <button type="button" onClick={logout}>
-                                        LOGOUT
-                                </button>
-
                                 {isLoading ? (
                                         <SpinnerXl />
                                 ) : (

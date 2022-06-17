@@ -4,10 +4,13 @@ import { AnimatePresence } from 'framer-motion';
 import { publicRoutes, privateRoutes } from './routes';
 import Layout from './Layout';
 
+// AnimatePresence is used to animate the exit of a route, when component is removed from the DOM.
+// exitBeforeEnter  tells the entrance animation to wait until the exit animation has ended before starting - without this the content would mount on top of the unmounting content.
+
 function AnimatedRoutes() {
         const location = useLocation();
         return (
-                <AnimatePresence>
+                <AnimatePresence exitBeforeEnter>
                         <Routes location={location} key={location.pathname}>
                                 <Route path="/" element={<Layout />}>
                                         {Children.toArray(
