@@ -30,7 +30,7 @@ const listAnimation = {
         visible: {
                 y: 0,
                 opacity: 1,
-                transition: { delay: 0.9, type: 'spring', stiffness: 100 },
+                transition: { delay: 0.5, type: 'spring', stiffness: 100 },
         },
 };
 
