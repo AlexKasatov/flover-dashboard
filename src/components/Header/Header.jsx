@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useTransform, useViewportScroll } from 'framer-motion';
 import { useState, useMemo } from 'react';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -28,6 +28,12 @@ const headerAnimation = {
 };
 
 const Header = () => {
+        // ANIMATION
+        const { scrollY } = useViewportScroll();
+        const offsetY = [0, 300];
+        const heightSize = [250, 50];
+        const height = useTransform(scrollY, offsetY, heightSize);
+
         // AUTH
         const { currentUser, logout } = useAuth();
 
@@ -65,11 +71,12 @@ const Header = () => {
 
         return (
                 <HeaderStyled
-                // as={motion.header}
-                // initial="hidden"
-                // whileInView="visible"
-                // variants={headerAnimation}
-                // viewport={{ once: true }}
+                        as={motion.header}
+                        // initial="hidden"
+                        // whileInView="visible"
+                        // variants={headerAnimation}
+                        // viewport={{ once: true }}
+                        style={{ height }}
                 >
                         <Container>
                                 <Wrapper>
