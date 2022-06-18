@@ -3,14 +3,20 @@ import { motion } from 'framer-motion';
 import { HeroImg } from '../Hero/Hero.styled';
 
 export const SectionImg = styled(HeroImg)`
-        outline: 4px solid var(--gray-100);
+        border: 3px solid var(--gray-100);
         box-shadow: var(--shadow-2xl);
-        border-radius: 1rem;
-        -webkit-border-radius: 1rem;
-        -moz-border-radius: 1rem;
-        -khtml-border-radius: 1rem;
+        border-radius: 1.2rem;
+        -webkit-border-radius: 1.2rem;
+        -moz-border-radius: 1.2rem;
+        -khtml-border-radius: 1.2rem;
         width: 100%;
         object-fit: scale-down;
+
+        /* Mask Works But Ugly */
+        /* mask-image: radial-gradient(white, black);
+        -webkit-mask-image: -webkit-radial-gradient(white, black); */
+
+        /* Also Works but Ugly */
         /* -webkit-transform: translateZ(0);
         -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%); */
         /* object-position: -20% 0; */

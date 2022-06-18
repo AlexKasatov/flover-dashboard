@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.section`
         margin: 2rem auto;
         height: 100vh;
+        overflow: scroll;
 `;
 
 export const SignUpForm = styled.form`

@@ -2,20 +2,31 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const IconWrapper = styled.div`
+        text-align: center;
+        border-radius: 50%;
+
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -khtml-border-radius: 50%;
+        padding: 0.7rem;
+
+        background-color: ${({ theme }) => theme.icon.wraperMd};
+        border: 8px solid ${({ theme }) => theme.icon.outline};
+
+        svg {
+                margin: 0.2rem;
+                padding: 0;
+                stroke: ${({ theme }) => theme.icon.color};
+        }
+        margin-bottom: 1.5rem;
+`;
+
+const Wrapper = styled(motion.div)`
         display: flex;
         justify-content: center;
         align-items: center;
         height: 3rem;
         width: 3rem;
-        text-align: center;
-        border-radius: 333px;
-        background-color: ${({ theme }) => theme.icon.wraperMd};
-        outline: 8px solid ${({ theme }) => theme.icon.outline};
-        padding: 1rem;
-        svg {
-                stroke: ${({ theme }) => theme.icon.color};
-        }
-        margin-bottom: 1.5rem;
 `;
 
 const iconAnimation = {
@@ -31,11 +42,11 @@ const iconAnimation = {
 };
 
 const IconStyled = ({ icon }) => (
-        <motion.div initial="hidden" whileInView="visible">
+        <Wrapper initial="hidden" whileInView="visible">
                 <IconWrapper as={motion.div} variants={iconAnimation}>
                         {icon}
                 </IconWrapper>
-        </motion.div>
+        </Wrapper>
 );
 
 export default IconStyled;
