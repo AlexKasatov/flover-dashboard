@@ -43,7 +43,8 @@ const Login = () => {
                 if (currentUser) {
                         navigate('/dashboard');
                 }
-        });
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [currentUser]);
 
         const googleSignIn = async () => {
                 await singUpWithGoogle();

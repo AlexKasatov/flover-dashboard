@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
                                 signOut(auth),
                                 {
                                         pending: 'Wait a sec...',
-                                        success: `Hi, you're logged out! 👌`,
+                                        success: `You're logged out! 🤚`,
                                         toastId: uuid(),
                                 },
                                 {
@@ -123,35 +123,54 @@ export const AuthProvider = ({ children }) => {
                         })
                         .catch((error) => {
                                 const errorMessage = error.message;
-                                toast.error(errorMessage.slice(10), {});
+                                toast.error(errorMessage.slice(10));
                                 setError(errorMessage);
                                 // ..
                         });
         };
 
-        // * Auth with Google
-        const singUpWithGoogle = () => {
-                signInWithPopup(auth, provider)
-                        .then((result) => {
-                                // This gives you a Google Access Token. You can use it to access the Google API.
-                                const credential = GoogleAuthProvider.credentialFromResult(result);
-                                const token = credential.accessToken;
+        // * Auth with Google old code
+        // const singUpWithGoogle = () => {
+        //         signInWithPopup(auth, provider)
+        //                 .then((result) => {
+        //                         // This gives you a Google Access Token. You can use it to access the Google API.
+        //                         const credential = GoogleAuthProvider.credentialFromResult(result);
+        //                         const token = credential.accessToken;
 
-                                // The signed-in user info.
-                                const { user } = result;
-                                // ...
-                        })
-                        .catch((error) => {
-                                // Handle Errors here.
-                                const errorCode = error.code;
-                                const errorMessage = error.message;
-                                toast.error(errorMessage.slice(10), {});
-                                // The email of the user's account used.
-                                const { email } = error.customData;
-                                // The AuthCredential type that was used.
-                                const credential = GoogleAuthProvider.credentialFromError(error);
-                                // ...
+        //                         // The signed-in user info.
+        //                         const { user } = result;
+        //                         // ...
+        //                 })
+        //                 .catch((error) => {
+        //                         // Handle Errors here.
+        //                         const errorCode = error.code;
+        //                         const errorMessage = error.message;
+        //                         toast.error(errorMessage.slice(10), {});
+        //                         // The email of the user's account used.
+        //                         const { email } = error.customData;
+        //                         // The AuthCredential type that was used.
+        //                         const credential = GoogleAuthProvider.credentialFromError(error);
+        //                         // ...
+        //                 });
+        // };
+
+        const singUpWithGoogle = async () => {
+                try {
+                        setIsLoading(true);
+                        await toast.promise(signInWithPopup(auth, provider), {
+                                pending: 'Wait a sec...',
+                                success: `Hi, you're all set! 👌`,
+                                toastId: uuid(),
                         });
+                } catch (error) {
+                        setError(error);
+                        toast.error(error.message.slice(10), {
+                                position: toast.POSITION.TOP_CENTER,
+                                toastId: uuid(),
+                        });
+                } finally {
+                        setIsLoading(false);
+                }
         };
 
         // #  WORKS FINE WITH BUTTON ON CLICK
