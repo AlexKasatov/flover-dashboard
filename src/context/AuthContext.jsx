@@ -20,7 +20,6 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-        const [tokenAuth, setTokenAuth] = useState(null);
         const [currentUser, setCurentUser] = useState('');
         const [isLoading, setIsLoading] = useState(false);
         const [error, setError] = useState('');
@@ -159,6 +158,7 @@ export const AuthProvider = ({ children }) => {
                         await updateProfile(auth?.currentUser, {
                                 displayName: 'London',
                         });
+                        console.log(currentUser);
                 } catch (error) {
                         console.log(error.message);
                 }
@@ -185,8 +185,6 @@ export const AuthProvider = ({ children }) => {
                 updateProfileName,
                 sendResetEmail,
                 responseMessage,
-                tokenAuth,
-                setTokenAuth,
         };
 
         return (
