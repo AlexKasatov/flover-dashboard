@@ -47,6 +47,7 @@ const Login = () => {
 
         const googleSignIn = () => {
                 singUpWithGoogle();
+                if (currentUser) navigate('/dashboard');
         };
 
         const toggleVisible = () => {
