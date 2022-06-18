@@ -17,7 +17,7 @@ import { pageTransitionSingle } from '../../animation/page';
 
 const Login = () => {
         const [isVisible, setIsVisible] = useToggle();
-        const { currentUser, login, isLoading, error, singUpWithGoogle, setError } = useAuth();
+        const { currentUser, login, isLoading, error, singUpWithGoogle, setError, tokenAuth, setTokenAuth } = useAuth();
         const navigate = useNavigate();
 
         const {
@@ -45,9 +45,10 @@ const Login = () => {
         //         navigate('/dashboard');
         // };
 
-        const googleSignIn = () => {
-                singUpWithGoogle();
-                if (currentUser) navigate('/dashboard');
+        const googleSignIn = async () => {
+                const auth = await singUpWithGoogle();
+                await setTokenAuth(auth);
+                (await auth) && navigate('/dashboard');
         };
 
         const toggleVisible = () => {

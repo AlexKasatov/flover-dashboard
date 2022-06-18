@@ -4,9 +4,9 @@ import { useAuth } from './AuthContext';
 const RequireAuth = ({ children }) => {
         const location = useLocation();
 
-        const { currentUser } = useAuth();
+        const { tokenAuth } = useAuth();
 
-        if (!currentUser) {
+        if (!tokenAuth) {
                 return <Navigate to="/login" state={{ from: location }} />;
         }
 
