@@ -54,6 +54,7 @@ export const LeftNavStyled = styled.nav`
         display: flex;
         justify-content: space-around;
         align-items: center;
+
         ul {
                 display: none;
         }
@@ -66,10 +67,11 @@ export const LeftNavStyled = styled.nav`
 `;
 
 export const RightNav = styled.nav`
+        white-space: nowrap;
         padding: 0 1rem;
         margin-left: 1rem;
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         justify-content: space-around;
         align-items: center;
 
@@ -87,6 +89,7 @@ export const LogoType = styled.img`
 
 export const Logo = styled.div`
         cursor: pointer;
+        white-space: nowrap;
         transform: scale(0.8);
 
         @media (min-width: 1024px) {

@@ -7,6 +7,7 @@ export const DropDownStyled = styled.ul`
         border-radius: var(--radii);
         background-color: ${({ theme }) => theme.bgrndSection};
         position: absolute;
+
         display: block;
         z-index: 1;
         min-width: 508px;

@@ -15,6 +15,7 @@ export const MobileNav = styled.nav`
         box-shadow: var(--shadow-lg);
         border-radius: var(--radii);
         max-width: var(--container-sm);
+        margin: 0 auto;
 
         top: 0;
         display: absolute;

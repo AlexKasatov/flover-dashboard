@@ -12,6 +12,7 @@ export const ButtonBase = styled.button`
 `;
 
 export const BtnTerGrey = styled(ButtonBase)`
+        white-space: nowrap;
         background-color: Transparent;
         color: ${({ theme }) => theme.textBase};
 

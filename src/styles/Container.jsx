@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// TODO тут нужно полность менять media queries
 export const Container = styled.div`
         width: 100%;
         min-width: 375px;

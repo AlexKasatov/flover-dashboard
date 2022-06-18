@@ -53,8 +53,8 @@ const NavMobile = ({ navStyle, handleToggleBurger }) => {
                                         </NavListGrid>
                                 </Container>
                                 <NavBtnList>
-                                        <BtnLogin>Login</BtnLogin>
-                                        <BtnSignup>Sign up</BtnSignup>
+                                        <BtnLogin onClick={handleCloseBurger}>Login</BtnLogin>
+                                        <BtnSignup onClick={handleCloseBurger}>Sign up</BtnSignup>
                                 </NavBtnList>
                         </Wrapper>
                 </MobileNav>
