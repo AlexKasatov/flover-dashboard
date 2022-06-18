@@ -17,7 +17,7 @@ import { pageTransitionSingle } from '../../animation/page';
 const SignUp = () => {
         const [isVisible, setIsVisible] = useToggle();
         const [isVisible2, setIsVisible2] = useToggle();
-        const { singup, error, isLoading, singUpWithGoogle } = useAuth();
+        const { singup, error, isLoading, singUpWithGoogle, currentUser } = useAuth();
         const navigate = useNavigate();
         const inputPassword = useRef();
 
@@ -34,16 +34,22 @@ const SignUp = () => {
         const onSubmit = async (data) => {
                 const { email, password } = data;
 
-                // sing up user
+                // sign up with email and password
                 if (email && password) {
-                        singup(email, password);
+                        await singup(email, password);
                 }
                 reset();
-                if (!error) navigate('/dashboard');
+                navigate('/dashboard');
         };
 
+        useEffect(() => {
+                if (currentUser) {
+                        navigate('/dashboard');
+                }
+        });
+
         const signUpWithGoogle = async () => {
-                singUpWithGoogle();
+                await singUpWithGoogle();
         };
 
         const toggleVisible = () => {
@@ -53,10 +59,6 @@ const SignUp = () => {
         const toggleVisible2 = () => {
                 setIsVisible2((prev) => !prev);
         };
-
-        useEffect(() => {
-                window.scrollTo(0, 0);
-        }, []);
 
         //  === Error Styling ===
         const errorEmail = errors?.email && {
@@ -96,21 +98,6 @@ const SignUp = () => {
                                                 </LoginText>
 
                                                 <SignUpForm onSubmit={handleSubmit(onSubmit)}>
-                                                        {/* USERNAME */}
-                                                        {/* <label htmlFor="userName">Name</label>
-                                                        <InputBlock style={errorUser}>
-                                                                <input
-                                                                        placeholder="Enter your user name"
-                                                                        {...register('userName', {
-                                                                                required: 'User name is required',
-                                                                                pattern: {
-                                                                                        value: /^(?=.{4,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/,
-                                                                                        message: 'User name must be between 4 and 20 characters long, and can only contain letters, numbers, and the underscore',
-                                                                                },
-                                                                        })}
-                                                                />
-                                                        </InputBlock> */}
-                                                        {/* ERROR MESSAGE */}
                                                         <ErrorBlock>
                                                                 {errors?.userName && (
                                                                         <TextErrorSm>

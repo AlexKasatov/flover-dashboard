@@ -30,12 +30,13 @@ const Login = () => {
 
         const onSubmit = async (data) => {
                 const { email, password } = data;
+
+                // sing in with email and password
                 if (email && password) {
                         await login(email, password);
                 }
-                navigate('/dashboard');
-
                 reset();
+                navigate('/dashboard');
         };
 
         useEffect(() => {
@@ -44,24 +45,13 @@ const Login = () => {
                 }
         });
 
-        // ? old code works fine
-        // const googleSignIn = () => {
-        //         singUpWithGoogle();
-        //         navigate('/dashboard');
-        // };
-
         const googleSignIn = async () => {
                 await singUpWithGoogle();
-                navigate('/dashboard');
         };
 
         const toggleVisible = () => {
                 setIsVisible((prev) => !prev);
         };
-
-        useEffect(() => {
-                window.scrollTo(0, 0);
-        }, []);
 
         //  === Error Styling ===
 
