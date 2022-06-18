@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
+
 import uuid from 'react-uuid';
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import {
@@ -13,6 +14,7 @@ import {
 } from 'firebase/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../firebase';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const AuthContext = createContext();
@@ -134,6 +136,7 @@ export const AuthProvider = ({ children }) => {
                                 // This gives you a Google Access Token. You can use it to access the Google API.
                                 const credential = GoogleAuthProvider.credentialFromResult(result);
                                 const token = credential.accessToken;
+
                                 // The signed-in user info.
                                 const { user } = result;
                                 // ...
@@ -169,7 +172,7 @@ export const AuthProvider = ({ children }) => {
                 onAuthStateChanged(auth, (user) => {
                         setCurentUser(user);
                 });
-        }, []);
+        }, [currentUser]);
 
         //* Auth context values
         const value = {

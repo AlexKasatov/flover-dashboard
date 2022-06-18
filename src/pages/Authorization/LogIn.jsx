@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Container } from '../../styles/Container';
 import { TextErrorSm, TextNormalSm, LinkSmMd, HeadingSmSbBase, SubHeadTextMdNorm } from '../../styles/UI/Text';
@@ -28,16 +28,21 @@ const Login = () => {
                 reset,
         } = useForm({ mode: 'onBlur' });
 
-        const onSubmit = (data) => {
+        const onSubmit = async (data) => {
                 const { email, password } = data;
                 if (email && password) {
-                        login(email, password);
+                        await login(email, password);
                 }
-                if (!error) {
-                        navigate('/dashboard');
-                        reset();
-                }
+                navigate('/dashboard');
+
+                reset();
         };
+
+        useEffect(() => {
+                if (currentUser) {
+                        navigate('/dashboard');
+                }
+        });
 
         // ? old code works fine
         // const googleSignIn = () => {
@@ -45,9 +50,9 @@ const Login = () => {
         //         navigate('/dashboard');
         // };
 
-        const googleSignIn = () => {
-                singUpWithGoogle();
-                if (currentUser) navigate('/dashboard');
+        const googleSignIn = async () => {
+                await singUpWithGoogle();
+                navigate('/dashboard');
         };
 
         const toggleVisible = () => {

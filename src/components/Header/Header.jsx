@@ -2,6 +2,7 @@
 import { useState, useMemo } from 'react';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useMode } from '../../hooks/useMode';
 import { HeaderStyled, Wrapper, RightNav } from './Header.styled';
 import { Container } from '../../styles/Container';
@@ -10,7 +11,7 @@ import { useMedia } from '../../hooks/useMedia';
 import { useToggle } from '../../hooks/useToggle';
 import NavMobile from './NavMobile';
 import LeftNav from './LeftNav';
-
+import { pageTransition } from '../../animation/page';
 import { useAuth } from '../../context/AuthContext';
 
 const Header = () => {
@@ -50,7 +51,14 @@ const Header = () => {
         const navMobileStyle = { height: !toggleBurger ? '0' : 'auto' };
 
         return (
-                <HeaderStyled>
+                <HeaderStyled
+                        as={motion.header}
+                        initial="hidden"
+                        animate="enter"
+                        exit="exit"
+                        variants={pageTransition}
+                        viewport={{ once: true }}
+                >
                         <Container>
                                 <Wrapper>
                                         <LeftNav />

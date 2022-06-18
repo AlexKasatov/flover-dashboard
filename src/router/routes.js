@@ -55,6 +55,16 @@ export const privateRoutes = [
                 ),
                 replace: false,
         },
+        {
+                index: false,
+                path: '/pricing',
+                element: (
+                        <RequireAuth>
+                                <Pricing />
+                        </RequireAuth>
+                ),
+                replace: false,
+        },
 
         {
                 index: false,
