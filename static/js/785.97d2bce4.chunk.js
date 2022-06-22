@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkflower_app=self.webpackChunkflower_app||[]).push([[785],{3785:function(e,r,n){n.r(r);var a=n(8184),l=n(184);r.default=function(){var e=(0,a.a)().currentUser;return e&&(0,l.jsx)("div",{style:{marginBottom:"10rem"},children:null===e||void 0===e?void 0:e.email})}}}]);
+//# sourceMappingURL=785.97d2bce4.chunk.js.map

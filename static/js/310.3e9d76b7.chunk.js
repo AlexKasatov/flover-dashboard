@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkflower_app=self.webpackChunkflower_app||[]).push([[310],{4310:function(e,n,r){r.r(n);r(2791);var u=r(184);n.default=function(){return(0,u.jsx)("div",{children:"Pricing Page"})}}}]);
+//# sourceMappingURL=310.3e9d76b7.chunk.js.map

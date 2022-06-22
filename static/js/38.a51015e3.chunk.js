@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkflower_app=self.webpackChunkflower_app||[]).push([[38],{7038:function(e,r,a){a.r(r);var n=a(6871),t=a(8184),u=a(184);r.default=function(e){var r=e.children,a=(0,n.TH)();return(0,t.a)().currentUser?r:(0,u.jsx)(n.Fg,{to:"/login",replace:!0,state:{from:a}})}}}]);
+//# sourceMappingURL=38.a51015e3.chunk.js.map
