@@ -1,6 +1,6 @@
 {
   "name": "flower-app",
-  "homepage": "https://alexkasatov.github.io/dashboard-app",
+  "homepage": "https://alexkasatov.github.io/flover-dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
